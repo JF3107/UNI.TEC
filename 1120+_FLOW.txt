@@ -1,0 +1,84 @@
+V2018.1119.2138
+
+**** 1120 ****
+【Manager站-跑起】【M网站-自选一支.开探】
+===========================================================
+
+
+
+0830
+
+
+
+
+
+
+
+
+***********************************************************
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+***********************************************************
+（语法区）
+JS：
+# unescape(string) 解码/反转义字符串[返回：string解码后的一个副本]
+
+JQ：
+# eq(index),  对目标元素遍历、取索引为index的元素
+
+RG：
+# //i[i.gnore 不区分大小写],  //g[g.lobal 全局匹配]  >> //ig.不区分大小写+全局匹配，//m.ore-多行匹配，...
+
+CSS：
+# rem，CSS3新增的一个相对单位。仅相对与HTML根元素的字体大小（em是相对于父元素的字体大小）
+
+URL：
+# URL传参: xxxx?yyy=zzz&aaa=bbb >> "&"后是第二参
+
+WebStorage：
+# WS->LocalStorage/SessionStorage（缓存）=> F12查看"application"
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+（工作主线）
+【Skills】
+# application: localStorage/sessionStorage -> 用户/设备/其他信息所存
+# network：响应->最好是把filter常开->筛shtml
+
+【M网站.代码】
+# __inline（50%理解），缀于引用文件后、用于编译
+# _.（只知道用），         “哪里定义好的...”、可能与常量有关
+# shareObject.xxx（只知道用），“哪里定义好的...”、与local[ls]/sessionStrorage[ss]有关：local-ls、temp-ss
+# GlobalLoading.xxx（只知道用），“哪里定义好的...”、用于设置loadingIcon >> GlobalLoading.getInstance().show/hide();
+
+【M网站.机能】
+# call后端-跳页面，比如 pay!pppp.shtml/un-login-pay!pppp.shtml, pay/un-login-pay是call后端的方法。这句url
+   直接导致：页面跳转。跳转机制-在后端。
+
+
+###########################################################
+（ 清洁区 ）
+
+
+
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache">
+<title>【中国东方航空公司1】机票预订_飞机票查询_机票价格查询_打折特价机票</title>
+<meta name="keywords" content="飞机票,机票预订,飞机票查询,机票价格查询,打折特价机票" />
+<meta name="description" content="中国东方航空公司官方网站提供飞机票查询,飞机票预订,飞机票网上订票，特价打折机票价格查询及航班查询时刻表的一站式飞机票查询订购服务,最全国内机票查询,国际机票查询,机票预订100%出票。" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+（ 问题池 ）
+
+
+
+1119，【M】BUG 看下 支付页面."退改签"
+1119，【M】探究一下 login登录 图片+滑块、没有。
+1119，【M】研究一下 bindEvent（in eastern\pages\order\detail.res\detail.js）
+1116，【M】_，__inline，shareObject，GlobalLoading 溯源。
+1116，后续结构化学习，Zepto
+1116，后续结构化学习，JQuery
+1116，后续pickup，JQ-webkitTransitionEnd-事件

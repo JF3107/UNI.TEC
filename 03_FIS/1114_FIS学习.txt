@@ -1,0 +1,88 @@
+
+
+【1114+，FIS学习】
+=================================================
+
+
+FIS：http://fis.baidu.com/fis3/docs/beginning/intro.html参考地址
+其他参考地址：
+零入：http://fex.baidu.com/fis-site/docs/beginning/getting-started.html
+慕课：https://www.imooc.com/learn/220
+
+
+>>>>>>>>>>>>>>>FIS：(面向前端的)工程构建工具
+
+>>>>>>>>>>>>>>>FIS重要特性：资源定位
+
+>>>>>>>>>>>>>>>FIS 执行步骤*：
+步骤：<<<<<
+0.安装fis3 >> npm install fis3
+1.安装插件 需要用到的 npm install -g xxx
+2.确认/写 fis-conf.js文件
+3.构建、启服务、查看 >> fis3 release + fis3 server start --type node
+
+>>>>>>>>>>>>>>>FIS 常用命令：
+fis install  用于安装, 比如echart、jquery
+fis release  用于编译-发布项目
+fis server  用于启用本地调试服务器(用于预览fis_release产出的项目)
+
+>>>>>>>>>>>>>>>FIS的配置：
+[零配置/配置文件配置]
+配置文件 fis.conf.js,FIS整个流程都通过配置来控制
+配置FIS系统的接口是：
+【fis.config.set(key, value);】 / fis.config.merge({...});
+fis.config.set("roadmap.path", ---)
+## 定制项目文件属性，包括但不限于[ 产出路径，访问url，资源id，默认依赖，文件类型 ]。
+#### 参数 reg >> 用于匹配文件路径的正则/通配
+#### 参数 release >> 设置文件产出路径
+#### 参数 useOptimizer >> 指定文件是否经过optimizer插件处理
+#### 参数 useCache >> 指定文件编译过程中是否创建缓存
+#### 参数 release >> 是否release/编译发布
+
+
+****************************************************************
+实验，M网站eastern切除fis.conf.js[零配置]。
+-----
+release到目标文件夹，
+①目标文件夹的文件夹、和eastern下文件夹（除dist、newspre外）全部相同[包括package-lock文件]
+②conf、fis-parser-es6文件不去
+③增加map.json >> 对应详情json文件!!
+
+
+
+****************************************************************
+比对，eastern下 - tomcat/webapps下。
+-----
+[按 roadmap.path]
+① .md 【不去】
+②test/dest => 不用optimizer插件
+③pages下html -> $&
+④pages下js/tpl，lib下*，allCSS，ifont下*，ifont下font下 -> resource/unpack下$& $& $& css/$& ifont$&，resource/font/$1
+  (pages下html   -> pages下)
+  (pages下js/tpl -> resource/unpack/pages下js/tpl)
+  (css -> resource/unpack/css[这个文件夹下一个less文件除外])
+  (ifont -> resource/unpack/ifont下再新建一个ifont[这个文件夹下一个less文件除外])
+⑤所有pageTemp 【不去】
+⑥images -> resource/images/$1
+⑦所有dist【不去】
+⑧component下 => /c/$1
+  (但 compo下的html【不去】)
+⑨所有htm -> resource/rules/$&
+⑩所有 含"__" 【不去】
+----
+【不去】：不会在编译到目标文件夹下
+$&：把源文件夹下目录结构 直接带到 目标文件夹目录。
+&1：适用于 用正则的reg属性。
+
+
+
+****************************************************************
+实验，M网站eastern用FIS直接编译到mobile/webRoot下：
+------
+( ** 不能对已经编译的过的目录，再次编译 )
+① FIS编译,半全量更新：部分配置文件、所有文件夹不更新，但文件夹下内容、另一部分配置文件会更新。
+** FIS编译过程 会导致大量（80+个）文件更新。而按照@蒋振辉的"copy办法"，个别改动文件复制到mobile目标文件夹下即可。
+② 故，不建议用脚本运行FIS编译。
+
+
+

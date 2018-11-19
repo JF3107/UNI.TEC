@@ -1,0 +1,216 @@
+==============【914 MU-1面 复盘】======================
+VUE 为什么快?.虚拟DOM.了解一下
+关于性能
+关于选型
+
+==============（向前辈的失败，致敬！）=================
+
+我，我我我我我我我！ 我！！！  好嘛？？！  谢谢！。
+
+*************（ VUE 双向绑定 ）************************
+原理
+过程
+** VUE数据双向绑定是通过：数据劫持 结合 发布者-订阅者模式来实现的
+>> 数据劫持：VUE通过Object.defineProperty()来实现 "数据劫持"
+Object.defineProperty() 是Object（根构造函数）的方法、用来对"目标对象"的属性进行特定操作（如 读写权、是否可枚举）
+Object.defineProperty(目标对象, "目标属性" {
+    set: function(val){} // set时 跑这个方法
+    get: function(){} // get时 跑这个方法
+})
+----
+VUE是一个轻量.高效的MVVM框架, M模型层[业务数据相关].V视图层[H+C].VM桥[监听M/V的修改.实现双向绑定]
+----
+数据监听器 Observer：核心使用递归(Object.key(data).forEach()..遍历所有属性值) + Object.defineProperty()方法
+消息订阅器 Dep：收集订阅者、在属性变化的时候执行对应订阅者的更新函数（订阅器构造函数、在其原型对象上加add/notify方法）
+消息订阅者 Watcher： 订阅者、在初始化Watcher时、强行执行Observer/O.defineP中的get函数，将自己添加到订阅器
+解析器     Compile： （>>> "解析器 不了解"）
+
+*************（ VUE computed method ）************************
+①如出现会使模板变得混乱的复杂逻辑（例如基于动态变化的变量所得出的"总额"），推荐使用计算属性 computed。
+②计算属性 VS 方法：计算属性.基于依赖进行缓存,（比如上面）只有变量变化时,计算属性才会重新计算。
+    若变量未变,则计算属性立即返回之前的计算结果.不必再次执行计算
+（就像：total总金额，会随着上方表格目标金额而 求和即变）
+
+*************（ VUE nio项目中 EMU tree loadNode问题 ）************************
+单纯运用 element-tree组件.懒加载，没有问题。
+我的问题：①懒加载 ②操作树[增.删.改].需要立即在树上显示结果
+我的现象：无法立即显示（需要刷新页面）
+我的解决：模拟懒加载 ①如果有子节点 给一个占位符的"占位子节点".以显示小三角; ②增删操作.直接用element.tree自带的
+    append.remove方法,改.直接利用vue自带双向绑定
+
+*************（ VUE this ）************************
+VUE(组件)中的this,指向该vue实例(组件)
+
+*************（ VUE export default ）************************
+默认输出, 然后就可以 import xxx from "路径../文件名" 了!
+
+*************（ cookie session localStorage sessionStorage ）************************
+cookie[保存在客户端] session[保存在服务端,需要sessionId] 都是用来跟踪浏览器用户身份的会话方式。
+---- WebStorage：localStorage[本地存储] sessionStorage[会话存储] ----
+localStorage：存储持久数据.没有时间限制.容量大至5M.关B数据不丢失.除非主动删..用来解决cookie读写困难/容量限制的缺陷
+sessionStorage：针对一个session的数据存储,关B-数据即擦除
+l-s是浏览器全局对象，方法/访问 如下：
+l/s.length   获取全部l/s个数
+l/s.setItem  改
+l/s.getItem    获
+l/s.removeItem  删
+l/s.clear      清空(所有同源..)
+=====================================
+异同点：（c - l - s）
+1.共同点：cls 都保存在浏览器端. 都是同源的.
+2.不同点：
+  ①数据传递：c数据.始终在同源的http请求中携带，会在B-S间来回传递；ls不会把数据发给服务器.仅在本地保存
+  ②存储大小：c不超4K, ls可达5M
+  ③有效时间：c在设置的cookie过期时间前一直有效[无论关窗关B否]；l没有时间限制.无论关B.除非自删；s关闭即删除
+  ④作用域：cl同源窗口中共享, s不在不同B中共享(即使同一页面)
+----
+cookie安全性问题, 因为是以明文形式保存在客户端计算机内的
+localStorage安全问题, 目前localStorage存储没有对XSS攻击有任何抵御机制[要防范XSS注入]
+
+*************（ VUE localStorage sessionStorage ）************************
+原生: localStorage['xxx']='zzzz' 耦合度高,重名风险.污染全局.. SO：
+【用 storage】 》 import storage from '@/utils/storage.js' 《 前提: 自己在util里写一个 storage.js模块
+---- localStorage VUE 写法：---- ----
+设 storage.setItem('yoyogi0',[1,2,3])
+设 storage.setItem('yoyogi1',{xxx:'x1x1', yyy:'y2y2'})
+取 storage.getItem('yoyogi1')
+删 storage.removeItem('yoyogi0')
+---- sessionStorage VUE 写法：---- ----
+设 storage.setItem('yoyogi0',[1,2,3],{type:'session'})
+》 另外，storage.js中引入了local.session.cookie（它们各自js文件都在storage文件夹中）模块《 
+
+*************（ HTTP 状态码 ）****************
+---- 1系列 ------- 请求已被接收.需要继续处理 ----
+100 CONTINUE 客户端应当继续发送请求
+---- 2系列 ------- 成功 ----
+200 OK 成功
+202 ACCEPTED 服务器已接受请求,但尚未处理
+204 NO CONTENT 服务器成功处理请求.但不需要返回任何实体内容
+---- 3系列 ------- 重定向 ----
+300 Multiple Choices 被请求的资源有一系列可供选择的回馈信息
+301 Moved Permanently 被请求的资源已经永久移动到新位置
+302 Move Temporarily 被请求的资源临时从不同的URI响应请求
+304 Not Modified (没改变)..客户端发一个请求.且该请求已被允许.而文档内容并没改变..则304
+---- 4系列 ------- 请求错误 ----
+400 Bad Request 请求[ 语义/参数 ]有误
+401 Unauthorized  当前需要用户验证
+403 Forbidden  服务器已经理解请求，但是它拒绝执行
+404 Not Found  请求失败，找不到
+408 Request TimeOUT 请求超时
+409 Conflict 请求冲突[和被请求资源的当前状态冲突]
+---- 5系列 ------- 服务器错误 ----
+500 Internal Server Error 服务器错误
+502 Bad Gateway 作为 网关/代理 的服务器尝试执行请求时..从上游服务器收到无效响应
+503 Service Unavailable [临时]服务器维护/过载,服务器无法处理当前请求
+
+*************（ 标准 HTTP 协议支持的6种【请求方法】 ）****************
+GET POST PUT DELETE HEAD OPTIONS
+-----------
+GET 发送一个请求来获取服务器上的资源
+HEAD 和GET本质一样, 不含呈现数据..仅仅是HTTP头信息
+POST 向服务器提交数据[POST的数据存放位置.由服务器自己决定]
+PUT 和POST极为相似，重要区别在于:PUT通常指定了资源的存放位置
+DELETE 用于删除
+OPTIONS 用于获取当前URL所支持的方法. 若请求成功.则它会在HTTP头中包含一个名为allow的头,其值为 所支持的方法,如"GET,POST"
+
+*************（VUE 命令行）****************
+比如npm install, npm run build/start/..[<< 这就是"命令行"] 谈谈此等 项目使用.就行!
+
+*************（VUE-resource & axios）****************
+【VUE-resource】
+（$.ajax能做的事情，vue-resource一样能做、且更为简洁）
+vue-resource：体积小. 支持主流B. 支持PromiseAPI和URI Template(Spring用的.URI模板). 支持拦截器
+=======使用===================
+① 引入vue 再引vue-resource
+② 基于全局Vue对象使用http：Vue.http.get/post('/url',[body]).then(succCallB,errCallB)
+   在一个Vue实例内使用$http：this.$http.get/post('/url',[body]).then(succCallB,errCallB)
+【axios】 2.0后,推荐使用 axios
+Axios（一个网络请求库），以基于Promise的方式封装了浏览器的XMLHttpRequest和服务器端node http请求。
+功能[ B发XMLHttpRequest请求，NodeJS发http请求, 支持PromiseAPI, 拦截请求/响应, 取消请求, 客户端免受XSS/CSRF攻击 ]
+=======使用===================
+① 引入vue引入axios
+② axios.get('/url').then(function(response){成功}).catch(...失败)
+   axios.post('/url', {postBody对象}).then(function(response){成功}).catch(...失败)
+③ 并行多个请求：axios.all([r1, r2, ...]).then() //好像这个then里面要加"axios.spread"
+...
+
+*************（伪类 伪元素 << 区别）****************
+<p>
+  <em>This</em>
+  <em>is an apple</em>
+</p>
+①让This变红（em:first-child）
+②让T变红（p::first-letter）
+-----------------------
+## 伪类的效果, 可以通过添加实际的类 来实现     
+## 伪元素的效果，可以通过添加实际的元素 来实现
+>> 它们的本质区别就是：是否抽象创造了新元素?
+**  CSS3中, 伪类-单冒号、伪元素-双冒号
+
+*************（ CSS选择器 ）****************
+. # *  类S idS 通配S
+el 元素S
+el,el 并列S
+el fl 后代S
+e1>e2 子代S
+e1+e2 紧挨着e1后面的所有的e2
+[att] 属性选择器 >> [att=val] 精准, ~=包含 |=开头
+:first/last-child    首个/末个
+:nth-(last-)child(n)  (倒数)第几个
+:lvha   链接选择器
+:focus  获得焦点的input元素
+::first-letter/line 伪元素.首字母/首行
+::before/after  之前/之后
+:enabled
+:disabled
+:checked
+:not(selector) 比如 :not(p) 选中非p
+
+**********************************************************
+*******************( 18A面试准备题 )**********************
+3. 数组快速乱序？【JS】
+  var arr = [1,2,3,4,5,6,7,8,9,10];
+  arr.sort(function(){
+    return Math.random() - 0.5
+  });
+  console.log(arr); //速度乱...
+ 
+ 
+2. 数组去重？【JS】
+（原数组实例：array）
+方法一：（遍历数组法）
+var n = []
+for(var i=0;i<array.length;i++){
+  if(n.indexOf(array[i]) == -1){
+    n.push(array[i]);
+  }
+}
+return n;
+方法二：（对象键值对法）
+var n = {},r = [], len = array.length, val, type;
+for(var i=0; i<array.length;i++){
+  val = array[i];
+  type = typeof val;
+  if(!n[val]){
+    n[val] = [type];
+    r.push(val);
+  }else if(n[val].indexOf(type)<0){
+    n[val].push(type);
+    r.push(val);
+  }
+}
+return r;
+方法三：（简单粗暴法）[ 用E6 ]
+[...new Set([2,"12",2,12,1,2,1,6,12,13,6])]
+ 
+ 
+1. 如何让元素垂直+水平 居中？【CSS】
+    准备工作：①外div.wrp，内div.con ②两个div设置好宽高/颜色
+    开始：（常见 六大方法）
+      ①w/relative + c/absolute：c/tlrb全0，c/margin-auto
+      ②w/relative + c/absolute：c/tl 50% + margin-tl -25%
+      ③w/relative + c/absolute：c/tl 50% + margin-auto + transform.translate -50% -50%
+      ④（准备一个“中div.subwrap”）w/display:table，sw/display:table-cell vertical-align:middle，c/留白
+      ⑤w/text-align.center，c/display:inline-block、vertical-align:middle，w伪类-w:after/content:''、display:inline-block、vertical-align:middle、height.100%、margin -0.25em
+      ⑥w/display:flex，c/align-item（垂）和justify-content（水）都center
+

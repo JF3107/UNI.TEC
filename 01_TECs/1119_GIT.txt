@@ -1,0 +1,25 @@
+
+
+【1119，GIT】
+================================================
+
+>>>>>>>>【概念】
+没啥好说，直接上"运用"！
+
+
+>>>>>>>>【命令】
+git branch                     查询本地分支
+git branch -r                  查询远程分支
+git checkout -b BRANAME        创建并启用新分支
+
+
+>>>>>>>>【运用】
+------------------------------
+【1】如何创建本地分支、改完-推送远程分支：
+git branch                  查询本地分支
+git branch -r                       查询远程分支
+git checkout -b BRANAME                创建并启用新分支
+[改 ... status.add.commit.status]       ...
+git push --set-upstream origin BRANAME  推送up-stream[第一次推送必要]
+   ** mergeRequest并指派
+这个在分支的右上角有按钮、点进去填表[指派选项 在其中..]

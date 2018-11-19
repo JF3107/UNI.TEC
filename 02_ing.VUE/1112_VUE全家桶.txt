@@ -1,0 +1,46 @@
+
+
+先简单介绍一下 "全家桶"：
+
+项目构建 >> vue-cli       ** 官方 https://cli.vuejs.org/zh/guide/ 或 https://blog.csdn.net/wulala_hei/article/details/80488674[快速]
+路由管理 >> vue-router    ** 官方 https://router.vuejs.org/zh/
+状态管理 >> vuex          ** 官方 https://vuex.vuejs.org/zh/
+请求工具 >> vue-resource  ** 先看这个https://www.jianshu.com/p/3ce2bd36596e
+** 还有比如：
+vue调试工具[√]、elementUI[√]  << 不用去看了..
+
+********************************
+
+## https://blog.csdn.net/wulala_hei/article/details/80488674 【教程】
+=======（务必仔细参考《CSDN教程》）=================================
+
+Vue-cli：是快速构建整个单页应用的脚手架。
+===
+安装 webpack和webpack-cli ** 验证：webpack -v
+安装 vue-cli ** 验证：vue -V 【大写！或 --version】
+---
+[ 插曲：如果报错 "模板下载失败", 如下]
+***   vue-cli · Failed to download repo vuejs-templates/webpack: read ECONNRESET  ***
+[ 请能确保网络正常、代理设置正确移植到npm ]
+---
+跑起 vue init webpack NAME
+< 提示: 请用cmd进行向导/vueIntiWebpackXXX，用GitGUI会导致"选择困难" >
+根据向导进行设置!!
+---
+[!!!  请·耐心等待]
+  (特别是 "向导"最后一步选了[run >> npmInstall])
+---[向导结束(npmInstall完毕)]----
+cd NAME
+去config/index.js中修改：
+①assetsPublicPath "./"  加一个"."(如果要在本地打开打包文件)
+②port 如果存在端口冲突的话[ 改! ]
+----
+npm run dev  【启动】
+ <具体命令，请参考package.json>
+>>跑起来了，去浏览器 localhost:pppp   (port设置的端口)
+【关闭】ctrl+c
+---
+npm run build  【打包】(ok:build complete)
+打包文件, 生成dist文件夹[里面有indexHtml和state]
+---
+完成!OK

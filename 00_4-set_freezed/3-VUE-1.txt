@@ -1,0 +1,107 @@
+还缺什么？【nio项目 挖掘!!!】
+
+** Model.底层实现
+
+
+**************************************************************
+**************************************************************
+==============================================================
+if x  >> {{ 诶，这个暂时没有深入的研究... }}
+
+VUE主线
+vue
+
+VUE全家桶：
+vue Devtools  vue调试    [了解即可 - F12]
+Element UI    vue界面/UI 【完全 OK】
+vue-router
+vuex
+vue-resource
+vue-CLI       vue-CLI    [了解-可面 深入更佳!!!!!]
+
+======================（VUE 快速）============================
+
+VUEX VUE状态管理
+***********************************************
+用npm 安装 >> npm install vuex
+专为vuejs应用程序开发的状态管理模式 
+  >> 采用"集中式存储".管理应用的所有组件的状态，并以相应的规则.保证状态以一种可预测的方式进行变化
+#### 4 核心 ####
+the state tree 单一状态树 >> 用一个对象(store)包含全部的应用层级状态
+getter 用来从store获取vue数据
+mutators  事件处理器..用来驱动状态的变化 >>mutations
+actions   可以给组件使用的函数..>>>> 以此, 来驱动事件处理器mutations
+#### 代码示例 ####
+const store = new Vuex.Store({
+  state: { count: 0 },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  }
+})
+store.commit('increment')        // 通过store.commit 触发状态变更
+console.log(store.state.count)   // 通过store.state 获取当前状态
+------------------------
+#### nio VUEX运用 ####
+统一在store文件夹/store.js下,  store.js文件如下:
+import Vue/Vuex from "vue/vuex"
+import 其他比如homeState/vuex-persistedState 文件夹/模块..
+Vue.use(Vuex)                       // 用Vue.use()明确地【安装】vuex
+export default new Vuex.Store({
+  plugins:[createPersistedState,]  // vuex状态持久化模块.用localStorage
+  modules:{
+    'homeState': homeState // modules里面放..各模块
+  }
+})
+=========================
+VUE-ROUTER VUE路由
+***********************************************
+用npm 安装 >> npm install vue-router
+（nio项目中，就是router文件夹下的index.js）
+#### 代码示例 ####
+import Vue from "vue"
+import Router from "vue-router"
+import 各组件(for 路由)
+Vue.use(Router)  // 安装哈!!!
+const router = new Router({
+  linkActiveClass: 'active'  // 传入linkActiveClass,来改变router选中时添加的class名
+  routes:[
+    path: "/home",
+    name: "home",
+    component: homePage
+  ]
+})
+export default router  //最后,export出去
+----
+使用: <router-link class="tab-item" to="/home/goods">XXXX</router-link>
+=========================
+VUE-RESOURCE VUE路由
+***********************************************
+用npm 安装 >> npm install vue-resource
+安装并引入vue-resource后，可以基于全局的Vue对象(http) 或 基于某个Vue实例使用($http) http
+#### 用法: this.$http.get('/api/xxx').then(response => { xxsuccxx }, response => { xxfailxx })
+**** 注意: 上面的then中，两个参数: ①响应成功回调函数, ②响应失败回调函数
+&&&& 补充: vue-resource的请求API是按照REST风格设计的, 提供了7种请求API
+  get/head/delete/jsonp(url,[option])
+  post/put/patch(url,[body],[option])
+=========================
++++++++++++++++++++++++++
+【三个主文件】
+App.vue     根组件...所有子组件都将在这里被引用
+index.html  整个项目的入口文件.将会引用 "根组件"App.vue
+main.js     "入口文件"的js逻辑 >> webpack打包之后将被注入到index.html中
+=========================
++++++++++++++++++++++++++
+【vue模板】
+双大括号插入文本..用v-html插入纯HTML内容..使用v-bind(:xxx)插入对象..v-on(@xxx)监听..v-if/show/for...
+【过渡效果】
+用transition组件封装目标组件:  <transition name="slide-fade"> <compo-xxx></compo-xxx> </transition>
+**** 注意：这里, 通过name, 来声明过渡效果名称 )
+*****（参考）***************************************************
+https://blog.csdn.net/zhenghao35791/article/details/67639415
+
+
+[ 再好好研究一下 nio-路由 问题!!! ]
+（问题： export/export default 区别?）
+（问题：jsonp 了解一下）
