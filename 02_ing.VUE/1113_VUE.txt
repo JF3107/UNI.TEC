@@ -1,0 +1,114 @@
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+>>>>  1120 ，
+========================================================================================
+
+【深入-组件注册】：
+
+组件名：全小写 + 至少1个"-" （kebab-case）
+
+全局注册：形如 Vue.component("xxx-yyy", {zzz}), 注册之后可以用在任何新创建的Vue根实例(new Vue)的模板中.
+
+局部注册：用一个JS对象来定义组件，然后在new Vue()的components选项中定义想要使用的组件，如下：
+  var CompoA = {...JS对象...}
+  var CompoB = {...JS对象...}
+  var CompoC = {...JS对象...}
+  new Vue({
+    el: "#app",
+    components: {
+      "compo-a": CompoA,
+      "compo-b": CompoB
+    }
+  })
+
+（局部注册的组件在其自组件中不可用，）如果希望compoA在compoB中可用，可以如下：
+写法①：（普通）
+  var CompoA = {...JS对象...}
+  var CompoB = {
+    components: {
+      "compo-a": CompoA,
+    },
+    // ....
+  }
+写法②：（通过Babel/Webpack使用ES2015+模块）
+  import CompoA from "./CompoA.vue"
+  export default {
+    components: {
+      CompoA
+    },
+    // ....
+  }
+
+
+【1120， “模块系统”前】
+
+
+
+
+（以上部分，将开始 "深入"  >> ）
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pre 1120，VUE基础-组件
+========================================================================================
+
+Vue.component("组件名",  { ... })    ......... 定义组件
+<div id="xxx">                       ......... DOM定位Vue根节点(实例)
+  <组件名></组件名>
+</div>
+new Vue({el: "xxx"， ...})           ......... Vue 实例化
+----------------------------
+！注意： 组件可复用。
+new Vue 中的data是个对象
+组件定义中的data是个函数（带 return - 返回各data属性）
+
+
+组件：可以复用的Vue实例
+（new Vue创建的 [ el: "#xx" ] ，叫做 “根实例”）
+**  Vue.component里的data，是一个function、并需要return（对象）！
+
+
+组件必须先注册、才能被Vue识别。注册类型有：
+全局注册、局部注册
+Vue.component("compoNAME", {...})叫"全局注册"。全局、根实例下-全部可用
+
+
+props，以数组形式聚集组件标签上所有的"属性"
+(包括, 以v-for render的组件集[通常 以v-bind绑定属性])
+
+
+每个组件必须只有一个根元素。(写组件模板时注意)
+
+
+通过事件 向父级组件发送消息：
+子级元素用 $emit()  >>  例如@click="$emit('eeee')"  >> 向上发送
+父级组件用 监听事件 >>  例如@eeee="FUNCTION.."      >> 接收事件
+----
+使用事件抛出一个值：
+自级元素抛出： $emit('事件名', 携带参数)
+父级组件接收： 监听式内 》 用$event接收；方法.函数体内 》 作为参数接收
+
+
+以下双式等价：
+<input v-model="searchText" />
+<input v-bind:value="searchText"
+       v-on:input="searchText=$event.target.value" />
+----
+对一个组件用v-model：
+<compo v-model="test"></compo>
+那么组件props这样写：
+props: ["value"]
+那么组件template(含input)这样写：
+<input v-bind:value="value"
+       v-on:input="$emit('input', $event.target.value)"/>
+
+
+插槽。<slot></slot>
+
+
+
+
+
+
+
