@@ -1,0 +1,226 @@
+
+**** 1122 ****
+【M网站，+2番茄 - 探】
+===========================================================
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%（1122+，M网站代码）%%%%%%%%%%%%%%%%%%%%
+关注：
+********************** 
+JS(由index.html)
+HTML(index.html)
+CSS(由less[global]+css文件)
+
+
+功能：
+**********************
+【】隐私/cookie-POP & 下载-POP
+【】menu
+【】LOGO
+消息BTN
+【】轮播
+【】消息msg
+
+
+主逻辑：
+**********************
+pgs/index.res/main.js  <=
+cookieMsg 已清
+goDownMsg 已清
+showMenu 已清
+loadNewsInfo 已清
+
+
+【GET】
+**********************
+
+
+
+
+
+
+
+
+
+
+---------（时间.标记）---------------------
+
+
+
+
+
+***********************************************************
+++++++++（以下开始：知识/处理 分区）+++++++++++++++++++++++
+***********************************************************
+（语法区）
+JS：
+#  unescape(string) 解码/反转义字符串[返回：string解码后的一个副本]
+#  ** 超出部分"..."：str.substr(0,20)+"..."
+
+
+
+HTML：
+#  <meta>的"viewport"属性->【视口】：（死记加硬背）
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+
+
+CSS：
+# rem，CSS3新增的一个相对单位。仅相对与HTML根元素的字体大小（em是相对于父元素的字体大小）
+
+
+
+JQ：
+#  .eq(index),  对目标元素遍历、取索引为index的元素
+#  .show/hide(), 显示/隐藏
+#  .find('xxxx')，查找
+#  .offset()/offset({top:x, left:y}) 返回/设置 偏移量
+
+
+
+RG：
+# //i[i.gnore 不区分大小写],  //g[g.lobal 全局匹配]  >> //ig.不区分大小写+全局匹配，//m.ore-多行匹配，...
+
+
+
+URL：
+# URL传参: xxxx?yyy=zzz&aaa=bbb >> "&"后是第二参
+
+
+
+WebStorage：
+# WS->LocalStorage/SessionStorage（缓存）=> F12查看"application"
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+（工作主线）
+【Skills】
+#  application: localStorage/sessionStorage -> 用户/设备/其他信息所存
+#  network：响应->最好是把filter常开->筛shtml
+
+
+【M网站.代码-CSS】
+#  MWZ项目的样式一般是 CSS文件/less文件(全局)，用class去search!!
+     比如：主页index[入口HTML]样式(eg:cookie确认弹窗)，在global.less
+
+
+【M网站.代码-通用】
+G  >>>> 全局 MsgBox（直接用）。type值okcancel=>自带onOk/onCancel方法处理点击
+G  >>>> 全局 zIndex，当前页面z-index值
+G  >>>> 全局 Swiper， **** 初步认为是 轮播组件
+G  >>>> 全局 require 初判为AMD加载*, 方法：require.async("路径",...)、路径默认"component"下。
+         引用后，"路径"中的类可以new出实例。
+G  >>>> 全局 __inline（50%理解），缀于引用文件后、用于编译
+          另外，__inline("xxxx")，**** 引用（模板、文件）方式
+G  >>>> 全局 _.（只知道用），         “哪里定义好的...”、可能与常量有关
+G  >>>> 全局 shareObject.xxx（只知道用），“哪里定义好的...”、与local[ls]/sessionStrorage[ss]有关：local-ls、temp-ss
+G  >>>> 全局 GlobalLoading.xxx（只知道用），“哪里定义好的...”、用于设置loadingIcon >> GlobalLoading.getInstance().show/hide();
+G  >>>> 全局 _.xxxx 方法，**** 全局工具方法，如下：（在lib文件夹下搜索可以找到 _.xxxx方法们的详细信息。）
+
+1  >>>> 以 Menu 为例：（同一"模块"中）
+      Menu = function() {
+        this.initialize.apply(this, arguments); // **** 这里的this是Menu构造函数原型对象、arg是参
+      }, 与
+      _.extend(Menu.prototype, Events, {
+        initialize: function() {....}
+      }  搭配使用。
+2  >>>> window.history.back();是MU(M网站)的回退逻辑
+3  >>>> 关于"跳转页面"：
+    ** pages下，直属html文件、直接可以去往对应页面：
+      pages/benchmark.html  空白页
+      pages/demo.html    demo页
+      pages/index.html  首页
+      pages/login.html  登录页
+      pages/pop.html    弹：须知[这里是一整个页面]
+      pages/service.html  更多服务
+    ** 其他页面、由pages/子文件夹 直接跳转
+
+
+【M网站.代码-盾构(H-J)】
+%%%%  首页[入口]：component/menu/menu.html + component/menu/menu.js
+1  >>>> 全模块靠module.exports = Menu;输出，结合require.async请求、返回Menu（可new出实例）
+2  >>>> $(e.currentTarget).attr('href')  事件对应元素[由于"阻止冒泡"了、就是<a>本身]、获取(其属性)
+
+%%%%  首页[入口]：pages/index/index.html + pages/index.res/main.js
+1  >>>> 隐私+cookie：js_goys、js_gocookie，页面跳转[隐私]、[cookie]
+         js_cookiemsgbtn[事件]控制关闭弹窗 + localStorage记录1，并判断"时间区间-维护提醒"
+2  >>>> show/hide控制显示、跳转window.open("...")
+3  >>>> showMenu中提到的menu，就是"菜单实例"、初始时menu为空对象、经过一次new后才有。
+
+
+
+【M网站.机能】
+#  call后端-跳页面，比如 pay!pppp.shtml/un-login-pay!pppp.shtml, pay/un-login-pay是call后端的方法。这句url
+   直接导致：页面跳转。跳转机制-在后端。
+
+
+【ERROR池】
+#  1120.1500+-，发生了,M网站ping不通server的情况：
+    tomcat报错：Error parsing HTTP request header  <<<<
+    ①网调结果：可能是tomcat的header缓冲区大小不够，
+      前往tomcat/conf/ 找到server.xml，修改8080端口对应<Connector />，将属性maxHttpHeaderSize增大
+    ②自考结果：确定是localhost前加了https://
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+（术语）
+#  checkin 值机[页面: 办登机牌]
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+（ 清洁区 ）
+
+
+
+
+
+
+
+
+############################### - 1
+_.extend(Menu.prototype, Events, {....})是啥
+$(tpl);是？**** 我认为是对模板/HTML的运用，使之成为 $el
+
+############################### - 2
+（_.fetch ...）
+**** 根据"'单段'驼峰url"去拿数据、回调函数：①成功recall+②失败recall
+另外，_fetch的"1参"为什么能用【?rnd=随机数】
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+（ 问题池 ）
+
+
+
+
+1121，了解一下<meta>:charset; http-equiv, content; name(keywords/description)
+1121，【M】研究/进深 in libs：_.trim
+1121，【M】研究/进深 in libs：_.extend（留意.上 "############ -1"）
+1121，【M】研究/进深 in libs：_.directUrls
+1121，【M】研究/进深 in libs：_.fetch（留意.上 "############ -2"）
+1121，【M】研究/进深 in libs：_.bind
+1121，【M】研究/进深 in libs：_.getUrlParam（****去URL中找到参数值）
+1121，【M】研究/进深 in libs：_.trim
+1121，研究 e.preventDefault();
+1121，研究 e.stopPropagation();
+1121，进深Swiper  << JQ的
+1121，进深eval() 
+1119，【M】BUG 看下 支付页面."退改签"
+1119，【M】探究一下 login登录 图片+滑块、没有。
+1119，【M】研究一下 bindEvent（in eastern\pages\order\detail.res\detail.js）
+1116，【M】_，__inline，shareObject，GlobalLoading 溯源。
+1116，后续结构化学习，Zepto
+1116，后续结构化学习，JQuery
+1116，后续pickup，JQ-webkitTransitionEnd-事件

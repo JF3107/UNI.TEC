@@ -313,8 +313,8 @@ js(文件夹)
 3.原型对象 P.prototype，原型对象也是P的实例。   其作用是：用于继承
         [ 有关系如是： P.prototype.constructor == P，综上 >> “实例p” 和 “原型对象P.prototype” 都是P的实例 ]
 4.__proto__、内置属性，指向构造函数的原型对象（简称 即 原型对象）：p1.__proto__ == P.prototype
-5.构造器：Object、Function、Array、Date、Number、String、Boolean（就是创建“包装对象”的那些构造函数）<<叫他们“构造器”
-        [ Object叫做：根构造器 ]
+5.构造器(构造函数)：Object、Function、Array、Date、Number、String、Boolean（就是创建“包装对象”的那些构造函数）<<叫他们“构造器(构造函数)”
+        [ Object叫做：根构造器(根构造函数) ]
 6.原型链...（参见“4个‘__proto__’”）
 7.函数对象。所有函数对象的__proto__属性都指向Function.prototype(但它是一个空函数)、 constructor属性都指向Function。
   （！！包括根构造函数Object和Function：Object.__proto__ == Function.prototype; Function.__proto__ == Function.prototype）
@@ -354,7 +354,7 @@ Object.prototype 根构造函数.的原型对象
 第三部分：
 【Object.prototype】的基本方法/属性：
 constructor 指向自己(Object)
-** toString  返回一个表示该对象的字符串 对象>>[object object] 非对象>>文本值.但不会单纯加""[比如[1,2,3]=>'1,2,3']
+** toString  返回一个表示该对象的字符串 对象>>"[object object]" 非对象>>文本值.但不会单纯加"" [比如[1,2,3]=>"1,2,3"]
 ** valueOf      返回原始值、没有原始值.返回自身
 * hasOwnProperty  用来判断对象是否包含某个属性
 * isPrototypeOf   B.prototype.isPrototypeOf(b) 》 Baz存在于baz的原型链上。
@@ -369,7 +369,7 @@ toLocaleString   ...
 ** 根构造函数原型对象的constructor，指向 自己（Object）
  
 【2个“不得不知”】
-A.每个对象都有 __proto__属性，但只有函数对象才有 prototype属性( XXX -- ？？？Function.prototype原型对象是“函数对象”，它除外 )
+A.每个对象都有 __proto__属性，但只有函数对象才有 prototype属性
 B.原型对象的类型一般都是普通对象（Object），只有Function的原型对象类型（Function.prototype）是函数对象（Function）
  
 【最基础ABCDEF】
