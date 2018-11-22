@@ -25,9 +25,12 @@ CSS(由less[global]+css文件)
 【】隐私/cookie-POP & 下载-POP
 【】menu
 【】LOGO
-消息BTN
+【】消息BTN
 【】轮播
 【】消息msg
+【】底部div
+
+
 
 
 主逻辑：
@@ -37,14 +40,29 @@ cookieMsg 已清
 goDownMsg 已清
 showMenu 已清
 loadNewsInfo 已清
+jumpTo()
+showLogin(url)
+
 
 
 【GET】
 **********************
 
+JS
+
+pages/article/index.res/index.js中的Label就是同层label.js所致的构造函数
+
+解析 this.$el = $(_.template(tpl)(data))：
+this.$el(指整个"模板生成")绑定到"****该实例",
+$(),****生成DOM；
+_.template(tpl)(data),****①模板采用②传入模板参数
 
 
-
+【？】label.js的root是啥? root.Label >> root中有Label构造函数?
+【？】apply和call，其中apply中的参数this、argument是？
+【？】_.template是？
+【？】JQ $()
+【？】耦合度<<< pick一下
 
 
 
@@ -54,7 +72,8 @@ loadNewsInfo 已清
 ---------（时间.标记）---------------------
 
 
-
+0850-
+0850+
 
 
 ***********************************************************
