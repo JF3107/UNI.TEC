@@ -76,7 +76,7 @@ export default router  //最后,export出去
 ----
 使用: <router-link class="tab-item" to="/home/goods">XXXX</router-link>
 =========================
-VUE-RESOURCE VUE路由
+VUE-RESOURCE VUE请求
 ***********************************************
 用npm 安装 >> npm install vue-resource
 安装并引入vue-resource后，可以基于全局的Vue对象(http) 或 基于某个Vue实例使用($http) http
