@@ -1,0 +1,170 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+（工作主线）
+【破案...】
+***    本地/war形式 跑M网站[->.shtml地址请求]会在【url前自动加https】，需要在eastern/mobileWeb两个地方总共4个文件进行修改:
+(其中3个文件，涉及 https)
+① eastern/libs/href.js 全部注释 [总共三行]
+② eastern/libs/mobile.js 注释最后一行(L30 // returnMobile() )
+③ MobileWeb/WebRoot/resources/unpack/libs/global.js 注释掉三行(https related)：L18-L20
+④ MobileWeb/WebRoot/resources/m/js/golden/libs/zepto.min.js 注释掉三行(https related)：L3-5
+***    【war文件加载失败】[tomcat 5秒内启动///正常加载+启动需要50秒以上]、地址栏8080不自动跳转、后台api拼不通
+因为 >>>> ROOT文件夹不是"原配"的 <<<<
+ROOT文件夹是ROOT.war生成的，如果要删除ROOT数据、必须吧ROOT整个目录一起删，再启动tomcat由tomcat自动生成ROOT文件夹。
+这样，才可以①war文件加载完全、②地址栏localhost8080自动跳转index路由、③后台api可call
+
+
+
+
+【Skills】
+#  application: localStorage/sessionStorage -> 用户/设备/其他信息所存
+#  network：响应->最好是把filter常开->筛shtml
+#  IP:端口。都能ping通，直接可以显示对方本地的页面。例如 http://10.68.60.50:8080/ @封威 的环境
+#  汤姆凯特，【删项目】：①删webApps、②删"卡特琳娜">>>>D:\01_workspace\1109_MWZ\toolModules\apache-tomcat-7.0.50\work\Catalina
+（如果以上两个只删了一项，可能导致tomcat启动失败）
+（!!!!!!  最重要的是：Webapps目录下删干净再贴入新的 ROOT.war，不要留ROOT目录在里面）
+#  后端产页面，找寻办法：[1-action >> 2-方法 >> 3-name >> 4-对应地址[jsp]]
+https://m.ceair.com/mobile/ffpgolden/miles-main!profilePage.shtml
+1-最后一杠：miles-main!profilePage.shtml >> shtml说明是后端的、miles-main是action信息、profilePage是方法名
+2-去MobileWeb, 以milesMainAction去搜，找到action文件
+3-action文件中搜profilePages方法名，得到name
+4-同文件中搜name、得到路径，/WebRoot/mobile/ffp_golden/my-profile.jsp
+
+
+
+
+【M网站.代码-CSS】
+#  M网站项目的样式一般是 CSS文件/less文件(全局)，用class去search!!
+     比如：主页index[入口HTML]样式(eg:cookie确认弹窗)，在global.less
+#  M网站项目中，global.less引用color.less（通过@import "color.less"）,
+     另外，global中直接使用 .xxx（class名）来引用color中的声明的类/样式
+
+
+
+
+【M网站.代码-通用】
+G  >>>> 全局 MsgBox（直接用）。type值okcancel=>自带onOk/onCancel方法处理点击
+G  >>>> 全局 zIndex，当前页面z-index值
+G  >>>> 全局 Swiper， **** 初步认为是 轮播组件
+G  >>>> 全局 require 初判为AMD加载*, 方法：require.async("路径",...)、路径默认"component"下。
+         引用后，"路径"中的类可以new出实例。
+G  >>>> 全局 __inline（50%理解），缀于引用文件后、用于编译
+          另外，__inline("xxxx")，**** 引用（模板、文件）方式
+G  >>>> 全局 _.（只知道用），         “哪里定义好的...”、可能与常量有关
+G  >>>> 全局 shareObject.xxx（只知道用），“哪里定义好的...”、与local[ls]/sessionStrorage[ss]有关：local-ls、temp-ss
+G  >>>> 全局 GlobalLoading.xxx（只知道用），“哪里定义好的...”、用于设置loadingIcon >> GlobalLoading.getInstance().show/hide();
+G  >>>> 全局 _.xxxx 方法，**** 全局工具方法，如下：（在lib文件夹下搜索可以找到 _.xxxx方法们的详细信息。）
+G  >>>> 全局 IScroll( city/airport系中 new IScroll()用到 )  **** 根据字母滚动/跳转(scroll)的组件
+1  >>>> 以 Menu 为例：（同一"模块"中）
+      Menu = function() {
+        this.initialize.apply(this, arguments); // **** 这里的this是Menu构造函数原型对象、arg是参
+      }, 与
+      _.extend(Menu.prototype, Events, {
+        initialize: function() {....}
+      }  搭配使用。
+2  >>>> window.history.back();是MU(M网站)的回退逻辑
+3  >>>> 关于"跳转页面"：
+    ** pages下，直属html文件、直接可以去往对应页面：
+      pages/benchmark.html  空白页
+      pages/demo.html    demo页
+      pages/index.html  首页
+      pages/login.html  登录页
+      pages/pop.html    弹：须知[这里是一整个页面]
+      pages/service.html  更多服务
+    ** 其他页面、由pages/子文件夹 直接跳转
+4  >>>>pages/article/index.res/index.js中的Label就是同层label.js所致的构造函数
+5  >>>>解析 this.$el = $(_.template(tpl)(data))：
+      ①this.$el(指整个"模板生成")绑定到"****该实例",
+      ②$(),****生成DOM；
+      ③_.template(tpl)(data),****①模板采用②传入模板参数
+6  >>>>dataSource = require('airports_only.js').list：用的是require语法、list是airports_only.js中的方法：exports.list=[...]
+      另外，在compo/city/city.js中也有dataSource = require('airports.js').list,
+     （**** 是因为：airports.js作为dataSource参与到getInstance()中的instance中）
+7  >>>>M网站中创建/增强对象的方法：（以city/airport-Selector系[selector.js]为示例）
+        var Selector = function() {
+            this.initialize.apply(this, arguments); //这里的this就是selector.js文件(模块)、arguments(参数)就是下面的dataSource
+        };
+        _.extend(Selector.prototype, Events, {
+            initialize: function(dataSource) {...}
+        }
+
+
+
+
+【M网站.代码-盾构(H-J)】
+%%%%  首页[入口]：component/menu/menu.html + component/menu/menu.js
+1  >>>> 全模块靠module.exports = Menu;输出，结合require.async请求、返回Menu（可new出实例）
+2  >>>> $(e.currentTarget).attr('href')  事件对应元素[由于"阻止冒泡"了、就是<a>本身]、获取(其属性)
+
+%%%%  首页[入口]：pages/index/index.html + pages/index.res/main.js
+1  >>>> 隐私+cookie：js_goys、js_gocookie，页面跳转[隐私]、[cookie]
+         js_cookiemsgbtn[事件]控制关闭弹窗 + localStorage记录1，并判断"时间区间-维护提醒"
+2  >>>> show/hide控制显示、跳转window.open("...")
+3  >>>> showMenu中提到的menu，就是"菜单实例"、初始时menu为空对象、经过一次new后才有。
+
+
+
+
+【M网站.机能】
+#  call后端-跳页面，比如 pay!pppp.shtml/un-login-pay!pppp.shtml, pay/un-login-pay是call后端的方法。这句url
+   直接导致：页面跳转。跳转机制-在后端。
+
+
+
+
+【ERROR池】
+#  1120.1500+-，发生了,M网站ping不通server的情况：
+    tomcat报错：Error parsing HTTP request header  <<<<
+    ①网调结果：可能是tomcat的header缓冲区大小不够，
+      前往tomcat/conf/ 找到server.xml，修改8080端口对应<Connector />，将属性maxHttpHeaderSize增大
+    ②自考结果：确定是localhost前加了https://
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+（术语）
+#  checkin 值机[页面: 办登机牌]
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+（ 清洁区 ）
+
+
+
+
+
+
+
+############################### - 1
+_.extend(Menu.prototype, Events, {....})是啥
+$(tpl);是？**** 我认为是对模板/HTML的运用，使之成为 $el
+
+############################### - 2
+（_.fetch ...）
+**** 根据"'单段'驼峰url"去拿数据、回调函数：①成功recall+②失败recall
+另外，_fetch的"1参"为什么能用【?rnd=随机数】
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+（ 问题池 ）
+
+
+
+
+
+
+
+1129，【M】切换 出发/到达，看上去CSS动画已经让dep/arr两个div交换位置了，但是为什么实际上还是没换、且：cityName换了??
+1121，【M】研究/进深 in libs：_.trim
+1121，【M】研究/进深 in libs：_.extend（留意.上 "############ -1"）
+1121，【M】研究/进深 in libs：_.directUrls
+1121，【M】研究/进深 in libs：_.fetch（留意.上 "############ -2"）
+1121，【M】研究/进深 in libs：_.bind
+1121，【M】研究/进深 in libs：_.template
+1121，【M】研究/进深 in libs：_.getUrlParam（****去URL中找到参数值）
+1121，【M】研究/进深 in libs：_.trim
+1119，【M】BUG 看下 支付页面."退改签"
+1119，【M】探究一下 login登录 图片+滑块、没有。
+1119，【M】研究一下 bindEvent（in eastern\pages\order\detail.res\detail.js）
+1116，【M】_，__inline，shareObject，GlobalLoading 溯源。

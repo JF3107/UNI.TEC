@@ -6,146 +6,50 @@
 
 
 
+参照 webpack.conf.js：
+options中，default下output[输出]：去往public/system/assets/scripts、生成[name].bundle.js
+（以上就是 B2CC的js代码流向：prebuild->public/sys/ass/scripts-xxx.bunld.js）
 
 
 
-%%%%%%%%%%%%%%%%%%%（1123+，其他）%%%%%%%%%%%%%%%%%%%%
-
-IP:端口。都能ping通，直接可以显示对方本地的页面。例如 http://10.68.60.50:8080/ @封威 的环境
-
-汤姆凯特，【删项目】：①删webApps、②删"卡特琳娜">>>>D:\01_workspace\1109_MWZ\toolModules\apache-tomcat-7.0.50\work\Catalina
+1130
 
 
 
 
-%%%%%%%%%%%%%%%%%%%（1122+，M网站代码）%%%%%%%%%%%%%%%%%%%%
-关注：
+
+
+
+
+
+
+【以上，1130】
+
+%%%%%%%%%%%%%%%%%%%（1129+，B2CC网站代码）%%%%%%%%%%%%%%%%%%%%
+地址：
 ********************** 
-JS(由index.html)
-HTML(index.html)
-CSS(由less[global]+css文件)
-
-
-功能：
-**********************
-【】隐私/cookie-POP & 下载-POP
-【】menu
-【】LOGO
-【】消息BTN
-【】轮播
-【】消息msg
-【】底部div
-【】中部.沪京[+选择出发到达地]
-改日
-三选
-预订按钮
-=========
-机场选择页(city/airport)
 
 
 
 
 
 
-主逻辑：
-**********************
-pgs/index.res/main.js  <=
-cookieMsg 已清
-goDownMsg 已清
-showMenu 已清
-loadNewsInfo 已清
-jumpTo 已清
-showLogin(url)
-setCityView 已清
-setPayType
-setDefaultFields
-writeCityToLocal 已清
-
-
-
-【GET】
+代码：
 **********************
 
-pages/index.res/main.js中：setCityView方法中：depart.on("webkitTransitionEnd",...中)：
-depart/arrive.css中对transition、transform设置，是在为后续“.js_switch”操作、做准备！[归零位]
-
-CSS >>>
-transition属性：动画。运用如下：(hover上去，宽度2秒内增至300px)
-  div{
-    width:100px
-    transition: width 2s
-  }
-  div:hover{
-    width:300px
-  }
-
-LESS：
-M网站项目中，global.less引用color.less（通过@import "color.less"）,
->>>> global中直接使用 .xxx（class名）来引用color中的声明的类/样式
-
-dataSource = require('airports_only.js').list：用的是require语法、list是a_o.js中的方法：exports.list=[...]
-
-在compo/city/city.js中也有dataSource = require('airports.js').list,
-**** 是因为：airports.js作为dataSource参与到getInstance()中的instance中
-
-M网站中创建/增强对象的方法：（以city/airport-Selector系[selector.js]为示例）
-var Selector = function() {
-    this.initialize.apply(this, arguments); //这里的this就是selector.js文件(模块)、arguments(参数)就是下面的dataSource
-};
-_.extend(Selector.prototype, Events, {
-    initialize: function(dataSource) {...}
-}
-
-IScroll( city/airport系中 new IScroll()用到 ) >>>> **** 根据字母滚动/跳转(scroll)的组件
-
-rotate() 旋转
-
-jQueryAPI使用：
-①串联：$X.aaa().bbb()
-②对象+动作：aaa($X, yyy) =>这里$X是JQ对象(执行aaa动作的对象，yyy是aaa()方法需要的参数)，举例：
-    $X.click(e){ rotate(e.target, 180) }, 让被点击的目标[DOM对象]旋转180°
-
-CSS：transition
-transition：①property②duration③t.f④delay
-1属性-transition-property：none(无[默认]),all(全部属性),具体名(多项.则以逗号分隔)
-2持续-transition-duration：0[默认]，具体秒(s)/毫秒(ms)
-3变化-transition-timing-function：ease(逐渐变慢),linear(匀速),ease-in(加速),ease-out(减速),ease-in-out(加速-减速)
-4延迟-transition-delay：0[默认]，具体秒(s)/毫秒(ms)
-（支持各浏览器差异。-moz-transition, -webkit-transition, -o-transition）
 
 
 
 
 
 
-【1122】
-
-JS
-
-pages/article/index.res/index.js中的Label就是同层label.js所致的构造函数
-
-解析 this.$el = $(_.template(tpl)(data))：
-this.$el(指整个"模板生成")绑定到"****该实例",
-$(),****生成DOM；
-_.template(tpl)(data),****①模板采用②传入模板参数
-
-
-【？】label.js的root是啥? root.Label >> root中有Label构造函数?
-【？】apply和call，其中apply中的参数this、argument是？
-【？】_.template是？
-【？】JQ $()
-【？】耦合度<<< pick一下
 
 
 
 
 
 
----------（时间.标记）---------------------
 
-
-0850-
-0850+
 
 
 ***********************************************************
@@ -155,17 +59,36 @@ _.template(tpl)(data),****①模板采用②传入模板参数
 JS：
 #  unescape(string) 解码/反转义字符串[返回：string解码后的一个副本]
 #  ** 超出部分"..."：str.substr(0,20)+"..."
+#  Array slice(n,m)方法：①截取子数组 ②n必须m可省 ③nm含头不含尾
+
 
 
 
 HTML：
 #  <meta>的"viewport"属性->【视口】：（死记加硬背）
      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+#  <i>里的"十六进制icon"，例如：content: '\e816';(编辑icon)。
+
 
 
 
 CSS：
-# rem，CSS3新增的一个相对单位。仅相对与HTML根元素的字体大小（em是相对于父元素的字体大小）
+#  rem，CSS3新增的一个相对单位。仅相对与HTML根元素的字体大小（em是相对于父元素的字体大小）
+#  transition： ①property②duration③t.f④delay
+     ①属性-transition-property：none(无[默认]),all(全部属性),具体名(多项.则以逗号分隔)
+     ②持续-transition-duration：0[默认]，具体秒(s)/毫秒(ms)
+     ③变化-transition-timing-function：ease(逐渐变慢),linear(匀速),ease-in(加速),ease-out(减速),ease-in-out(加速-减速)
+     ④延迟-transition-delay：0[默认]，具体秒(s)/毫秒(ms)
+   （支持各浏览器差异。-moz-transition, -webkit-transition, -o-transition）
+    >>>> 举例：(hover上去，宽度2秒内增至300px)
+      div{
+          width:100px
+          transition: width 2s
+      }
+      div:hover{
+          width:300px
+      }
+
 
 
 
@@ -175,6 +98,13 @@ JQ：
 #  .find('xxxx')，查找
 #  .offset()/offset({top:x, left:y}) 返回/设置 偏移量
 #  .click()，click事件.回调
+#  jQueryAPI使用：
+     ①串联：$X.aaa().bbb()
+     ②对象+动作：aaa($X, yyy) =>这里$X是JQ对象(执行aaa动作的对象，yyy是aaa()方法需要的参数)，举例：
+       $X.click(e){ rotate(e.target, 180) }, 让被点击的目标[DOM对象]旋转180°
+#  .rotate() 旋转
+#  .next(), 选择相邻元素[next 下一个]
+
 
 
 
@@ -183,8 +113,10 @@ RG：
 
 
 
+
 URL：
 # URL传参: xxxx?yyy=zzz&aaa=bbb >> "&"后是第二参
+
 
 
 
@@ -194,75 +126,56 @@ WebStorage：
 
 
 
+计算机：
+#  获取本机IP：
+     方法①=>cmd >> ipconfig/all >> 第三组:IPv4地址 x.x.x.x(首选) 【这个就是IP】
+     方法②=>左下"打开:网络和共享中心" >> 访问类型-连接:点击-跳出弹窗:(无线)网络连接状态 >> 点击:详细信息 >> IPv4地址
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 （工作主线）
-【Skills】
-#  application: localStorage/sessionStorage -> 用户/设备/其他信息所存
-#  network：响应->最好是把filter常开->筛shtml
-
-
-【M网站.代码-CSS】
-#  MWZ项目的样式一般是 CSS文件/less文件(全局)，用class去search!!
-     比如：主页index[入口HTML]样式(eg:cookie确认弹窗)，在global.less
-
-
-【M网站.代码-通用】
-G  >>>> 全局 MsgBox（直接用）。type值okcancel=>自带onOk/onCancel方法处理点击
-G  >>>> 全局 zIndex，当前页面z-index值
-G  >>>> 全局 Swiper， **** 初步认为是 轮播组件
-G  >>>> 全局 require 初判为AMD加载*, 方法：require.async("路径",...)、路径默认"component"下。
-         引用后，"路径"中的类可以new出实例。
-G  >>>> 全局 __inline（50%理解），缀于引用文件后、用于编译
-          另外，__inline("xxxx")，**** 引用（模板、文件）方式
-G  >>>> 全局 _.（只知道用），         “哪里定义好的...”、可能与常量有关
-G  >>>> 全局 shareObject.xxx（只知道用），“哪里定义好的...”、与local[ls]/sessionStrorage[ss]有关：local-ls、temp-ss
-G  >>>> 全局 GlobalLoading.xxx（只知道用），“哪里定义好的...”、用于设置loadingIcon >> GlobalLoading.getInstance().show/hide();
-G  >>>> 全局 _.xxxx 方法，**** 全局工具方法，如下：（在lib文件夹下搜索可以找到 _.xxxx方法们的详细信息。）
-
-1  >>>> 以 Menu 为例：（同一"模块"中）
-      Menu = function() {
-        this.initialize.apply(this, arguments); // **** 这里的this是Menu构造函数原型对象、arg是参
-      }, 与
-      _.extend(Menu.prototype, Events, {
-        initialize: function() {....}
-      }  搭配使用。
-2  >>>> window.history.back();是MU(M网站)的回退逻辑
-3  >>>> 关于"跳转页面"：
-    ** pages下，直属html文件、直接可以去往对应页面：
-      pages/benchmark.html  空白页
-      pages/demo.html    demo页
-      pages/index.html  首页
-      pages/login.html  登录页
-      pages/pop.html    弹：须知[这里是一整个页面]
-      pages/service.html  更多服务
-    ** 其他页面、由pages/子文件夹 直接跳转
-
-
-【M网站.代码-盾构(H-J)】
-%%%%  首页[入口]：component/menu/menu.html + component/menu/menu.js
-1  >>>> 全模块靠module.exports = Menu;输出，结合require.async请求、返回Menu（可new出实例）
-2  >>>> $(e.currentTarget).attr('href')  事件对应元素[由于"阻止冒泡"了、就是<a>本身]、获取(其属性)
-
-%%%%  首页[入口]：pages/index/index.html + pages/index.res/main.js
-1  >>>> 隐私+cookie：js_goys、js_gocookie，页面跳转[隐私]、[cookie]
-         js_cookiemsgbtn[事件]控制关闭弹窗 + localStorage记录1，并判断"时间区间-维护提醒"
-2  >>>> show/hide控制显示、跳转window.open("...")
-3  >>>> showMenu中提到的menu，就是"菜单实例"、初始时menu为空对象、经过一次new后才有。
+【破案...】
 
 
 
-【M网站.机能】
-#  call后端-跳页面，比如 pay!pppp.shtml/un-login-pay!pppp.shtml, pay/un-login-pay是call后端的方法。这句url
-   直接导致：页面跳转。跳转机制-在后端。
+
+【Skills/项目机能】
+#  关于地址：
+     ① localhost:80/127.0.0.1:80打开页面，无法改语言[比如: 台湾] >>>> 需要用hosts进行映射设置
+     ② 映射设置[最好用"替换"的办法]，** 127.0.0.1 dev.ceair,com( dev.ceair.com映射127.0.0.1 ) ** 
+         使用：直接输入dev.ceair.com, 会自动映射 127.0.0.1
+     ③ 台湾页面，请手动输入(而不是页面按钮切换)：devtw.ceair.com/hk  ** 映射详情.请参见 hosts文件/逻辑参见nginx.conf文件
+         【注意】：请先编译，编译方法参见 gruntFile.js L1-8注释行:命令 >> 编译命令【grunt dev -c:TW[大小写不敏感]】
+     ④ 生产环境、开发环境，后端连接信息/设置，在nginx.conf（nginx-conf目录内）中设置。L146+，搜"测试" or "生产"
+         **** 用"#"注释 测试/开发、删"#"打开 开发/测试
+     ⑤ 区别：de.ceair.com生产环境-德 / devde.ceair.com开发环境-德
+         **** hosts文件中能看到18个环境[映射]，dev开头的>>英语(US), devxx开头的>>其他语种
+
+
+
+
+【B2CC网站.代码-CSS】
+
+
+
+
+【B2CC网站.代码-通用】
+
+
+
+
+【B2CC网站.代码-盾构(H-J)】
+
+
+
 
 
 【ERROR池】
-#  1120.1500+-，发生了,M网站ping不通server的情况：
-    tomcat报错：Error parsing HTTP request header  <<<<
-    ①网调结果：可能是tomcat的header缓冲区大小不够，
-      前往tomcat/conf/ 找到server.xml，修改8080端口对应<Connector />，将属性maxHttpHeaderSize增大
-    ②自考结果：确定是localhost前加了https://
+
+
 
 
 
@@ -272,26 +185,16 @@ G  >>>> 全局 _.xxxx 方法，**** 全局工具方法，如下：（在lib文件夹下搜索可以找到 _
 
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 （ 清洁区 ）
 
-depart.on('webkitTransitionEnd'， 在这个事件 是什么事件?
-$X.on('touchstart/touchend', 
-切换 出发/到达，看上去CSS动画已经让dep/arr两个div交换位置了，但是为什么实际上还是没换、且：cityName换了??
 
 
 
 
 
 
-############################### - 1
-_.extend(Menu.prototype, Events, {....})是啥
-$(tpl);是？**** 我认为是对模板/HTML的运用，使之成为 $el
-
-############################### - 2
-（_.fetch ...）
-**** 根据"'单段'驼峰url"去拿数据、回调函数：①成功recall+②失败recall
-另外，_fetch的"1参"为什么能用【?rnd=随机数】
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 （ 问题池 ）
@@ -299,22 +202,19 @@ $(tpl);是？**** 我认为是对模板/HTML的运用，使之成为 $el
 
 
 
-1121，了解一下<meta>:charset; http-equiv, content; name(keywords/description)
-1121，【M】研究/进深 in libs：_.trim
-1121，【M】研究/进深 in libs：_.extend（留意.上 "############ -1"）
-1121，【M】研究/进深 in libs：_.directUrls
-1121，【M】研究/进深 in libs：_.fetch（留意.上 "############ -2"）
-1121，【M】研究/进深 in libs：_.bind
-1121，【M】研究/进深 in libs：_.getUrlParam（****去URL中找到参数值）
-1121，【M】研究/进深 in libs：_.trim
+
+
+
+1129，了解一下：JQ $X.on('touchstart或touchend', ...)
+1129，depart.on('webkitTransitionEnd'， 在这个事件 是什么事件?
+1129，apply和call，其中apply中的参数this、argument是？
+1129，了解一下：耦合度<<< pick一下
+1129，了解一下：JQ $()
+1121，了解一下：<meta>:charset; http-equiv, content; name(keywords/description)
 1121，研究 e.preventDefault();
 1121，研究 e.stopPropagation();
 1121，进深Swiper  << JQ的
 1121，进深eval() 
-1119，【M】BUG 看下 支付页面."退改签"
-1119，【M】探究一下 login登录 图片+滑块、没有。
-1119，【M】研究一下 bindEvent（in eastern\pages\order\detail.res\detail.js）
-1116，【M】_，__inline，shareObject，GlobalLoading 溯源。
 1116，后续结构化学习，Zepto
 1116，后续结构化学习，JQuery
 1116，后续pickup，JQ-webkitTransitionEnd-事件

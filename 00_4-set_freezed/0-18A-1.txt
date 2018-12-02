@@ -266,8 +266,8 @@ NodeJS的模块系统，参照CommonJS规范来实现
 ** 阮一峰“模块教程”针对：AMD
 ** AMD也用require()加载模块，>> require([...], callback函数)
 ** 主要有两个JS库实现了AMD规范，RequireJS、CurlJS
- 
- 
+
+
 阮一峰3：RequireJS
 ================
 【RequireJS特点】：
