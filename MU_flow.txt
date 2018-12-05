@@ -5,44 +5,7 @@
 
 
 
-
-参照 webpack.conf.js：
-options中，default下output[输出]：去往public/system/assets/scripts、生成[name].bundle.js
-（以上就是 B2CC的js代码流向：prebuild->public/sys/ass/scripts-xxx.bunld.js）
-
-
-
-1130
-
-
-
-
-
-
-
-
-
-
-【以上，1130】
-
-%%%%%%%%%%%%%%%%%%%（1129+，B2CC网站代码）%%%%%%%%%%%%%%%%%%%%
-地址：
-********************** 
-
-
-
-
-
-
-代码：
-**********************
-
-
-
-
-
-
-
+【代码】
 
 
 
@@ -60,6 +23,9 @@ JS：
 #  unescape(string) 解码/反转义字符串[返回：string解码后的一个副本]
 #  ** 超出部分"..."：str.substr(0,20)+"..."
 #  Array slice(n,m)方法：①截取子数组 ②n必须m可省 ③nm含头不含尾
+#  argvs.slice(1)[0],解析：（slice是返回【子数组】）
+     slice(n,m)用于从数组中返回选定元素组成的数组[含头不含尾、只有n:从n起至尾]
+
 
 
 
@@ -136,6 +102,7 @@ WebStorage：
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%（1129+，B2CC网站代码）%%%%%%%%%%%%%%%%%%%
 （工作主线）
 【破案...】
 
@@ -156,9 +123,53 @@ WebStorage：
 
 
 
+【B2CC网站.URL】
+#  B2CC项目，不用路由跳转、而是直接以html文件定位。这些html、就是public下各locale目录下的html：
+    >>>> 以us(locale:美国)分析：us下是语言目录zh(lan:简体中文)、en(lan:英语)。zh/en是各自的htmls
 
-【B2CC网站.代码-CSS】
 
+#  B2CC项目-url分析，http://dev.ceair.com/en/check-in.html：
+    ①dev/devde/devtw 选择locale包(/目录)=> us/de/tw
+    ②/zh或/en 就是locale目录下的lan包(/目录)=> zh/en
+    ③xxxx.html就是各lan包(/目录)下的html文件/网页
+
+
+
+
+
+【B2CC网站.代码】
+**  gruntFile.js，代码解析：（基于NJS）
+     其中share出的是runGrunt的方法，runGrunt方法接受"grunt"[由安装提供]注入、主方法grunt.initConfig。
+     --------------
+     对gruntFile准备区的解析（L10-L26）：
+       process        一个Object（里面有各argv属性）
+       process.argv   ①C:\dev\nodejs\node.exe,②C:\dev\nodejs\node_modules\grunt-cli\bin\grunt,③dev
+       argvs          process.argv.slice(2)，取上面第三个: dev
+       env            下面会用switch赋值（production/dev/test）
+       errorTag       初始值false、后续可能重新赋值
+       version        当前毫秒数.时间戳
+       siteArgv       undefined!!!  argvs.slice(1)[0] => dev，不是数组不存在第二个元素.
+       siteIIFE       l-1，因为是undefined 所以temp是[]，
+                      l-2，因为temp是[],temp.length是0 => !!!认为是"假值"、所以进"冒号后" => site此时是dftSite数组
+                      l-3，if语句，argvs是dev，这里重新给site赋值，为dev
+                   >>>> 所以 site最终是 dev、返回
+     ---------------
+     对gruntFile剩余部分的解析（L27+）：
+       concat->理解为"连接"的意思，在代码中concat是把所有的引用/工具js、【拼接】成一个js文件
+       >>> 而cms[ cms.config.js ]就是针对(工具)代码系拼接聚合的配置文件
+
+
+**  webpack.conf.js，代码解析：
+     options中，default下output[输出]：去往public/system/assets/scripts、生成[name].bundle.js
+   （以上就是 B2CC的js代码流向：prebuild->public/sys/ass/scripts-xxx.bunld.js）
+
+
+**  entry.js，代码解析：
+     L3-L10、声明区：类似react、react-dom是模块引入；类似./xxx是文件夹读取（./config指config.js << 这个是例外）
+     L12-L103、扩展区：对 Date、Number构造函数原型对象的.方法-扩展
+     L104+，功能区：[配合config.js >> config-api] 生成 header/footer页面。
+   （header  >>>  "/public/system/tempCMS/ceairheader-" + lang + ".html" <<语言针对）
+   （footer  >>>  "/public/system/tempCMS/footer-" + lang + ".html" <<语言针对）
 
 
 
