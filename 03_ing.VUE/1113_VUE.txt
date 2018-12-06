@@ -1,6 +1,48 @@
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+>>>>  1206 ，
+========================================================================================
+
+【自定义事件】
+
+##  事件名：kebab-case（嗨粉[hyphen]命名）
+
+##  自定义组件的v-model：
+  **  v-model默认利用 名为value的prop[属性]、名为input的event[事件] <<<  针对input作为输入框的情况
+         （若对于 checkbox复选、radio单选，需要手动设置model利用对象: prop/event）
+  **  Vue.component("ccc", {中}), 有model分别对prop和event进行设置。
+
+##  将原生事件绑定到组件：
+  **  方法1：v-on:xxx.native  <<< 在一个组件的根元素直接监听一个原生事件
+         （"方法1"只是部分有效、对于类似【<input>包裹在<label>中】的元素时.. 会失效）
+  **  方法2：v-on="$listeners" <<< $listeners包含了作用在[ 这个组件 ]上所有的监听器
+  **  方法2B：在组件构造中加入一个计算属性-"inputListeners"  >>> 代码如下：
+     #  computed: {
+     #    inputListeners: function () {
+     #      var vm = this
+     #      // "Object.assign" 将所有的对象合并为一个新对象
+     #      return Object.assign({},
+     #        // 我们从父级添加所有的监听器
+     #        this.$listeners,
+     #        // 然后我们添加自定义监听器，或重写一些监听器的行为
+     #        {
+     #          input: function (event) {
+     #            vm.$emit('input', event.target.value)
+     #          }
+     #        }
+     #      )
+     #    }
+     #  }
+
+##  .sync 修饰符：
+
+
+
+
+
+
 
 
 
@@ -62,9 +104,6 @@ props（对象形式）对象的值（"键"即为prop名）、担当验证功能，如下：
 ②替换/合并已有的特性：
 除class、style（合并）外，其他的属性值.冲突时>>都是替代[覆盖]。
 ③禁用特性继承：inheritAttrs: false （就这道这点，后面的..不知道）
-
-
-
 
 
 

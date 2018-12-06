@@ -23,3 +23,9 @@ git checkout -b BRANAME                创建并启用新分支
 git push --set-upstream origin BRANAME  推送up-stream[第一次推送必要]
    ** mergeRequest并指派
 这个在分支的右上角有按钮、点进去填表[指派选项 在其中..]
+
+
+【2】如何更改git分支名? >> 分三步：
+① git branch -m 旧分支名 新分支名          >>>> 本地分支改名.切换到[新名.分支]下
+② git push origin :旧分支名                >>>> 删除远程[旧分支]
+③ git push --set-upstream origin 新分支名  >>>> 将本地[新(名)分支]推送到远程
