@@ -1,13 +1,131 @@
 
 
-【1119，React】
+
+
+【1211+，PART-II，RCT中文文档(文档/教程)】
 ================================================
 
 
 
 
+【1210，PART-I，阮一峰】
+================================================
+
+#  引入：
+  RCT核心  react.js
+  DOM相关  react-dom.js
+  JSX=>JS  browser.min.js
 
 
+
+#  基本方法[render]：
+ReactDOM.render(
+  <Compo />                    //标签
+  document.getEBI("id")  //聚焦
+)
+
+
+
+#  JSX语法：
+  <E>包裹 HTML 语法区
+  {xxx}包裹 JS 语法区
+
+
+
+#  声明组件：
+var Compo = React.creatClass({
+  render: function(){
+    return <E>
+  }
+})
+**  ReactDOM.render( <>, d.gEBI )                          << ()没有{}、俩参数
+**  React.createClass({ xgIS:..., xhC:..., render:.... })  << ()有{}的"内胆"->一个参数[这个参数是个对象]
+
+
+
+#  先准备[声明组件/声明"材料"]、再渲染[render]
+#  声明组件，注意：①首字母大写.②顶层唯一元素
+#  安装组件[在render区]，注意：①class=>className.②for=>htmlFor
+#  ( createClass中render中的标签上 )style属性设置注意：  {{ pppp: vvvv/表达式 }}
+#  this.props.xxx：与组件属性一一对应。但有一个例外，见 this.props.children：
+
+
+
+#  this.props.children：表示组件[下]所有子节点[完整DOM]
+① this.props.children三种可能：undefined(没有子节点)、object(一个子节点)、array(多个子节点)
+② React提供工具方法：React.Children, 来处理this.props.children （例子中用到的是：React.Children.map(...)）
+
+
+
+#  PropTypes，[对象] 属性验证机制（位于React.createClass({})中）。例：
+ （使用：React.PropTypes.xxx  << 详情.参考PropTypes 文档）
+propTypes: {
+  pppp: React.propTypes.string.isRequired,
+}
+#  getDefaultProps，[方法]：用来设置组件属性的默认值。例：
+getDefaultProps: function(){
+  return:{
+    pppp: "xxxx"
+  }
+}
+
+
+
+#  React:所有DOM变动、都先在虚拟DOM上发生、再将实际发生变动的部分.反映在真实DOM上 >> DOM diff
+#  ref，获取真实的DOM节点：
+① 在render的<>上加ref属性，ref="rrrr"
+② 使用/调用ref时：this.refs.rrrr[.真实DOM节点的方法/属性]
+
+
+
+#  this.state（状态），理解如下：
+① 初始化：（ssss，就是"状态量"）
+getInitialState: function(){
+  return {ssss: vvvv}
+}
+② 设置状态：（每次修改后，自动调用this.render方法进行渲染）
+this.setState({ ssss: xxxx })
+③ 运用：
+this.state.ssss
+
+
+
+#  event.target.value[配合onChange事件( event即为该事件 )]：
+带有交互的组件，如input(text/radio)、textarea、select，都需要用event.target.value读取其"value"
+
+
+
+#  组件生命周期 & 处理函数(钩子)：
+----（常规钩子）---------
+Mounting（已插入真实DOM）：
+组件将插入  componentWillMount()
+组件已插入  componentDidMount()
+Updating（正在被重新渲染）：
+组件将更新  componentWillUpdate( nx-props, nx-state )
+组件已更新  componentDidUpdate( pre-props, pre-state )
+Unmounting（已移出真实DOM）：
+组件将移出  componentWillUnmount
+----（特殊钩子）---------
+已加载组件收新参：  componentWillReceiveProps( nx-props )
+判断是否重新渲染：  shouldComponentUpdate( nx-props, nx-state )
+
+
+
+#  AJAX：在componentDidMount中布置 $.get..AJAX请求 [ ①可用jQuery、②其他库、③将promise传入组件 ]
+
+
+
+#  ffff.bind(this)，目前接触到此类使用情况：
+① $.get("uuuu", ffff.bind(this))
+② setInterval(ffff.bind(this), tttt)
+**  一般用于回调函数，以使回调内的this就是外面的那个this << [绑定]
+
+
+
+
+
+【1119，PART-O，扫:阮 - pickup】
+================================================
 REACT的一些知识：
 *********************
 #  属性-不改变-用props
