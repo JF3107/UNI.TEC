@@ -1,5 +1,14 @@
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+>>>>  1211+ ，
+========================================================================================
+
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -10,11 +19,48 @@
 ① 访问根实例：this.$root.xxx << xxx可以是:组件数据(data)/计算属性/组件方法，同时.可以写入[<<=vvv]/调用[xxx()]
 ② 访问父组件实例：this.$parent.xxx
 ③ 访问子组件/子元素：this.$refs.xxx << 目标组件/元素上需要ref="xxx"。$refs只会在渲染完成之后生效->避免在[模板][计算属性]里用
-（pre 依赖注入...）
+④ 依赖注入：采用实例选项 provide[祖先组件]、inject[后代组件]，实现跨组件传递/调用（!!注意.其缺点）。示例如下：
+    provide: function(){ // #### 祖先组件
+      return: {
+        fff: this.fff  //this.fff是"祖先组件"中需要暴露给子代组件使用的方法
+      }
+    }
+   --------------------
+    inject: ["fff"]      // #### 后代组件
 
+##  程序化的事件侦听器
+>>>> $on( eventName[事件名], eventHandle[事件处理函数] )
+>>>> $once( eventName[事件名], eventHandle[事件处理函数] )
+>>>> $off( eventName[事件名], eventHandle[事件处理函数] )
 
+##  循环引用
+1 - 递归组件：组件可以在自己模板中调用自己.（可能导致无限循环!!）
+2 - 循环引用：利用"模块系统( webpack/Browserify )"依赖/导入组件、发生 "template or render function not defined."
+（因为"模块系统"需要A时、发现有A依赖于B依赖于A依赖于B依赖于A...，解决办法如下）
+[!!!  需要在A、B两个模块中选择一个"定点"，假设选择A作为定点   >>详细代码、见《VUE官程》]
+① A作为"定点"、让B在 生命周期钩子beforeCreate时再注册：
+② A作为"定点"、在本地注册组件时、使用 webpack异步 import B
 
+##  模板定义的替代品
+① 内联模板：子组件使用inline-template属性后、其内部的内容将成为模板，如下：（BUT,不能作为"最佳实践"）
+<com-po inline-template>
+  <div>  
+    <p>XXXX</p>
+  </div>
+</com-po>
+② X-Template：写在<script>里、在Vue.component时引用，如下：
+  ---（第一部分）---              <<  写在script里、带上x-template的type、带上id
+    <script type="text/x-template" id="com-po-template">
+      <p>nnnnnnnn</p>
+    </script>
+  ---（第二部分）---              <<  com-po声明中template引用上述id
+    Vue.component("com-po", {
+      template: "#com-po-template"
+    })
 
+##  控制更新
+① 强制更新：$forceUpdate.  （先：你错了没有?）
+② 只渲染一次：在模板-根元素上用 v-once特性。 （尽量少用!）
 
 
 
