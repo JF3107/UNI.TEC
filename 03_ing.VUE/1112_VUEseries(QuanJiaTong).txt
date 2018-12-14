@@ -9,7 +9,10 @@
 ** 还有比如：
 vue调试工具[√]、elementUI[√]  << 不用去看了..
 
-********************************
+
+****************************************************************
+**************************【VUE-CLI】***************************
+（VUE-CLI操作）
 
 ## https://blog.csdn.net/wulala_hei/article/details/80488674 【教程】
 =======（务必仔细参考《CSDN教程》）=================================
@@ -44,3 +47,16 @@ npm run build  【打包】(ok:build complete)
 打包文件, 生成dist文件夹[里面有indexHtml和state]
 ---
 完成!OK
+
+*****************************
+（VUE-CLI官程）
+
+##  介绍 （①CLI@vue/cli ②CLI服务@vue/cli-service ③CLI插件@vue/cli-plugin-x）
+
+##  安装：https://cli.vuejs.org/zh/guide/prototyping.html所述是"VUE-CLI"的最新版本 VUE-CLI3：
+VUE-CLI1   1.x.x VUE-CLI
+VUE-CLI2   2.x.x VUE-CLI
+VUE-CLI3   3.x.x @vue/cli( 独立于vcli1、vcli2的项目，需卸载1/2.重新安装 )
+（VUE-CLI3 暂未..）
+
+
