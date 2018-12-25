@@ -11,6 +11,10 @@
 因为 >>>> ROOT文件夹不是"原配"的 <<<<
 ROOT文件夹是ROOT.war生成的，如果要删除ROOT数据、必须吧ROOT整个目录一起删，再启动tomcat由tomcat自动生成ROOT文件夹。
 这样，才可以①war文件加载完全、②地址栏localhost8080自动跳转index路由、③后台api可call
+***    【年终账单】初制新页面.报:shareObject未定义，>>> 
+① shareObject是libs/global.js放出的
+② 在FIS编译时，global.js等一系列libs系js将被贴上html作为页面依赖
+③ fis-conf.js里显示：<!--__FRAMEWORKS_HOLDER__-->作为"黏贴"引导
 
 
 

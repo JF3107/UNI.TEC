@@ -48,7 +48,8 @@ npm run build  【打包】(ok:build complete)
 ---
 完成!OK
 
-*****************************
+**********************************************************
+**********************************************************
 （VUE-CLI官程）
 
 ##  介绍 （①CLI@vue/cli ②CLI服务@vue/cli-service ③CLI插件@vue/cli-plugin-x）
@@ -57,6 +58,44 @@ npm run build  【打包】(ok:build complete)
 VUE-CLI1   1.x.x VUE-CLI
 VUE-CLI2   2.x.x VUE-CLI
 VUE-CLI3   3.x.x @vue/cli( 独立于vcli1、vcli2的项目，需卸载1/2.重新安装 )
-（VUE-CLI3 暂未..）
 
+##  基础：
+---【CLI】---
+vue create 项目名 >> 初始化项目[原 vue init]
+  **** 初始化命令 - ①项目名限定 "小写" ②自带npm install,会自动把依赖包都安装完毕
+  **** 初始化结束、直接：进项目 - npm run serve即可跑起!!
+  -- -- -- --
+  ** vue create [option] 项目名 << 完整的命令
+  ** option：-x --xxx (参见https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create)
+  ** 用npm install -g @vue/cli-init，安装一个桥接工具 >> 方可使用 VC2的 vue init webpack xxx
+vue ui >> 以图形化界面创建/管理项目![会打开一个 端口号8000的UI页面]
+vue serve >> 对单个*.vue文件进行快速原型开发 [★只适合于快速原型开发!!]
+  ** 先.全局扩展：npm install -g @vue/cli-service-global
+  ** vue serve [options.选项] [entry.入口文件], options=>参考：https://cli.vuejs.org/zh/guide/prototyping.html
+  ** 在*.vue文件所在目录下运行
+  ** ☆·最后，用vue build xxx.vue，将目标文件构建成一个生产环境的包(用来部署)
+---【CLI插件】---
+vue add >> 用于安装插件[vueCreate时有些插件已经完成了预安装] （使用vueAdd先将项目最新状态提交[该命令可能产生更改]）
+  （例如：vue add @vue/eslint <<< [ @vue/eslint完整名：@vue/cli-plugin-eslint ]）
+  （vue add vuex或router 就这么写）
+-----
+预设、preset： vue create过程中保存的preset会被放在 users/yourName中的.vuerc中。
+  .vuerc, 可以编辑。
+---【CLI服务】---
+在VUE CLI(3)项目中，@vue/cli-service安装了一个名为vue-cli-service的命令。参见项目 package.json/scripts
+  （同时，package.json/scripts还提供了各项命令：serve、build、lint，看下面...）
+vue-cli-service serve 【vue vue-cli-service serve】或【npm run serve】启服务（启项目）
+vue-cli-service build 【vue vue-cli-service build】或【npm run build】编译-打build
+  （★具体有多少命令可以用 npm run XXX，看scripts!!）
+vue-cli-service inspect 【vue inspect】>>> 审查vue项目的webpack config[ 跳出全部config文件 ]
+vue-cli-service help 【vue help】>>> 查看命令帮助
 
+##  开发：
+---【B 的兼容性】---
+①browserslist（位于package.json中）
+②Polyfill(s)，[跨浏览器支持] 用来补充因缺乏对新API支持而缺失的功能
+（+处理 "如果有依赖需要polyfill"的选择， 3种）
+③现代模式：vue-cli-service build --modern （这个是build的选项）[< 针对编译!! => 生产 >]
+
+---【HTML & 静态资源】---
+①HTML: index.html(在public下),其实是一个模板、能使用插值。
