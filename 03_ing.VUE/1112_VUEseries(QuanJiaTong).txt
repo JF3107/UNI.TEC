@@ -2,7 +2,7 @@
 
 先简单介绍一下 "全家桶"：
 
-项目构建 >> vue-cli       ** 官方 https://cli.vuejs.org/zh/guide/ 或 https://blog.csdn.net/wulala_hei/article/details/80488674[快速]
+【】项目构建 >> vue-cli       ** 官方 https://cli.vuejs.org/zh/guide/ 或 https://blog.csdn.net/wulala_hei/article/details/80488674[快速]
 路由管理 >> vue-router    ** 官方 https://router.vuejs.org/zh/
 状态管理 >> vuex          ** 官方 https://vuex.vuejs.org/zh/
 请求工具 >> vue-resource  ** 先看这个https://www.jianshu.com/p/3ce2bd36596e
@@ -50,7 +50,7 @@ npm run build  【打包】(ok:build complete)
 
 **********************************************************
 **********************************************************
-（VUE-CLI官程）
+（VUE-CLI[3] 官程）
 
 ##  介绍 （①CLI@vue/cli ②CLI服务@vue/cli-service ③CLI插件@vue/cli-plugin-x）
 

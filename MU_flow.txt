@@ -2,8 +2,6 @@
 **** 1221 ****
 ===========================================================
 
-
-
 【推进】
 
 
@@ -66,6 +64,9 @@ JS：
 
 #  DOM.appendChild() >> JS原生的DOM操作：贴!   （注意和 JQ的append 区别!!）
 
+#  window.location.replace(xxx)/.href=xxx 的区别：
+  ①window.location.replace("uuu"), A->B->【C】、B-C段用replace、【回退】、退回A
+  ②window.location.href=uuu, A->B->【C】、B-C段用href、【回退】、退回B
 
 
 
@@ -88,7 +89,7 @@ HTML：
 CSS：
 #  rem，CSS3新增的一个相对单位。仅相对与HTML根元素的字体大小（em是相对于父元素的字体大小）
 
-#  transition： ①property②duration③t.f④delay
+#  transition： ①property②duration③transition-function④delay
      ①属性-transition-property：none(无[默认]),all(全部属性),具体名(多项.则以逗号分隔)
      ②持续-transition-duration：0[默认]，具体秒(s)/毫秒(ms)
      ③变化-transition-timing-function：ease(逐渐变慢),linear(匀速),ease-in(加速),ease-out(减速),ease-in-out(加速-减速)
@@ -102,13 +103,15 @@ CSS：
       div:hover{
           width:300px
       }
-
+    ** transition：cubic-bezier(<x1>,<y1>,<x2>,<y2>) 贝塞尔曲线：P0(0,0).P3(1,1)不变\P1(x1,y1).P2(x2,y2)改变以生成【速度曲线】
 
 
 
 
 
 JQ：
+#  $(function(){}); 就是 $(document).ready(function(){}); >>>> DOM加载完毕后执行
+----------------（0104）-----------------
 #  .eq(index),  对目标元素遍历、取索引为index的元素
 
 #  .show/hide(), 显示/隐藏
@@ -140,9 +143,14 @@ JQ：
 
 #  fullPage.js是jQuery的插件（全称: jquery.fullPage.js）,运用于网页"块.移"布局。参考 >> http://www.dowebok.com/77.html
 
+#  .css("样式.名","样式.值");  << jQuery设置样式
 
+#  jQuery用来 制造\安装 DOM：
+  **  jquery操作DOM[创建/插入]：
+  ①var e = $('<E>xxx</E>')            创建
+  ②$X.append/prepend/after/before(e)  插入后/插入前/后/前
 
-
+#  $.ajax()中，一般获取JSON字符串。用：dataType: "json", >>>> 以获取JSON对象
 
 
 
@@ -182,6 +190,11 @@ WebStorage：
      需要在nginx/nginx.conf中配置。
     **  配置关键：listen(监听端口), root(开放区域[目录])
 
+#  关于页面加载静态资源[img/js/css  重点:img]
+  ①如果你在本地使用：直接相对定位
+  ②如果是在生产使用：需要结合生产上.实际的路径名、预先设置!!
+    （比如，"resource/images/..."）
+
 
 
 
@@ -191,6 +204,15 @@ WebStorage：
 %%%%%%%%%%%%%%%%%（1129+，B2CC网站代码）%%%%%%%%%%%%%%%%%%%
 （工作主线）
 【破案...】
+#  【破案-1227.15】rem 可改变字体/HTML大小、（M站）一般会把参照设在<html>  << （font-size:xx px）
+----------
+<html>会被改。因为>>自适应脚本!!。基于clientWidth。resize代码如下：
+function resize() {
+    window.t = +new Date();
+    var clientWidth = document.documentElement.clientWidth;
+    if (!clientWidth) return;
+    document.documentElement.style.fontSize = 20 * (clientWidth / 320) + 'px';
+}
 
 
 
@@ -209,6 +231,7 @@ WebStorage：
 
 
 
+
 【B2CC网站.URL】
 #  B2CC项目，不用路由跳转、而是直接以html文件定位。这些html、就是public下各locale目录下的html：
     >>>> 以us(locale:美国)分析：us下是语言目录zh(lan:简体中文)、en(lan:英语)。zh/en是各自的htmls
@@ -218,7 +241,6 @@ WebStorage：
     ①dev/devde/devtw 选择locale包(/目录)=> us/de/tw
     ②/zh或/en 就是locale目录下的lan包(/目录)=> zh/en
     ③xxxx.html就是各lan包(/目录)下的html文件/网页
-
 
 
 
@@ -265,7 +287,6 @@ WebStorage：
 
 
 【B2CC网站.代码-盾构(H-J)】
-
 
 
 

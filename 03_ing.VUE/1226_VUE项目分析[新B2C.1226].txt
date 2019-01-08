@@ -1,0 +1,49 @@
+
+本分析，针对：①yoyogi[V_1216], ②new.WebSite_b2c[V_1217+]
+*************************************************
+【0000】
+新B2E, 项目结构：
+
+
+
+
+
+*************************************************
+【0104 完成】
+新[ VUE Cli 3 ], 项目结构：
+-----------
+.vscode       （vscode文件.无视）
+dist          （运行npm run build后才出现的"打包目录"）
+node_modules  （包目录，无视）
+public        （index所在!!!）
+src           （项目目录[初始 assets、components] + App.vue + main.js）
+.gitignore    （git忽略文件,配置）
+package.json  （npm包管理文件）
+vue.config.js （vue配置文件）
+
+
+main.js中：
+------------
+Vue.config.productionTip = false，   设为false.阻止生成vue启动时的生产提示
+render: h => h(App),             [渲染] Vue在调用render方法时、会传入一个createElement函数作为参数( "h"的实参 )
+new Vue({...}).$mount('#app'),   [挂载] 就是app.$mount("#app")<<<<方式①;或者在new vue 括号里面el:#app;<<<<方式②
+
+
+基本结构：
+------------
+①index.html， ②main.js， ③App.vue， ④component目录下各.vue
+
+
+流程逻辑：
+------------
+（name，要取的和[vue]模块 一致）
+component目录下各.vue：  随意、<template>..
+App.vue：  引入"各.vue"
+main.js：  引入vue和App.vue(主模块)、渲染 -> 挂载到index.html
+index.html：  设置<div id="app"></div>, 接受main.js"挂载"
+
+注意点：
+------------
+BASE_URL,环境变量。与vue.config.js中的baseUrl相符
+
+
