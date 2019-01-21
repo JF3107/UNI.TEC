@@ -11,9 +11,6 @@
 
 
 
-
-
-
 ***********************************************************
 ++++++++（以下开始：知识/处理 分区）+++++++++++++++++++++++
 ***********************************************************
@@ -67,6 +64,32 @@ JS：
 #  window.location.replace(xxx)/.href=xxx 的区别：
   ①window.location.replace("uuu"), A->B->【C】、B-C段用replace、【回退】、退回A
   ②window.location.href=uuu, A->B->【C】、B-C段用href、【回退】、退回B
+
+#  JS 同步、异步、单线程 related
+    setTimeout和setInterval，可以改变JS执行顺序。它们通常在执行完所有JS代码后才执行。
+    >>  即使没有设置超时值(setTimeout 值为0、1-2-setTimeout3-4-5)，也不能保证输出为"12345".
+  ------
+    JS的异步：①setTimeout/setInterval ②ajax
+  ------
+    JS是单线程的, 所以处理任务时产生"任务队列"概念。为解决队列中某些任务等待过久(比如IO[网络])、产生"同步"、"异步"：
+    将需要等待的任务暂时挂起、处理其他任务 >> 待挂起任务得到反应[可以继续处理]时、再继续，叫"异步操作"。
+    按任务队列顺序执行，叫"同步操作"。
+    （执行栈[同步任务集中]、任务队列[异步任务回调结果.结果]。执行栈处理完，再来处理任务队列）
+
+#  【ES6】Promise直用(.reje/reso)：返回一个新的Promise实例、其状态为[reje/reso]
+const p = Promise.reject(xxx)
+const p = Promise.resolve(yyy)
+（后续： p.then() >> 作reje/reso处理）
+
+#  try/catch >> 用来定义/处置异常；throw eeee >> 用来抛出异常
+
+#  export default >>>> export一个名为default的变量，import时.可以随意为此输出取名。
+（Vue中经常看到、但它是ES6语法）
+注意两种用法的对应：
+① export default xxxx >> import iiii from "uuuu" >>> 用了default.匿名输出1个!
+② export xxxx  >>  import {iiii} from "uuuu"    >>> 普通export.引入(import)时用{}接
+
+
 
 
 
@@ -152,6 +175,11 @@ JQ：
 
 #  $.ajax()中，一般获取JSON字符串。用：dataType: "json", >>>> 以获取JSON对象
 
+#  JQ获取/赋值<img>的src：
+   ① $("#imgId")[0].src;
+   ② $("#imgId").attr('src',path); 
+
+
 
 
 
@@ -194,6 +222,13 @@ WebStorage：
   ①如果你在本地使用：直接相对定位
   ②如果是在生产使用：需要结合生产上.实际的路径名、预先设置!!
     （比如，"resource/images/..."）
+
+
+
+
+【MU】
+#  东航旅客名存储格式： 姓/名 中间名（fir/las middle）
+
 
 
 
