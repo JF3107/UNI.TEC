@@ -62,3 +62,11 @@ fatal: unable to access 'https://github.com/JF3107/UNI.TEC.git/': The requested 
    解决步骤：控制面板 - 用户账户 - 管理win凭据 - 普通凭据 - 找到github(目标) - 删！！！
 
 
+【7】如何设置名字/邮箱、查阅名字/邮箱：
+git config --global user.name "xxx"
+git config --global user.email "xxx"
+git config user.name
+git config user.email
+
+
+
