@@ -89,6 +89,21 @@ const p = Promise.resolve(yyy)
 ① export default xxxx >> import iiii from "uuuu" >>> 用了default.匿名输出1个!
 ② export xxxx  >>  import {iiii} from "uuuu"    >>> 普通export.引入(import)时用{}接
 
+#  JS 数组遍历.对象遍历
+===========
+JS 数组遍历：
+① 普通for循环      >> for(let i=0; i<arr.length; i++) {...}
+② 优化for循环      >> for(let i=0, len=arr.length; i<len; i++) {...} 《 存下数组长度.避免重复获取
+③ forEach[ES5+]    >> arr.forEach(function(v, i){...})  《 v-value-值, i-index-索引(0+) 《 其性能比for弱
+   （forEach缺陷： 不能 break[终止循环]，不能 return[终止函数]）
+④ map遍历[ES5+]    >> arr.map(function(v, i){...})  《 v-value-值, i-index-索引(0+)
+   （forEach、map 都是ES5+语法，IE9- 不能用）
+⑤ for-of遍历[ES6+] >> for(let i of arr){...} 《 i-index-索引(0+), 支持数组、字符串遍历
+   （for-of 支持: continue, break, return）
+****
+JS 对象遍历：
+① for-in遍历       >> for(var index in obj){...} 《 用于"遍历对象"，不适用于"遍历数组"(遍历出的index为字符串)
+
 
 
 
@@ -178,6 +193,27 @@ JQ：
 #  JQ获取/赋值<img>的src：
    ① $("#imgId")[0].src;
    ② $("#imgId").attr('src',path); 
+
+#  .find('eeeeee')    向后代查找
+
+#  .hasClass('cccccc')  查找指定类名(的DOM)
+
+#  $X.unbind()  解除X元素的"事件处理器"
+  ------[举例]------
+    $("button").click(function(){
+      $("p").unbind();
+    });
+
+#  $(this)，指的是触发事件的对象、常常在事件回调函数中：
+  ------[举例]------
+    $("xxxx").click(function(){
+      $(this).yyyy  >>>>  （比如：hasClass("zzzz")）
+    });
+
+
+#  如果"类名"是由"addClass()"在初始render后加上去的、就无法使用事件绑定。
+  （因为在初始渲染时，还不存在这样的"类"、无法绑定）
+
 
 
 

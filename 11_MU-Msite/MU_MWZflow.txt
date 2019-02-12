@@ -15,6 +15,9 @@ ROOT文件夹是ROOT.war生成的，如果要删除ROOT数据、必须吧ROOT整个目录一起删，再启动
 ① shareObject是libs/global.js放出的
 ② 在FIS编译时，global.js等一系列libs系js将被贴上html作为页面依赖
 ③ fis-conf.js里显示：<!--__FRAMEWORKS_HOLDER__-->作为"黏贴"引导
+***   【MsgBox 弹窗】复合弹窗（弹窗ok-内层弹窗->），内层无法运作。
+① 复合弹窗的内层弹窗，需要置于异步函数[A.ajax请求，B.setTimeout]内。
+② 不然，内层无法打开
 
 
 
