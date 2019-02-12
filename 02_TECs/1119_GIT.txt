@@ -44,5 +44,21 @@ git push --set-upstream origin BRANAME  推送up-stream[第一次推送必要]
 ① git branch -D bbbbbb
 
 
+【5】如何建立（github/gitlab/...）SSH：
+①在"user(用户目录[自/本机 86135])"  >> mkdir .ssh （建立 .ssh目录）
+②命令## ssh-keygen -t rsa -C "jayfan_k290@126.com"（最好加上 邮件地址-与github账号一致）
+（若 github推送[push] 出现错误：[ remote: Permission to xxxxxx.git denied to yyyyyy. zzzzzz-error: 403 ] 时，可先尝试此办法）
+
+
+【6】报错[ remote: Permission to xxxxxx.git denied to yyyyyy. zzzzzz-error: 403 ]的处理：
+（现象...  如下）
+////
+remote: Permission to JF3107/UNI.TEC.git denied to D3107.
+fatal: unable to access 'https://github.com/JF3107/UNI.TEC.git/': The requested URL returned error: 403
+    ////
+①尝试【5】的解决方案、排除ssh问题
+②删除旧windows凭据（github凭据[第一次push时跳出弹框填入]、不删则永久保留）
+   原因，第一次push弹框.填错！
+   解决步骤：控制面板 - 用户账户 - 管理win凭据 - 普通凭据 - 找到github(目标) - 删！！！
 
 
