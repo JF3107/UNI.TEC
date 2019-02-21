@@ -63,8 +63,8 @@ fatal: unable to access 'https://github.com/JF3107/UNI.TEC.git/': The requested 
 
 
 【7】如何设置名字/邮箱、查阅名字/邮箱：
-git config --global user.name "xxx"
-git config --global user.email "xxx"
+git config --global user.name "xxx" （加 --global，全局；不加：本目录(项目)）
+git config --global user.email "xxx" （加 --global，全局；不加：本目录(项目)）
 git config user.name
 git config user.email
 
