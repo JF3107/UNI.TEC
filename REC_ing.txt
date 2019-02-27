@@ -1,4 +1,0 @@
-
-
-【PY学习Q】
-python 如何（实用型）判断类型 >> 类似于typeof(xxx) == arr ?

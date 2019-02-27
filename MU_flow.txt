@@ -104,6 +104,19 @@ JS 数组遍历：
 JS 对象遍历：
 ① for-in遍历       >> for(var index in obj){...} 《 用于"遍历对象"，不适用于"遍历数组"(遍历出的index为字符串)
 
+# switch语句，勿忘"break;"、不然.语句执行完本case会继续下一个case
+switch(n)
+{
+case 1:
+  执行代码块 1
+  break;
+case 2:
+  执行代码块 2
+  break;
+default:
+  n 与 case 1 和 case 2 不同时执行的代码
+}
+☆单行case语句：case:{xxxxx;xxx;xx;x;break;}
 
 
 
