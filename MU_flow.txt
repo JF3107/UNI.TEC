@@ -118,6 +118,11 @@ default:
 }
 ☆单行case语句：case:{xxxxx;xxx;xx;x;break;}
 
+# JS字符串截取:
+substring(startIndex[, endIndex])  >>>> 截取start-end之间的字符返回新的字符串 << !!不支持"负数索引"(-n皆为0)
+substring(startIndex[, length])  >>>> 截取自start起length个字符返回新的字符串 << !!不支持"负数索引"(-n皆为0)
+slice(startIndex[, endIndex])  >>>> 截取start(含)-end(不含)之间的字符返回新的字符串【支持"负数索引"】
+
 
 
 
