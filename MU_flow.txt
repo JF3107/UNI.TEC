@@ -228,9 +228,14 @@ JQ：
       $(this).yyyy  >>>>  （比如：hasClass("zzzz")）
     });
 
-
 #  如果"类名"是由"addClass()"在初始render后加上去的、就无法使用事件绑定。
   （因为在初始渲染时，还不存在这样的"类"、无法绑定）
+
+# 如何对目标DOM添加属性：
+    attr({
+        "href" : "http://www.w3school.com.cn/jquery",
+        "title" : "W3School jQuery Tutorial"
+    });
 
 
 
