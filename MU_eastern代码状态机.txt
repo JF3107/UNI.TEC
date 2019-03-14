@@ -8,6 +8,7 @@
 ¡¾spe£¬Ç®°üÃÜÂë¡¿
 [find] /mobile/ffp/account/index.jsp
 [find] /mobile/ffp_golden/my-password.jsp
+[find] /mobile/ffp_coupon/coupon.jsp
 
 
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
