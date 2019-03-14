@@ -1,5 +1,21 @@
 
+【spe，倪洁.+airlineCode - MWZ】
+[待定] /mobile/ffp_golden/jifen-claim.jsp
 
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+【spe，钱包密码】
+[find] /mobile/ffp/account/index.jsp
+[find] /mobile/ffp_golden/my-password.jsp
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 -------------
 /resources/unpack/pages/order/return2.res/return.js >>>> 0307.病退组文案
 /resources/unpack/pages/order/return2.res/hs1_submitok.tpl >>>> 0307.病退组文案
@@ -32,52 +48,69 @@
 /resources/images/flight_detail/board_flag.png  >>>>  0304.[-301]下单支付新需求(227)
 /resources/images/flight_detail/board_flag1.png  >>>>  0304.[-301]下单支付新需求(227)
 /resources/images/flight_detail/board_flag2.png  >>>>  0304.[-301]下单支付新需求(227)
+******************
+/c/terms/terms.js >>>> 0308.[307C]病退原因移出空白bug
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+（0314 邮件）
+
+【0313 W】/resources/m/images/golden/table/accumulate-airlines-ceair-table1-1-20190331.png >>>> 0313.M会员权益积分累计规则改
+【0313 W】/mobile/ffp_golden/aboutus/vip-benefits.html >>>> 0313.M会员权益积分累计规则改
+【0313 W】/mobile/ffp_golden/aboutus/accumulate-airlines.html >>>> 0313.M会员权益积分累计规则改
+
+【0313 W】/mobile/ffp_golden/my-password.jsp >>>> 0313.会员密码jsp页.bug改[flag_wlt]
+
+【0311 U -BIO】/mobile/ffp_golden/aboutus/easternmiles-rule.html >>>> 0311.服务条款文案
+【0311 * UPD】/mobile/ffp_golden/emiles-rule.html >>>> 0311.服务条款文案
+【0311 * UPD】/mobile/ffp_golden/jifen-claim-rule.jsp >>>> 0311.服务条款文案
 
 
 ***************************************************************
 
-
-【0307 U D】/pages/order/return2.res/return.js >>>> 0307.病退组文案 \\ 0306.病退#306-123 \\ 0306.病退#306新文案修改 \\ 0306.@何伯庆.新修改HSaction对接
-【0307 U D】/pages/order/return2.res/hs1_submitok.tpl >>>> 0307.病退组文案 \\ 0306.病退#306.邮编 \\ 0306.病退#306-123 \\ 0306.病退#306新文案修改
-【0307 U D】/pages/order/return-detail.html  >>>>  0307.病退组文案 \\ 0306.病退#306.邮编 \\ 0306.病退#306-123
-【0307 U D】/pages/order/detail.res/detail.js >>>> 0307.新映射文案 \\ 0301.精化改品牌[话柄/png] \\ 0228.let2var
-【0307 U D】/pages/booking/placeorder.res/main.js >>>> 0307.新映射文案 \\ 0304.[-301]下单支付新需求(227) \\ 0228.let2var
-【0307 U D】/pages/booking/pay.res/main.js >>>> 0307.新映射文案 \\ 0304.[-301]下单支付新需求(227) \\ 0228.let2var
-【0306 U D】/pages/order/again-return.html  >>>>  0306.病退#306-123 \\ 0305.结果页跳转逻辑
-【0306 U D】/pages/order/return.html  >>>>  0306.病退#306-123
-【0306 U D】/pages/user/credentials.res/credentials.js >>>> 0306.病退涉及非会员登录应对
-【0305 U D】/pages/order/return-again.res/again_return.js  >>>>  0305.结果页跳转逻辑 \\ 0305.[病退]退票再申请上传hide
-【0304 U D】/images/flight_detail/x.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/x1.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/x2.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/hook.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/hook1.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/hook2.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/per_seat_flag.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/per_seat_flag1.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/per_seat_flag2.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/per_seat_flag_cost.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/per_seat_flag_cost1.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/per_seat_flag_cost2.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/seat.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/seat1.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/seat2.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/luggage.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/luggage1.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/luggage2.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/board_flag.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/board_flag1.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/images/flight_detail/board_flag2.png  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/pages/booking/placeorder.res/new_flight_label.js  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/pages/booking/placeorder.res/new_flight_label_b.tpl  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/pages/booking/placeorder.res/new_flight_label_a.tpl  >>>>  0304.[-301]下单支付新需求(227)
-【0228 U D】/pages/booking/flight.res/flight.js >>>> 0228.let2var
-【0304 U D】/pages/booking/pay.html  >>>>  0304.[-301]下单支付新需求(227)
-【0304 U D】/pages/booking/placeorder.html  >>>>  0304.?关闭?未知修改
+【0311通知】/resource/m/images/golden/Handbook1903_CN.pdf >>>> 0311.紧急更新.会员手册
+【0311通知】/mobile/ffp_golden/aboutus/booklet.html >>>> 0311.紧急更新.会员手册
+【0308通知】/component/terms/terms.js >>>> 0308.[307C]病退原因移出空白bug
+【0307通知】/pages/order/return2.res/return.js >>>> 0307.病退组文案 \\ 0306.病退#306-123 \\ 0306.病退#306新文案修改 \\ 0306.@何伯庆.新修改HSaction对接
+【0307通知】/pages/order/return2.res/hs1_submitok.tpl >>>> 0307.病退组文案 \\ 0306.病退#306.邮编 \\ 0306.病退#306-123 \\ 0306.病退#306新文案修改
+【0307通知】/pages/order/return-detail.html  >>>>  0307.病退组文案 \\ 0306.病退#306.邮编 \\ 0306.病退#306-123
+【0307通知】/pages/order/detail.res/detail.js >>>> 0307.新映射文案 \\ 0301.精化改品牌[话柄/png] \\ 0228.let2var
+【0307通知】/pages/booking/placeorder.res/main.js >>>> 0307.新映射文案 \\ 0304.[-301]下单支付新需求(227) \\ 0228.let2var
+【0307通知】/pages/booking/pay.res/main.js >>>> 0307.新映射文案 \\ 0304.[-301]下单支付新需求(227) \\ 0228.let2var
+【0306通知】/pages/order/again-return.html  >>>>  0306.病退#306-123 \\ 0305.结果页跳转逻辑
+【0306通知】/pages/order/return.html  >>>>  0306.病退#306-123
+【0306通知】/pages/user/credentials.res/credentials.js >>>> 0306.病退涉及非会员登录应对
+【0305通知】/pages/order/return-again.res/again_return.js  >>>>  0305.结果页跳转逻辑 \\ 0305.[病退]退票再申请上传hide
+【0304通知】/images/flight_detail/x.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/x1.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/x2.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/hook.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/hook1.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/hook2.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/per_seat_flag.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/per_seat_flag1.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/per_seat_flag2.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/per_seat_flag_cost.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/per_seat_flag_cost1.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/per_seat_flag_cost2.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/seat.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/seat1.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/seat2.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/luggage.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/luggage1.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/luggage2.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/board_flag.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/board_flag1.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/images/flight_detail/board_flag2.png  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/pages/booking/placeorder.res/new_flight_label.js  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/pages/booking/placeorder.res/new_flight_label_b.tpl  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/pages/booking/placeorder.res/new_flight_label_a.tpl  >>>>  0304.[-301]下单支付新需求(227)
+【0228通知】/pages/booking/flight.res/flight.js >>>> 0228.let2var
+【0304通知】/pages/booking/pay.html  >>>>  0304.[-301]下单支付新需求(227)
+【0304通知】/pages/booking/placeorder.html  >>>>  0304.?关闭?未知修改
 *******************
 【0304通知】/pages/order/return2.res/return.js >>>> 0304.病退hs_flag逻辑修正 【@CBIO】
 【0304通知】/pages/order/return2.res/return.js >>>> 0301.病退pop默认0to1 \\ 0228.let2var【@CBIO】
