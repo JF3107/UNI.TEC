@@ -10,14 +10,9 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-（0328邮件）
+（0411邮件）
 
-【0327 *】/eastern/pages/booking/pay.res/main.js >>>> 0327紧急.0328上线 >>>> 0326.确认钱包系[支付(主)]
-【0327 *】/eastern/pages/booking/pay.res/channel_wap.js >>>> 0327紧急.0328上线
-【0327 *】/eastern/pages/booking/bridge.res/main.js >>>> 0327紧急.0328上线
-【0326 *】/mobile/ffp_golden/my-password.jsp >>>> 0326.密码页面.UI增强
-【0326 *】/mobile/ffp/account/index.jsp >>>> 0326.确认钱包系[INDEX钱包code-refine]
-【0325 *】/mobile/ffp_golden/cal_leiji.jsp >>>> 0325.#6080[MWZ]
+
 
 
 ***************************************************************
@@ -25,6 +20,15 @@
 ***************************************************************
 
 
+【0404通知】/Mob后端/pages/ance/airports.html >>>> 0404.紧急改AirporTable
+【0404通知】/eastern/pages/booking/pay.res/main.js >>>> 0404.钱包\消费密码校优化
+【0404通知】/eastern/libs/controls/msgbox/msgbox.tpl >>>> 0404.钱包\消费密码校优化
+【0327通知】/eastern/pages/booking/pay.res/main.js >>>> 0327紧急.0328上线 >>>> 0326.确认钱包系[支付(主)]
+【0327通知】/eastern/pages/booking/pay.res/channel_wap.js >>>> 0327紧急.0328上线
+【0327通知】/eastern/pages/booking/bridge.res/main.js >>>> 0327紧急.0328上线
+【0326通知】/mobile/ffp_golden/my-password.jsp >>>> 0326.密码页面.UI增强
+【0326通知】/mobile/ffp/account/index.jsp >>>> 0326.确认钱包系[INDEX钱包code-refine]
+【0325通知】/mobile/ffp_golden/cal_leiji.jsp >>>> 0325.#6080[MWZ]
 【0313通知】/resources/m/images/golden/table/accumulate-airlines-ceair-table1-1-20190331.png >>>> 0313.M会员权益积分累计规则改
 【0313通知】/mobile/ffp_golden/aboutus/vip-benefits.html >>>> 0313.M会员权益积分累计规则改
 【0313通知】/mobile/ffp_golden/aboutus/accumulate-airlines.html >>>> 0313.M会员权益积分累计规则改
