@@ -2,16 +2,19 @@
 【0326 * X\pending】/mobile/ffp_coupon/coupon.jsp >>>> 0326.需要一个专为"权益"定制的"钱包密码校验_action"
 
 
+
+
+
+
 ---------------------------------------------------------------
 
-
-
-
-
+【0410 *】/mobile/ffp_coupon/coupon.jsp >>>> 0409.@ZKUN[abt.暂时注释.权益券弹窗]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-（0411邮件）
+（0418邮件）
 
+【0411】/resources/m/js/common/slidernav.js >>>> 0411."-41B"字母条组件.BUG研究修复[核心修改]
+【0411】/mobile/ffp_golden/cal-fly.jsp [abt.滑动障碍] >> 0411."-41B"字母条组件.BUG研究修复(未改实质)
 
 
 
@@ -20,6 +23,7 @@
 ***************************************************************
 
 
+【0410通知】/mobile/ffp_golden/cal-fly.jsp >>>> 0410.DB18175-41[飞行奖励计算器.文案+]
 【0404通知】/Mob后端/pages/ance/airports.html >>>> 0404.紧急改AirporTable
 【0404通知】/eastern/pages/booking/pay.res/main.js >>>> 0404.钱包\消费密码校优化
 【0404通知】/eastern/libs/controls/msgbox/msgbox.tpl >>>> 0404.钱包\消费密码校优化
