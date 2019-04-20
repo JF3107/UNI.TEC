@@ -1,0 +1,90 @@
+
+
+
+
+JQ：
+****************************************************************
+<<<<<<<< 
+
+
+<<<<<<<< pre 0420
+
+【JQuery】
+
+# 逗号选择器： $("x", "y").zzz()...  >>  x子级、y父级
+
+# $X.offset() - ①：获取偏移量left\top >> $X.offset().left\top() 获取左\顶偏移(px)
+   $X.offset() - ②：设置偏移量left\top >> $X..offset({top:100;left:100;})
+
+# $X.clearQueue()：从序列中删除仍未运行的所有项目
+
+#  $(function(){}); 就是 $(document).ready(function(){}); >>>> DOM加载完毕后执行
+----------------（0104）-----------------
+#  .eq(index),  对目标元素遍历、取索引为index的元素
+
+#  .show/hide(), 显示/隐藏
+
+#  .find('xxxx')，查找
+
+#  .offset()/offset({top:x, left:y}) 返回/设置 偏移量
+
+#  .click()，click事件.回调
+
+#  jQueryAPI使用：
+     ①串联：$X.aaa().bbb()
+     ②对象+动作：aaa($X, yyy) =>这里$X是JQ对象(执行aaa动作的对象，yyy是aaa()方法需要的参数)，举例：
+       $X.click(e){ rotate(e.target, 180) }, 让被点击的目标[DOM对象]旋转180°
+
+#  .rotate() 旋转
+
+#  .next(), 选择相邻元素[next 下一个]
+
+#  .trigger()，触发被选元素的指定事件类型
+
+#  对于移动端click事件、tap事件：
+     ①click：移动WEB端，click会有200-300ms延迟
+     ②tap：移动WEB端，取代click事件。（无延迟）
+
+#  document.querySelect("S") >> 用JQ选择器.用查询的方法获取元素。
+
+#  $JQ.append() >> JQuery的DOM操作：贴!   （注意和 JS的appendChild 区别!!）
+
+#  fullPage.js是jQuery的插件（全称: jquery.fullPage.js）,运用于网页"块.移"布局。参考 >> http://www.dowebok.com/77.html
+
+#  .css("样式.名","样式.值");  << jQuery设置样式
+
+#  jQuery用来 制造\安装 DOM：
+  **  jquery操作DOM[创建/插入]：
+  ①var e = $('<E>xxx</E>')            创建
+  ②$X.append/prepend/after/before(e)  插入后/插入前/后/前
+
+#  $.ajax()中，一般获取JSON字符串。用：dataType: "json", >>>> 以获取JSON对象
+
+#  JQ获取/赋值<img>的src：
+   ① $("#imgId")[0].src;
+   ② $("#imgId").attr('src',path); 
+
+#  .find('eeeeee')    向后代查找
+
+#  .hasClass('cccccc')  查找指定类名(的DOM)
+
+#  $X.unbind()  解除X元素的"事件处理器"
+  ------[举例]------
+    $("button").click(function(){
+      $("p").unbind();
+    });
+
+#  $(this)，指的是触发事件的对象、常常在事件回调函数中：
+  ------[举例]------
+    $("xxxx").click(function(){
+      $(this).yyyy  >>>>  （比如：hasClass("zzzz")）
+    });
+
+#  如果"类名"是由"addClass()"在初始render后加上去的、就无法使用事件绑定。
+  （因为在初始渲染时，还不存在这样的"类"、无法绑定）
+
+# 如何对目标DOM添加属性：
+    attr({
+        "href" : "http://www.w3school.com.cn/jquery",
+        "title" : "W3School jQuery Tutorial"
+    });

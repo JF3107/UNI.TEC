@@ -1,0 +1,38 @@
+
+
+技术综合：
+****************************************************************
+<<<<<<<< 
+<<<<<<<< 0420
+# URL传参: xxxx?yyy=zzz&aaa=bbb >> "&"后是第二参
+
+# WS->LocalStorage/SessionStorage（缓存）=> F12查看"application"
+
+#  获取本机IP：
+     方法①=>cmd >> ipconfig/all >> 第三组:IPv4地址 x.x.x.x(首选) 【这个就是IP】
+     方法②=>左下"打开:网络和共享中心" >> 访问类型-连接:点击-跳出弹窗:(无线)网络连接状态 >> 点击:详细信息 >> IPv4地址
+
+#  nginx，一个服务。
+     其指定开放目录（该目录还可在nginx目录外）才能被访问到。
+       -----
+     需要在nginx/nginx.conf中配置。
+    **  配置关键：listen(监听端口), root(开放区域[目录])
+
+#  关于页面加载静态资源[img/js/css  重点:img]
+  ①如果你在本地使用：直接相对定位
+  ②如果是在生产使用：需要结合生产上.实际的路径名、预先设置!!
+    （比如，"resource/images/..."）
+
+
+
+<<<<<<<< pre 1119
+# .tar.gz文件，是linux/MacOS的gzip压缩格式，window解压之：需要用7.zip连续解压两次!
+# 运行"批处理文件"失败[报错：不是内部、外部..], 先考虑的是："以管理员权限打开"
+# .bat 文件：window用，批处理文件
+  .sh  文件：linux用，shell文件
+# "'tasklist' 不是内部或外部命令"的 解决方案：[改 环境变量]
+    ComSpec  >> %SystemRoot%\system32\cmd.exe
+    Path     >> 加 ;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;C:\Windows\SysWOW64
+        即可。
+# 如果用了(IE代理),(当密码PING通[如果有..]之后)需要同样在npm设置代理，语句如下：
+    npm config set proxy=http://xxx.xxx.xxx.xxx:xxxx

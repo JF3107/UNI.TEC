@@ -1,0 +1,28 @@
+
+
+
+
+CSS：
+****************************************************************
+<<<<<<<< 
+
+
+<<<<<<<<pre 0420
+
+#  rem，CSS3新增的一个相对单位。仅相对与HTML根元素的字体大小（em是相对于父元素的字体大小）
+
+#  transition： ①property②duration③transition-function④delay
+     ①属性-transition-property：none(无[默认]),all(全部属性),具体名(多项.则以逗号分隔)
+     ②持续-transition-duration：0[默认]，具体秒(s)/毫秒(ms)
+     ③变化-transition-timing-function：ease(逐渐变慢),linear(匀速),ease-in(加速),ease-out(减速),ease-in-out(加速-减速)
+     ④延迟-transition-delay：0[默认]，具体秒(s)/毫秒(ms)
+   （支持各浏览器差异。-moz-transition, -webkit-transition, -o-transition）
+    >>>> 举例：(hover上去，宽度2秒内增至300px)
+      div{
+          width:100px
+          transition: width 2s
+      }
+      div:hover{
+          width:300px
+      }
+    ** transition：cubic-bezier(<x1>,<y1>,<x2>,<y2>) 贝塞尔曲线：P0(0,0).P3(1,1)不变\P1(x1,y1).P2(x2,y2)改变以生成【速度曲线】

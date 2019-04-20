@@ -1,0 +1,123 @@
+
+
+
+
+JS：
+****************************************************************
+<<<<<<<< 
+
+
+<<<<<<<< pre 0420
+
+#  关于call apply：
+    B.apply(A, arguments);  A对象调用B方法，把arguments[参数数组]作为参数 【A是对象，B是方法，参数是数组】
+    B.call(A, args1,args2); A对象调用B方法，依次把args1\args2\...作为参数 【A是对象，B是方法，参数依次传入】
+
+#  关闭窗口 window.close() [ 打开：window.open('xxxx.html?aaaa=bbbb&cccc=dddd') ]
+
+#  .unescape(str), 对通过escape()编码的字符串进行解码 [返回：str被解码的副本]
+
+#  ** 超出部分"..."：str.substr(0,20)+"..."
+
+#  Array slice(n,m)方法：①截取子数组 ②n必须m可省 ③nm含头不含尾
+
+#  argvs.slice(1)[0],解析：（slice是返回【子数组】）
+     slice(n,m)用于从数组中返回选定元素组成的数组[含头不含尾、只有n:从n起至尾]
+
+#  .match(str/reg), ①字符串内检索指定值[参数:str]/②找到1个/多个正则匹配[参数:reg]
+
+#  方法.apply(执行方法的对象, ArrArg)
+   方法.call(执行方法的对象, arg1, arg2, ...)
+     ** 使用构造函数原始方法 正确写法：Array.apply(null, btns).forEach(function(item){xxx})
+
+#  转base64（canvas.todataURL法），步骤：
+  ① 创建canvas  >>  var canvas=document.createElement("canvas")
+  ② 设置canvas宽高（不设置.将使用默认）
+  ③ 生成ctx  >>  var ctx=canvas.getContext("2d")
+  ④ 作画  >>  ctx.drawImage(img,0,0,w,h) >>> img是图对象, 0.0表示"左.上.顶端起", 宽高.不写无所谓
+     （作画完成后，ctx就没用了 >> canvas）
+  ⑤ 生成base64 >> var b64=canvas.toDataURL("image/xxx")
+     （最后的xxx是"扩展名"，可通过：img.src.substring(img.src.lastIndexOf(".")+1).toLowerCase()）
+      -------
+   以上步骤需要写在图片对象.onload函数之内，其外层：
+   A  var img=new Image(); //创建一个空的Image对象( 脱离于DOM )
+   B  img.src=url;   //这个url就是 我材料图片的那个url
+   C  img.onload=function(){ 这里放：①-⑤ }  //需要等img onload了、才可进行canvas系
+ 【img-url跨域？】当然啦!! 自己起一个服务（nginx）/或者其他服务器 吧。
+
+#  arguments.callee，用于递归.本函数名。
+    函数内，arguments为内部对象.包含传入函数的所有参数。argument.callee代表函数名[!!就这么规定的..]。
+      **  作用、消除紧耦合
+
+#  .lastIndexOf("xxx"), 从后往前寻找指定字符串(找到第一个后、返回index、终止)
+
+#  JS.移动端 开发的一些体会：
+  ① JS在PC/Mobile都能跑，浏览器调试Mobile时、切换成"移动端"。即可。
+  ② 使用xxx.addEventListener("touchstart"/"touchend",function(){})可监听"长按"
+     **  其中touchstart/touchend是[ 按下-松开 ]的两个事件
+     **  在监听回调中、第一行都会event.preventDefault();>>待了解【】
+     **  如需对被监听对象操作，可event.target.xxx、比如event.target.innerHTML="yyy"
+
+#  DOM.appendChild() >> JS原生的DOM操作：贴!   （注意和 JQ的append 区别!!）
+
+#  window.location.replace(xxx)/.href=xxx 的区别：
+  ①window.location.replace("uuu"), A->B->【C】、B-C段用replace、【回退】、退回A
+  ②window.location.href=uuu, A->B->【C】、B-C段用href、【回退】、退回B
+
+#  JS 同步、异步、单线程 related
+    setTimeout和setInterval，可以改变JS执行顺序。它们通常在执行完所有JS代码后才执行。
+    >>  即使没有设置超时值(setTimeout 值为0、1-2-setTimeout3-4-5)，也不能保证输出为"12345".
+  ------
+    JS的异步：①setTimeout/setInterval ②ajax
+  ------
+    JS是单线程的, 所以处理任务时产生"任务队列"概念。为解决队列中某些任务等待过久(比如IO[网络])、产生"同步"、"异步"：
+    将需要等待的任务暂时挂起、处理其他任务 >> 待挂起任务得到反应[可以继续处理]时、再继续，叫"异步操作"。
+    按任务队列顺序执行，叫"同步操作"。
+    （执行栈[同步任务集中]、任务队列[异步任务回调结果.结果]。执行栈处理完，再来处理任务队列）
+
+#  【ES6】Promise直用(.reje/reso)：返回一个新的Promise实例、其状态为[reje/reso]
+const p = Promise.reject(xxx)
+const p = Promise.resolve(yyy)
+（后续： p.then() >> 作reje/reso处理）
+
+#  try/catch >> 用来定义/处置异常；throw eeee >> 用来抛出异常
+
+#  export default >>>> export一个名为default的变量，import时.可以随意为此输出取名。
+（Vue中经常看到、但它是ES6语法）
+注意两种用法的对应：
+① export default xxxx >> import iiii from "uuuu" >>> 用了default.匿名输出1个!
+② export xxxx  >>  import {iiii} from "uuuu"    >>> 普通export.引入(import)时用{}接
+
+#  JS 数组遍历.对象遍历
+===========
+JS 数组遍历：
+① 普通for循环      >> for(let i=0; i<arr.length; i++) {...}
+② 优化for循环      >> for(let i=0, len=arr.length; i<len; i++) {...} 《 存下数组长度.避免重复获取
+③ forEach[ES5+]    >> arr.forEach(function(v, i){...})  《 v-value-值, i-index-索引(0+) 《 其性能比for弱
+   （forEach缺陷： 不能 break[终止循环]，不能 return[终止函数]）
+④ map遍历[ES5+]    >> arr.map(function(v, i){...})  《 v-value-值, i-index-索引(0+)
+   （forEach、map 都是ES5+语法，IE9- 不能用）
+⑤ for-of遍历[ES6+] >> for(let i of arr){...} 《 i-index-索引(0+), 支持数组、字符串遍历
+   （for-of 支持: continue, break, return）
+****
+JS 对象遍历：
+① for-in遍历       >> for(var index in obj){...} 《 用于"遍历对象"，不适用于"遍历数组"(遍历出的index为字符串)
+
+# switch语句，勿忘"break;"、不然.语句执行完本case会继续下一个case
+switch(n)
+{
+case 1:
+  执行代码块 1
+  break;
+case 2:
+  执行代码块 2
+  break;
+default:
+  n 与 case 1 和 case 2 不同时执行的代码
+}
+☆单行case语句：case:{xxxxx;xxx;xx;x;break;}
+
+# JS字符串截取:
+substring(startIndex[, endIndex])  >>>> 截取start-end之间的字符返回新的字符串 << !!不支持"负数索引"(-n皆为0)
+substring(startIndex[, length])  >>>> 截取自start起length个字符返回新的字符串 << !!不支持"负数索引"(-n皆为0)
+slice(startIndex[, endIndex])  >>>> 截取start(含)-end(不含)之间的字符返回新的字符串【支持"负数索引"】

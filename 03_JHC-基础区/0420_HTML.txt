@@ -1,0 +1,18 @@
+
+
+
+
+HTML：
+****************************************************************
+<<<<<<<< 
+
+
+<<<<<<<< pre 0420
+
+#  <meta>的"viewport"属性->【视口】：（死记加硬背）
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+#  <i>里的"十六进制icon"，例如：content: '\e816';(编辑icon)。
+
+#  <!DOCTYPE html>，是html5标准网页声明。其作用/重要性：
+  ☆ 声明文档的解析类型、避免B的怪异模式

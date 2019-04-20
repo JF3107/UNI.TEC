@@ -1,0 +1,17 @@
+
+
+NPM：
+****************************************************************
+<<<<<<<< 
+
+
+>>>>>>>>【概念】
+没啥好说，直接上"运用"！
+
+
+>>>>>>>>【命令】
+# npm install -g npm >>>> 更新npm
+# npm config set registry 源地址 >>>> 切换源
+# npm config set proxy=http://127.0.0.1:8888 >>>> 设置代理
+# npm config delete proxy >>>> 删除代理
+# npm list (-g) --depth 0  >>>> 查看npm(全局/本目录)各版本

@@ -1,0 +1,133 @@
+
+
+
+MU业务综合：
+****************************************************************
+<<<<<<<< 
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+【业务专区】
+
+#  东航旅客名存储格式： 姓/名 中间名（fir/las middle）
+
+# M站.MU支付方式对应.编码
+20061  现金支付  >>>  完全现金【现金支付】
+20062  积分换票   含税 >>> 部分抵扣（MU积分购票-部分兑）【融合支付】
+20063  动态积分   只有积分 >>> 完全积分（MU积分购票-随心兑）【积分支付】
+20093  混合支付    现金+积分 >>> 随意比例【混合支付】
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+【主线专区】
+----------------------
+
+【Skills/项目机能】
+#  关于地址：
+     ① localhost:80/127.0.0.1:80打开页面，无法改语言[比如: 台湾] >>>> 需要用hosts进行映射设置
+     ② 映射设置[最好用"替换"的办法]，** 127.0.0.1 dev.ceair,com( dev.ceair.com映射127.0.0.1 ) ** 
+         使用：直接输入dev.ceair.com, 会自动映射 127.0.0.1
+     ③ 台湾页面，请手动输入(而不是页面按钮切换)：devtw.ceair.com/hk  ** 映射详情.请参见 hosts文件/逻辑参见nginx.conf文件
+         【注意】：请先编译，编译方法参见 gruntFile.js L1-8注释行:命令 >> 编译命令【grunt dev -c:TW[大小写不敏感]】
+     ④ 生产环境、开发环境，后端连接信息/设置，在nginx.conf（nginx-conf目录内）中设置。L146+，搜"测试" or "生产"
+         **** 用"#"注释 测试/开发、删"#"打开 开发/测试
+     ⑤ 区别：de.ceair.com生产环境-德 / devde.ceair.com开发环境-德
+         **** hosts文件中能看到18个环境[映射]，dev开头的>>英语(US), devxx开头的>>其他语种
+
+
+【B2CC网站.URL】
+#  B2CC项目，不用路由跳转、而是直接以html文件定位。这些html、就是public下各locale目录下的html：
+    >>>> 以us(locale:美国)分析：us下是语言目录zh(lan:简体中文)、en(lan:英语)。zh/en是各自的htmls
+
+#  B2CC项目-url分析，http://dev.ceair.com/en/check-in.html：
+    ①dev/devde/devtw 选择locale包(/目录)=> us/de/tw
+    ②/zh或/en 就是locale目录下的lan包(/目录)=> zh/en
+    ③xxxx.html就是各lan包(/目录)下的html文件/网页
+
+
+【B2CC网站.代码】
+#  gruntFile.js，代码解析：（基于NJS）
+     其中share出的是runGrunt的方法，runGrunt方法接受"grunt"[由安装提供]注入、主方法grunt.initConfig。
+     --------------
+     对gruntFile准备区的解析（L10-L26）：
+       process        一个Object（里面有各argv属性）
+       process.argv   ①C:\dev\nodejs\node.exe,②C:\dev\nodejs\node_modules\grunt-cli\bin\grunt,③dev
+       argvs          process.argv.slice(2)，取上面第三个: dev
+       env            下面会用switch赋值（production/dev/test）
+       errorTag       初始值false、后续可能重新赋值
+       version        当前毫秒数.时间戳
+       siteArgv       undefined!!!  argvs.slice(1)[0] => dev，不是数组不存在第二个元素.
+       siteIIFE       l-1，因为是undefined 所以temp是[]，
+                      l-2，因为temp是[],temp.length是0 => !!!认为是"假值"、所以进"冒号后" => site此时是dftSite数组
+                      l-3，if语句，argvs是dev，这里重新给site赋值，为dev
+                   >>>> 所以 site最终是 dev、返回
+     ---------------
+     对gruntFile剩余部分的解析（L27+）：
+       concat->理解为"连接"的意思，在代码中concat是把所有的引用/工具js、【拼接】成一个js文件
+       >>> 而cms[ cms.config.js ]就是针对(工具)代码系拼接聚合的配置文件
+
+#  webpack.conf.js，代码解析：
+     options中，default下output[输出]：去往public/system/assets/scripts、生成[name].bundle.js
+   （以上就是 B2CC的js代码流向：prebuild->public/sys/ass/scripts-xxx.bunld.js）
+
+#  entry.js，代码解析：
+     L3-L10、声明区：类似react、react-dom是模块引入；类似./xxx是文件夹读取（./config指config.js << 这个是例外）
+     L12-L103、扩展区：对 Date、Number构造函数原型对象的.方法-扩展
+     L104+，功能区：[配合config.js >> config-api] 生成 header/footer页面。
+   （header  >>>  "/public/system/tempCMS/ceairheader-" + lang + ".html" <<语言针对）
+   （footer  >>>  "/public/system/tempCMS/footer-" + lang + ".html" <<语言针对）
+
+
+【-】
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+【破案专区】
+
+#  【破案-1227.15】rem 可改变字体/HTML大小、（M站）一般会把参照设在<html>  << （font-size:xx px）
+----------
+<html>会被改。因为>>自适应脚本!!。基于clientWidth。resize代码如下：
+function resize() {
+    window.t = +new Date();
+    var clientWidth = document.documentElement.clientWidth;
+    if (!clientWidth) return;
+    document.documentElement.style.fontSize = 20 * (clientWidth / 320) + 'px';
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+【术语专区】
+
+#  checkin 值机[页面: 办登机牌]
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+【问题专区】
+
+1129，了解一下：JQ $X.on('touchstart或touchend', ...)
+1129，depart.on('webkitTransitionEnd'， 在这个事件 是什么事件?
+1129，apply和call，其中apply中的参数this、argument是？
+1129，了解一下：耦合度<<< pick一下
+1129，了解一下：JQ $()
+1121，了解一下：<meta>:charset; http-equiv, content; name(keywords/description)
+1121，研究 e.preventDefault();
+1121，研究 e.stopPropagation();
+1121，进深Swiper  << JQ的
+1121，进深eval() 
+1116，后续结构化学习，Zepto
+1116，后续结构化学习，JQuery
+1116，后续pickup，JQ-webkitTransitionEnd-事件
+---------
