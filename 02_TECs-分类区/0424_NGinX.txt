@@ -1,0 +1,19 @@
+
+
+
+nginx：
+****************************************************************
+<<<<<<<< 
+
+
+
+
+
+操作方案：
+******************
+【1】nginx，如何以跑起M网站操（base在@CBIO本地）：[@CBIO提供 "nginx包"]
+① nginx包[nginx-1.x.x][目录为文件夹+nginx.exe]（注意：html是前端文件容纳区.可结合FIS编译使用，conf为设置区）
+② 自制nginx.bat：参照任意范本，主要对盘符、文件名进行更改（主要改：%NGINX_DIR%）
+③ 将M网站FIS编译脚本的"落脚点"改为 nginx-1.x.x/html中，这样M网站前端(eastern)直接编译进nginx目录中
+④ 将nginx配置文件（nginx.conf）L40-"server"处, listen、就是端口：改!（比如80xx）
+⑤ 完工，用localhost:80xx访问 <<<<

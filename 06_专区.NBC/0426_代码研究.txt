@@ -1,0 +1,19 @@
+
+
+
+
+
+0426（主要对main.js、及其涉及一些文件，作了了解）
+------------------------------------
+#  main.js主体结构：
+Vue.config.productionTip = false  >> 阻止启动生产消息
+VueRouter，①base 根目录、②mode模式（NBC中采用"history"模式）
+render: h => h(App)，释义：render方法 >> 参数[是个方法]h（实参：createElement）
+vm.$mount("#app");  释义：vm[vue实例]，$mount()手动挂载，"#app"-'挂点' >>> 将vm实例手动挂载到DOM的'挂点'
+（DOM底板，即public/index.html。内有'挂点'：<div id="app"></div>）
+----
+简单四步：
+① 阻止prod消息
+② use-VueRouter
+③ new-VueRouter（配置 base、mode、routes）
+④ new-Vue（配置 router、store、i18n，render起，mount至#xxx）

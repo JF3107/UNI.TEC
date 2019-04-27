@@ -1,0 +1,31 @@
+
+
+VUE CLI（@vue/cli）：
+****************************************************************
+<<<<<<<< 
+
+
+#  安装：npm install -g @vue/cli
+（验证， vue --version）
+
+#  用【vue server】、【vue build】对单个 *.vue文件进行快速原型开发。先：
+npm install -g @vue/cli-service-global  >>  安装原型扩展
+① vue server（App.vue目录下。会自动推导入口文件；或、显式指定入口文件 vue server xxx.vue）
+② vue build xxx.vue  >>  将目标文件构建成一个生产环境的包
+
+#  创建新项目：
+vue create xxx （创建，跟向导走 ... 直到建成）
+
+#  添加[安装]插件：
+安装  >>  vue add @vue/xxx （就相当于 安装@vue/cli-plugin-xxx）
+注册  >>  利用package.json文件中vuePlugins.service选项。（直接访问插件API、而不需要创建一个完整的插件）
+
+# CLI服务（也就是 npm run serve / dev之类为何生效的原因）
+@vue/cli-service安装了vue-cli-service的命令，package.json中scripts可以看到。
+scripts中 "serve": "vue-cli-service serve",  >>  故可【npm run serve】
+*  vue-cli-service serve  启动一个开发服务器
+*  vue-cli-service build  产生一个可用于生产环境的包
+*  vue-cli-service inspect  用来审查一个VUE.CLI项目的webpack config
+#  npx vue-cli-service help  >>  查看所有可用命令
+
+
