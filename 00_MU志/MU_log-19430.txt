@@ -1,22 +1,67 @@
 
 
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+#19.0506-0509段
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+#18.0428-0430段
+
+任务：
+① MU-NBC开始（通用组件+）
+② MWZ-1136.退票价格-修改[ 跟进 ]
+③ MWZ-robot
+
+收获：
+【VSCode】
+#  自动注释：@Author\Date\LastModified 在"用户设置"的"fileHeaderComment.template"设置
+#  用户设置realted：VSCode-文件[左上]-首选项-设置 / 齿轮[左下]-设置 进入。如果要进入代码模式, 请点击右上"{}"
+#  setting.json，用户设置的代码模式对应这个文件、它就是设置json文件。如果没有内容，说明：没有设置=>可以copy[项目中] / 可以玩转。
+#  每个项目有自己的setting.json（在项目.vscode下），控制着本项目的VSCode表现。【注意】项目setting会覆盖同名全局(VSCode)setting
+#  重启，ctrl+shift+P（弹出中央命令框），输入"reload window"
+#  "VSCE"  >>  VSCodeExtension工具
+#  VSCode代码"丢高亮"（以vue为例），处置：①请重新选择"主题"[dark+/light+] ②右下 Vue点击-关联 ③重装相关插件
+
+
+【nodeJS】
+#  node xx.js  >>  node层面去执行js文件[node.js]
+
+【NBC_excel 研探】
+主线：dist取*(非必要)>>加工excel文件>>输出至output
+excel/index.js中有：①nodeJS写法、②操作excel文件，可学！
+
+【JSON】
+#  在JS中读取JSON：let jsonObj = require("./xx/yy.json")  >>  直接引入
+**  jsonObj.aaa/bbb/ccc 读取JSON中的属性
+
+【CSS】
+#  如何解决：浮动div对父级元素的影响（父级元素高度丢失），最佳方案：
+>>  对父元素使用 :after 伪元素选择器，如下：
+.father:after {
+  content: "";
+  height: 0;
+  visibility: hidden; // visibility属性: 元素是否可见（默认visible. hidden. collapse. inherit）
+  display: block;
+  clear: both;
+} （content、height、visibility、display、clear 一共五项）
+
+资料：
+-
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 #17.0422-0426段
 
 任务：
+1 DB18175-43，K
 
-技巧：
+收获：
+-
 
 资料：
-
-
-
-
-
-
-
-
-
+-
 
 
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&

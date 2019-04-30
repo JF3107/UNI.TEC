@@ -7,6 +7,12 @@ JS：
 <<<<<<<< 
 
 
+<<<<<<<< 0430
+
+#  在JS中读取JSON：let jsonObj = require("./xx/yy.json")  >>  直接引入
+**  jsonObj.aaa/bbb/ccc 读取JSON中的属性
+
+
 <<<<<<<< pre 0420
 
 #  关于call apply：

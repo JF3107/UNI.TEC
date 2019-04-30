@@ -1,0 +1,37 @@
+搬瓦工
+**********************
+(登录 1  从搬瓦工主页开始 [ 镜像网址 https://bwh88.net/clientarea.php?action=products ])
+搬瓦工登录名：jayfan_k290@126.com
+搬瓦工登录密：passw0rd
+(登录 2  从putty开始 )
+IP：95.169.23.67
+端口：28112
+方式：ssh
+root密码 - 动态（可前往panel >> reset）
+--【客户端】--
+Your Server IP                    :  95.169.23.67
+Your Server Port                 :  19380
+Your Password                   :  www.yigeni.com
+Your Encryption Method    :  aes-256-cfb
+---
+IP 95.169.23.67
+端口 28112
+----
+搭载：Centos 6 x86_64-bbr（28112端口+root\b2YATNwtK8gg）
+wget –no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/yigeni/Shadowsocks/master/shadowsocks-all.sh
+( yum -y install wget )
+chmod +x shadowsocks-all.sh
+./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
+(   进入选择环节、各种回车..除了最后一个 选"aes-256-cfb (7)" )
+----
+Your Server IP                    :  95.169.23.67
+Your Server Port                 :  19380
+Your Password                   :  www.yigeni.com
+Your Encryption Method    :  aes-256-cfb
+Your QR Code: (For Shadowsocks Windows, OSX, Android and iOS clients)
+ ss://YWVzLTI1Ni1jZmI6d3d3LnlpZ2VuaS5jb21AOTUuMTY5LjIzLjY3OjE5Mzgw
+Your QR Code has been saved as a PNG file path:
+ /root/shadowsocks_python_qr.png
+【切记】
+不能再用"搬瓦工server操作台 - 一键SS"了！（也就是: https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks）
+【既然选择了手动，那就手动吧!!】

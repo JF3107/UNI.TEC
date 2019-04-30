@@ -8,6 +8,18 @@ CSS：
 
 
 
+<<<<<<<< 0430
+
+#  如何解决：浮动div对父级元素的影响（父级元素高度丢失），最佳方案：
+>>  对父元素使用 :after 伪元素选择器，如下：
+.father:after {
+  content: "";
+  height: 0;
+  visibility: hidden; // visibility属性: 元素是否可见（默认visible. hidden. collapse. inherit）
+  display: block;
+  clear: both;
+} （content、height、visibility、display、clear 一共五项）
+
 
 <<<<<<<< 0426
 

@@ -1,0 +1,26 @@
+
+
+VUE Router：
+****************************************************************
+<<<<<<<< 
+
+
+#  安装及使用：（先vue再vr，vueUseVR）
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+---[HTML]---
+<router-link to="/foo">Go to Foo</router-link>  >>  入口：to指定路由链接、<router-link>默认被渲染成一个<a>
+<router-view></router-view>  >>  出口：路由分配到的组件.在此渲染
+---[JS]---
+① const Foo = { template: '<div>foo</div>' }  >>  定义路由组件（template中是"内容"）
+② const routes = [{ path: '/foo', component: Foo },{}...]  >>  定义路由
+③ const router = new VueRouter({ routes: routes })  >>  创建router实例[ NBC项目中的"创建router实例"，还包括：base、mode设置 ]
+④ new Vue({router,..., render: h => h(App) }).$mount("#app");  >>  router实例，进vue实例（new Vue），并挂载之
+** 通过 第④步[注入路由器]，可以在任何组件内访问路由器，例如：
+this.$route.params.xxx
+this.$router.go(-1)
+this.$router.push('/')
+
+
+

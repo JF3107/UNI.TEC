@@ -17,3 +17,4 @@ nginx：
 ③ 将M网站FIS编译脚本的"落脚点"改为 nginx-1.x.x/html中，这样M网站前端(eastern)直接编译进nginx目录中
 ④ 将nginx配置文件（nginx.conf）L40-"server"处, listen、就是端口：改!（比如80xx）
 ⑤ 完工，用localhost:80xx访问 <<<<
+★ 注意：nginx、只能在C/D/..的【根目录】。不然，FIS编译时无法找到html目录..

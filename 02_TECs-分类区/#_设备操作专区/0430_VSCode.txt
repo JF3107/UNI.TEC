@@ -1,0 +1,20 @@
+
+
+VSCode：
+****************************************************************
+<<<<<<<< 
+
+
+<<<<<<<< 0430
+
+#  自动注释：@Author\Date\LastModified 在"用户设置"的"fileHeaderComment.template"设置
+
+#  用户设置realted：VSCode-文件[左上]-首选项-设置 / 齿轮[左下]-设置 进入。如果要进入代码模式, 请点击右上"{}"
+
+#  setting.json，用户设置的代码模式对应这个文件、它就是设置json文件。如果没有内容，说明：没有设置=>可以copy[项目中] / 可以玩转。
+
+#  每个项目有自己的setting.json（在项目.vscode下），控制着本项目的VSCode表现。【注意】项目setting会覆盖同名全局(VSCode)setting
+
+#  重启，ctrl+shift+P（弹出中央命令框），输入"reload window"
+
+#  "VSCE"  >>  VSCodeExtension工具

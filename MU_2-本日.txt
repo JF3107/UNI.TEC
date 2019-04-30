@@ -1,13 +1,66 @@
 
 
+----
+506标：
+① 勤学!![①indexJS-K②组件]
+② NBC[③开写-改写④开写-仿写]
+③ MWZ-robot任务.推进!
+④ MWZ-1136跟进\推进
+⑤ VueRouter.K
+⑥ JQ.C[数据].K（1x）
++ Vue.vue推进（1x） 
++ Less.pickup（1x）
++ Fit计划.#427.誊写+Fit-联合健身训练计划.refresh
++ Love.橙."时间轴"
 
 
+----
+430标：
+④ 勤学!![①indexJS-K②组件]
+⑨ NBC[③开写-改写④开写-仿写]
+⑤ VueRouter.K
+⑥ JQ.C[数据].K（1x）
+⑦ Vue.vue推进（1x） 
+⑧ Less.pickup（1x）
+【】+ 学得.记录完毕
+【】① 自行处理[限430].demo页样式走形
+【】② MWZ-robot联系@XHUI.分到任务[+war.Robot新开发模式.tsk+1]
+X pending ③ MWZ-1136继续跟
+
+----
+429标：
+③ VueRouter.K
+⑤ JQ.C[数据].K（1x）
+④ Vue.vue推进（1x） 
+⑦ Less.pickup（1x）
+pending-429C1：① MWZ-1136继续跟
+【】⑧ NBC开始[第一个组件]
+【】⑥ 文法.adj.K
+【】② RBT跑通（+改回node版本）[限2X]
+X + MU.新网站-会议**
+【】+ NHGR.抄好<<知识点
+
+
+----
+428标：
+⑧ 注意应对.RBT
+① MU.新网站-代码方面
+② VueRouter.K
+⑦ Vue.vue推进（1x）
+③ JQ.C[数据].K（1x）
+④ 文法.adj.K
+【】⑤ @ZKUN.ZY1136询问
+X pending ⑥ MUZY-1136.应对
++ Fit计划.#427.誊写
++ Love.橙."时间轴"
+【】* 428.往返3K.锁车[+验证\车门原始状态]
+*！Less.pickup
 
 ----
 426标：
 【】① 31777.网络,谢谢!!
 【】② MU-NBC,初盘.2X
-③ [TEC]vue推进[vueCLI清空]
+【】③ [TEC]vue推进[vueCLI清空]
 ④ [ECO]JQ推进[C数据->推进]
 ⑤ [NHGR]文法.adj清空
 ⑥ FIT.综合调查(RM)+训1通遍(午)
