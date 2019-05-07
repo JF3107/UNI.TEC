@@ -1,0 +1,238 @@
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+#19.0506-0510段
+
+任务：
+506 NBC代码调整
+507 MWZ.1136 + MWZ.robot退票相关 + NBC质问[506] + NBC推进inputBF标准化 + VUE推进
+
+
+
+*** [vue.pickup\push] ***
+（VUE教程）
+method
+compute
+props
+v-系[+v-model]
+vuex和status
+created() 钩子
+<slot>
+this.$parent 》上一级?
+this.dispatch()
+--
+less +号
+--
+
+
+
+
+
+
+*** --- ***
+*** --- ***
+
+
+收获：
+【vue】
+#  <router-view></router-view>，标准写法
+#  <vue-markdown>{{这里填入md-data}}</vue-markdown>
+#  vue事件, .prevent：vue事件修饰符、阻止默认事件（比如submit按钮会自己提交、须阻止）
+#  vue事件, .once：vue事件修饰符、只执行一次
+#  mixins引入，在组件的mixins:[]数组中添加，则可以用 this.xxx 直接使用（xxx就是mixins的方法）
+
+【HTML】
+#  tabindex属性，规定元素的tab键控制次序（1 - 是第一个）
+
+【CSS】
+#  max-height:xxx与overflow:auto配合使用，当高度超过max-height值自动出现垂直滚动条
+#  （overflow针对的，不仅仅是水平向、也可以是垂直向）
+
+【CSS 属性+】
+overflow  >>  规定.当内容溢出元素框时,?①[默认visible]那就溢出②[hidden]被修剪③[scroll]修剪but滚动条④[auto]如果被修剪则滚动条⑤[inherit]继承
+box-sizing  >>  ①content-box[C2]宽高即纯宽高(不含内边距+边框)②border-box[C3]宽高含有内边距和边框【★】两个borderBox的div.w50%>>并排
+max-height  >>  指定段落最大高度（请与overflow-auto配合使用）
+display  >>  元素应该生成的框的类型（参见 http://www.w3school.com.cn/cssref/pr_class_display.asp ::: none\block\inline\inline-block\...）
+line-height（单.数子->x倍行距）  >>  行间距[默认normal(设置合理行间距)①xpx②数字(x倍行距)③%基于当前字体尺寸的百分比行间距④inherit]
+fill  >>  HTML中没有fill属性
+vertical-align  >>  设置一个元素（相对于父元素）的垂直对齐方式[默认baseline放置在父元素基线①top②middle③bottom]
+text-align  >>  规定了元素中文本水平对齐方式[①right②center③left④justify两端对齐文本⑤inherit从父元素继承]
+outline  >>  绘制（位于边框外）轮廓线[outline-color色码、outline-style（none\dotted\dashed\...）、outline-width（thin\medium\thick\xpx）]
+visibility  >>  设置元素是否可见[①默认visible可见②hidden③collapse表格中使用以删除一行\一列④inherit]
+text-decoration  >>  文本修饰线[默认none没线\underline下划线\line-through删除线\overline上划线\blink闪烁线\inherit]
+word-wrap  >>  允许长单词\url换至下一行[ normal不换行(仅在断字点换行)、break-word内部换行 ]
+
+****
+【WAI-ARIA 无障碍】- 带有aria-xxx属性、参考\学习 张鑫旭的介绍：
+https://www.zhangxinxu.com/wordpress/2012/03/wai-aria-%E6%97%A0%E9%9A%9C%E7%A2%8D%E9%98%85%E8%AF%BB/
+
+****
+【GIT 核心快速】- 参考git官方文档
+https://git-scm.com/book/zh/v2
+
+
+质问：
+【MU-NBC项目中】
+markdown样式，有地方参照么? 
+##    有，github搜
+this._radioGroup 是？
+##    上方将$parent 赋给了 this._radioGroup；
+compute中带下划线方法含义?
+##    _xxx提示自己，这个仅在内部使用!
+this.$CEAIRMENT ？
+##    这个是预留全局( $xxxx )变量；全局变量声明：~install方法（稍后copy @BFAN）
+Emitter.js 是element的源码么？哪里看？
+##    是的；在github看、善用github!!!
+全部这些，都是借鉴自element源码么？
+##    对的，参照上面一条~
+
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+#18.0428-0430段
+
+任务：
+① MU-NBC开始（通用组件+）
+② MWZ-1136.退票价格-修改[ 跟进 ]
+③ MWZ-robot
+
+收获：
+【VSCode】
+#  自动注释：@Author\Date\LastModified 在"用户设置"的"fileHeaderComment.template"设置
+#  用户设置realted：VSCode-文件[左上]-首选项-设置 / 齿轮[左下]-设置 进入。如果要进入代码模式, 请点击右上"{}"
+#  setting.json，用户设置的代码模式对应这个文件、它就是设置json文件。如果没有内容，说明：没有设置=>可以copy[项目中] / 可以玩转。
+#  每个项目有自己的setting.json（在项目.vscode下），控制着本项目的VSCode表现。【注意】项目setting会覆盖同名全局(VSCode)setting
+#  重启，ctrl+shift+P（弹出中央命令框），输入"reload window"
+#  "VSCE"  >>  VSCodeExtension工具
+#  VSCode代码"丢高亮"（以vue为例），处置：①请重新选择"主题"[dark+/light+] ②右下 Vue点击-关联 ③重装相关插件
+
+
+【nodeJS】
+#  node xx.js  >>  node层面去执行js文件[node.js]
+
+【NBC_excel 研探】
+主线：dist取*(非必要)>>加工excel文件>>输出至output
+excel/index.js中有：①nodeJS写法、②操作excel文件，可学！
+
+【JSON】
+#  在JS中读取JSON：let jsonObj = require("./xx/yy.json")  >>  直接引入
+**  jsonObj.aaa/bbb/ccc 读取JSON中的属性
+
+【CSS】
+#  如何解决：浮动div对父级元素的影响（父级元素高度丢失），最佳方案：
+>>  对父元素使用 :after 伪元素选择器，如下：
+.father:after {
+  content: "";
+  height: 0;
+  visibility: hidden; // visibility属性: 元素是否可见（默认visible. hidden. collapse. inherit）
+  display: block;
+  clear: both;
+} （content、height、visibility、display、clear 一共五项）
+
+资料：
+-
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+#17.0422-0426段
+
+任务：
+1 DB18175-43，K
+
+收获：
+-
+
+资料：
+-
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+#16.0415-0419段
+
+任务：
+1 DB18175-43，part I（详情页面.明细）
+
+技巧：
+-
+
+资料：
+-
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+#15.0408-0412段
+
+任务：
+1 M站飞行奖励计算器.文案调整=410+0
+2 M站jsp区.字母导航BUG修复=411+0
+
+技巧：
+1 PC-正常，移动(手机\平板\...)浏览器-异常，解决线索：click事件万能（mouseover对移动可能失效[或迟钝]）
+  （类似 mouseover、touchstart、touchend、click，都可能在 PC和Mobile设备上产生差异）
+
+资料：
+-
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+#14.0401-0404段
+
+任务：
+-
+
+技巧：
+-
+
+资料：
+-
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+0325段
+
+任务：
+-
+
+技巧：
+-
+
+资料：
+-
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+0318段
+
+任务：
+1 CMS迁移 [ 香港\英文 ]
+
+技巧：
+1 CMS迁移现已连通测试站点（可验证*）：http://testhk.ceair.com:9999/hk/
+
+资料：
+-
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+0311段
+
+任务：
+1 CMS迁移 [ 香港站繁体中文 ]
+
+技巧：
+1 如何继承父栏目模板：
+    父栏目设置模板，父栏目右中栏下方[...]按下选"同步模板到子栏目"->全选->确定
+
+资料：
+1 CMS发布模块.现行栏目：
+首页  https://host/lang/
+隔夜中转酒店  https://host/lang/transit-hotel-application.html
+机上WIFI  https://host/lang/wifi.html
+wifi表格  https://host/lang/apply-wifi.html
+升舱  https://host/lang/upgrade-class.html
+接送机  https://host/lang/limo-application.html
+逾重行李  https://host/lang/select-baggage.html
+会员受益人  https://host/lang/member-beneficiary.html
+会员积分  https://host/lang/point-claim.html
+选座  https://host/lang/select-seat.html
+值机  https://host/lang/check-in.html

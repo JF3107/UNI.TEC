@@ -1,17 +1,38 @@
 
+（sen ryaku:  以2撑1、争取时间）
+***
+1  MU.NBC  >>  代码[t2]\skill[t1]跟上
+---
+4  MWZ.1048钱包\消费密码[权益券\受益人]>>516
+2  MWZ.rbt  >>  ①可退票②退票纵深>>666
+5  MWZ.主流程[43].开环境\跟进>>未定
+3  MWZ.退票[1136]  >>  ①可退票②进入正线...>>未定
+
+【507，NBC系：质问@BFAN - 源码.方向？~ NBC其他pick = MWZ系...】
+
+----
+507标：
+① NBC质问
+② NBC推进input标准化(含github调查)
+③ VUE推进\排障[2x+]
+④ MWZ.1136完毕
+⑤ MWZ.robot退票相关
+⑥ JQ.C[数据].K（1x）
++ VueRouter.K
++ Less.pickup（1x）
+
 
 ----
 506标：
-① 勤学!![①indexJS-K②组件]
-② NBC[③开写-改写④开写-仿写]
-③ MWZ-robot任务.推进!
-④ MWZ-1136跟进\推进
-⑤ VueRouter.K
-⑥ JQ.C[数据].K（1x）
-+ Vue.vue推进（1x） 
+【】① NBC项目勤学[t2][1]
+② NBC支撑.vue排障[vue主线][t1][1]
+>>③ MWZ-robot任务.推进![2]
+>>④ MWZ-1136跟进\推进[3]
+⑤ JQ.C[数据].K（1x）
+⑥ VueRouter.K
 + Less.pickup（1x）
-+ Fit计划.#427.誊写+Fit-联合健身训练计划.refresh
-+ Love.橙."时间轴"
++ Fit计划.#427.誊写+Fit-联合健身训练计划.refresh（->PIOG）
++ Love.橙."时间轴"（->PIOG）
 
 
 ----
