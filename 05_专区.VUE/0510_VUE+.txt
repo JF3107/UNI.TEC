@@ -1,0 +1,23 @@
+
+
+
+VUE认知+：
+****************************************************************
+<<<<<<<< 
+
+
+<<<<<<<<  0510
+
+#  <router-view></router-view>，标准写法
+
+#  <vue-markdown>{{这里填入md-data}}</vue-markdown> （先：需要npm install vue-markdown）
+
+#  vue事件, .prevent：vue事件修饰符、阻止默认事件（比如submit按钮会自己提交、须阻止）
+
+#  vue事件, .once：vue事件修饰符、只执行一次
+
+#  mixins引入，在组件的mixins:[]数组中添加，则可以用 this.xxx 直接使用（xxx就是mixins的方法）
+
+#  provider/inject - 提供/注入：在父组件中通过provider来提供变量，然后在子组件中通过inject来注入变量。
+
+#  this.$emit('eee', vvv);  >>  vue官方回调、发出eee事件\携带vvv参数（非必要[-]，无影响[代码正常通过，需要时在组件标签@eee="xxx"即可]）

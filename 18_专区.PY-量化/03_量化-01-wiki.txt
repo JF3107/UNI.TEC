@@ -4,15 +4,41 @@
 8888888888888888888888888888888888888888888888888888888888888888888888888
 >>>>>>> 
 
->>>>>>> 0428+
+
+
+C8，：
+*************************************************************************************************
+
+
+>>>>>>> 0509+
 
 C7，获取典型常用数据：
 *************************************************************************************************
-数据获取入口：①点击导航栏"数据" ②API中搜索关键字（针对API涉及的...）
-[ 请善用“Ctrl+F （搜索）” ]
-①获取指数成分股：
-get_index_stocks(index_symbol, date=None)
-②获取股票行情数据 ...
+①数据获取入口：
+i-点击导航栏"数据"、ii-API中搜索关键字（针对API涉及的...）
+  [ 请善用“Ctrl+F （搜索）” ]
+②获取指数成分股：
+##  get_index_stocks(index_symbol, date=None)
+③获取股票行情数据 ...
+  [ "股票行情数据"指：SecurityUnitData里面的所有<基本属性> ]
+★ 多个标的、单个数据字段 - - history --------------------------------
+☆ 默认：最小单位1天，字段avg(平均值)，全部(universe)股票，dataFrame输出，不跳过停牌，前复权    <<<<
+##  history（count，unit='1d'，field='avg'，security_list=None，df=True，skip_paused=False，fq='pre'）
+  [ dataFrame类型:输出一个"表格"..df=True；dict类型:字典..df=False ]
+（ 复权就是对股价和成交量进行权息修复，按照股票的实际涨跌绘制股价走势图,并把成交量调整为相同的股本口径。 ）
+★ 单个标的、多个数据字段 - - attribute_history ----------------------
+☆ 默认：最小单位1天，字段ochlvm，跳过停牌，dataFrame输出，前复权    <<<<
+##  attribute_history（security，count，unit='1d'，fields=['open', 'close', 'high', 'low', 'volume', 'money']
+             ，skip_paused=True，df=True，fq='pre'）
+★ dataFrame数据类型：（缩写、dfm， .. 隶属于 pandas）
+获取index：dfm.index  >>  得到"索引/行首" .. 是datatimeindex类型
+获取index：dfm.columns  >>  得到"列头" .. 是list类型
+获取index：dfm.values  >>  得到"个值" .. 是"二维list"类型
+----
+dfm.loc[~1，~2]，以"行/列标签名[:，['aaa','bbb'] ]"筛选、":"..冒号 即"全部"....（筛选出的还是dataFrame类型，可.values来取值->结果: 双list类型）
+dfm.iloc[~1，~2]，以"行/列位置[:，[0,2] ]"筛选、":"..冒号 即"全部"....（筛选出的还是dataFrame类型，可.values来取值->结果: 双list类型）
+----
+行列转置：dfm.T   （.T 方法）
 
 
 >>>>>>> 0420

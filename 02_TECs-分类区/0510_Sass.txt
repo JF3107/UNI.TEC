@@ -1,0 +1,55 @@
+
+
+SASS：（.scss）
+****************************************************************
+<<<<<<<< 
+
+
+
+<<<<<<<< 0510
+
+#  @at-root，跳出嵌套。
+
+#  @mixin xxx { nnn }，声明样式模块->xxx、样式内容->nnn
+
+#  @mixin xxx（rrr） { nnn }，...、样式模块参数->rrr。样式示例：($a)或($a=b) $a在模块中使用、b是默认值
+
+#  @include xxx; ，引用之前声明的样式模块
+
+#  @content，内容占位。（@include xxx { yyyy }  >>  include模块后直接加大括号添加样式、该内容就放在@content）
+    ----编译前（SCSS）----
+        $color: white;
+        @mixin colors($color: blue) {
+            background-color: $color;
+            @content;
+            border-color: $color;
+        }
+        .colors {
+            @include colors { color: $color; }
+        }
+    ----编译后（CSS）----
+        .colors {
+            background-color: blue;
+            color: white;
+            border-color: blue;
+        }
+
+#  @each遍历：@each $var in <list>  >>  $var就是一变量名、<list>是一SassScript表达式.返回列表值
+
+#  @while循环：@while [SassScript表达式]  {....}  >>  SassScript表达式true-继续循环, false-中止循环
+
+#  @if条件：@if {...} @else {......}  
+
+#  @for $var from <start> through/to <end>  
+  >>  其中<start>/<end>是开始/结束SassScript表达式，through:从start到end(含)、to:从start到end(不含end)
+
+#  变量-套用，示例：
+      $a: aaa !default;
+      #{$a}-#{$a} {xxx}
+        ---(CSS编译结果)---
+      .aaa-aaa {xxx}      >>  “.”自动加，编译出来就是"类"
+
+#  &，拼接 => &.ccc { nnn }
+
+#  !global，在@mixin中声明变量的值后面加"!global", 该声明全局化。=>@mixin xxx{ $btn-bg-color: lightblue !global; }
+

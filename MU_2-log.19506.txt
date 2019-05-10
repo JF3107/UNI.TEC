@@ -1,45 +1,72 @@
 
 
+
+
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-#19.0506-0510段
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+#20.0506-0510段
 
-任务：
+TEC-2:     2019.0510.1602
+ECO-3:     2019.0510.1602
+
+【前方】
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<**********************************************************************************************
+MU.NBC+
+-------
+MWZ-1048 [推进: 受益人UI \ HEBQ.K \ 对接] [5%]
+MWZ-43 [跟进: 轮询] [100%]
+MWZ-robot [跟进: 改升] [82%]
+***************************************************  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+WAI-ARIA 无障碍  **  参考链接-见本段内
+GIT 核心快速  **  参考链接-见本段内
+Vue 速抢!!   **  参考点-见本段内
+-------
+VUE正线
+VueRouter[全家桶线]
+-------
+Less.pickup
+
+
+【战略】：-- 以2撑1、争取时间
+***************************************************
+1  MU.NBC  >>  510+①input持续优化升级(MIXInput方向)[t2] ②vue基础+[t1]
+---
+4  MWZ.1048钱包\消费密码[权益券\受益人]【5%】 >> 513①受益人UI ②跟进.@HEBQ.action2.消费密码 ③@HEBQ.action对接 ④对接 >> 516
+2  MWZ.rbt【82%】 >> 513①改升A/B轮询 >> 000
+5  MWZ.主流程[43]【DK】 >> 513①测试@ZKUN-质询 >> 000
+---
++ VueRouter.K
++ Less.pickup（1x）
+*  JQ.C[数据].K（1x）
+
+【任务】：
+***************************************************
 506 NBC代码调整
-507 MWZ.1136 + MWZ.robot退票相关 + NBC质问[506] + NBC推进inputBF标准化 + VUE推进
+507 MWZ1136.DK + NBC质问506.K
+508 MWZrbt跟制.K + MWZ43跟.K + MWZ1136跟.K + NBCinputEIE改造.ing
+509 MWZrbt跟改升.K + MWZ1048受益人逻辑受益人UI.K + NBCinputEIE改造.K
+510 NBC.input基本功能[输入]调通.K + 复盘510
 
 
+【收获】：
+***************************************************
+【ELEmentUI 源码】
+*** SASS部分 ***
+sass函数，b()  >>  .el-xxx
+sass函数，e()  >>  .el-xxx__ooo
+sass函数，m()  >>  &--ooo
+sass函数，when()  >>  &.is-ooo
 
-*** [vue.pickup\push] ***
-（VUE教程）
-method
-compute
-props
-v-系[+v-model]
-vuex和status
-created() 钩子
-<slot>
-this.$parent 》上一级?
-this.dispatch()
---
-less +号
---
-
-
-
-
-
-
-*** --- ***
-*** --- ***
-
-
-收获：
 【vue】
 #  <router-view></router-view>，标准写法
 #  <vue-markdown>{{这里填入md-data}}</vue-markdown>
 #  vue事件, .prevent：vue事件修饰符、阻止默认事件（比如submit按钮会自己提交、须阻止）
 #  vue事件, .once：vue事件修饰符、只执行一次
 #  mixins引入，在组件的mixins:[]数组中添加，则可以用 this.xxx 直接使用（xxx就是mixins的方法）
+#  provider/inject - 提供/注入：在父组件中通过provider来提供变量，然后在子组件中通过inject来注入变量。
+#  this.$emit('eee', vvv);  >>  vue官方回调、发出eee事件\携带vvv参数（非必要[-]，无影响[代码正常通过，需要时在组件标签@eee="xxx"即可]）
+
+【JS】
 
 【HTML】
 #  tabindex属性，规定元素的tab键控制次序（1 - 是第一个）
@@ -47,6 +74,7 @@ less +号
 【CSS】
 #  max-height:xxx与overflow:auto配合使用，当高度超过max-height值自动出现垂直滚动条
 #  （overflow针对的，不仅仅是水平向、也可以是垂直向）
+#  > 子选择器[父子、不隔代]；+ 相邻选择器[ 同级.相邻\紧接(兄弟) ]；~ 匹配选择器[之后-所有-同级的x元素]
 
 【CSS 属性+】
 overflow  >>  规定.当内容溢出元素框时,?①[默认visible]那就溢出②[hidden]被修剪③[scroll]修剪but滚动条④[auto]如果被修剪则滚动条⑤[inherit]继承
@@ -62,6 +90,58 @@ visibility  >>  设置元素是否可见[①默认visible可见②hidden③collapse表格中使用以
 text-decoration  >>  文本修饰线[默认none没线\underline下划线\line-through删除线\overline上划线\blink闪烁线\inherit]
 word-wrap  >>  允许长单词\url换至下一行[ normal不换行(仅在断字点换行)、break-word内部换行 ]
 
+【Less（.less）】
+#  less函数，例如：
+① 运用时 .llll(xxx);  >>  llll函数名、xxx参数；
+② 定义时 .llll(@value) { aaaa: @value; ... }  >>  aaaa属性名
+
+【Sass（.scss）】
+#  @at-root，跳出嵌套。
+#  @mixin xxx { nnn }，声明样式模块->xxx、样式内容->nnn
+#  @mixin xxx（rrr） { nnn }，...、样式模块参数->rrr。样式示例：($a)或($a=b) $a在模块中使用、b是默认值
+#  @include xxx; ，引用之前声明的样式模块
+#  @content，内容占位。（@include xxx { yyyy }  >>  include模块后直接加大括号添加样式、该内容就放在@content）
+    ----编译前（SCSS）----
+        $color: white;
+        @mixin colors($color: blue) {
+            background-color: $color;
+            @content;
+            border-color: $color;
+        }
+        .colors {
+            @include colors { color: $color; }
+        }
+    ----编译后（CSS）----
+        .colors {
+            background-color: blue;
+            color: white;
+            border-color: blue;
+        }
+#  @each遍历：@each $var in <list>  >>  $var就是一变量名、<list>是一SassScript表达式.返回列表值
+#  @while循环：@while [SassScript表达式]  {....}  >>  SassScript表达式true-继续循环, false-中止循环
+#  @if条件：@if {...} @else {......}  
+#  @for $var from <start> through/to <end>  >>  其中<start>/<end>是开始/结束SassScript表达式，through:从start到end(含)、through:从start到end(不含end)
+#  变量-套用，示例：
+      $a: aaa !default;
+      #{$a}-#{$a} {xxx}
+        ---(CSS编译结果)---
+      .aaa-aaa {xxx}      >>  “.”自动加，编译出来就是"类"
+#  &，拼接 => &.ccc { nnn }
+#  !global，在@mixin中声明变量的值后面加"!global", 该声明全局化。=>@mixin xxx{ $btn-bg-color: lightblue !global; }
+
+
+【NPM】
+npm install xxx -S  >>  即 --save（写入dependencies）
+npm install xxx -D  >>  即 --save-dev（写入devDependencies）
+npm install xxx -g  >>  即 全局
+---
+NPM源：
+npm install --registry=https://registry.npm.taobao.org   >>  仅本次使用（非全局、命令头npm）
+npm install -g cnpm --registry=https://registry.npm.taobao.org >> 仅本次使用（全局、命令头cnpm）
+npm config set registry https://registry.npm.taobao.org  >>  设置源（淘宝源）
+npm config set registry https://000.000.000.000  >>  设置源（ooxx源）
+npm config get registry  >>  查看源
+
 ****
 【WAI-ARIA 无障碍】- 带有aria-xxx属性、参考\学习 张鑫旭的介绍：
 https://www.zhangxinxu.com/wordpress/2012/03/wai-aria-%E6%97%A0%E9%9A%9C%E7%A2%8D%E9%98%85%E8%AF%BB/
@@ -70,8 +150,12 @@ https://www.zhangxinxu.com/wordpress/2012/03/wai-aria-%E6%97%A0%E9%9A%9C%E7%A2%8
 【GIT 核心快速】- 参考git官方文档
 https://git-scm.com/book/zh/v2
 
+【VSCode】
+#  快捷键 Ctrl+P  >>  全局文件搜索
 
-质问：
+
+【质问】：
+***************************************************
 【MU-NBC项目中】
 markdown样式，有地方参照么? 
 ##    有，github搜
@@ -87,8 +171,36 @@ Emitter.js 是element的源码么？哪里看？
 ##    对的，参照上面一条~
 
 
+【破案】：
+***************************************************
+① NBC.input.setNativeInputValue\nativeInputValue部分代码导致input无法输入( 一个字母都进不去 )：
+因为，input组件引用后、还需要在e-f区.data-return中要加入 [ input: '' ]。不然这里就产生了nativeValue-undefined
 
 
+【笔记】：
+***************************************************
+*** [vue.pickup\push，待补课!!!] ***
+（VUE教程）
+method
+compute
+props
+v-系[+v-model]
+vuex和status
+created() 钩子
+<slot> - slot
+$refs
+this.$parent 》上一级?
+this.dispatch()
+--
+less +号
+--
+inject
+updated 钩子
+
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 #18.0428-0430段
 
@@ -136,6 +248,7 @@ excel/index.js中有：①nodeJS写法、②操作excel文件，可学！
 
 
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 #17.0422-0426段
 
 任务：
@@ -148,6 +261,8 @@ excel/index.js中有：①nodeJS写法、②操作excel文件，可学！
 -
 
 
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 #16.0415-0419段
 
@@ -161,6 +276,8 @@ excel/index.js中有：①nodeJS写法、②操作excel文件，可学！
 -
 
 
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 #15.0408-0412段
 
@@ -176,6 +293,8 @@ excel/index.js中有：①nodeJS写法、②操作excel文件，可学！
 -
 
 
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 #14.0401-0404段
 
@@ -189,6 +308,8 @@ excel/index.js中有：①nodeJS写法、②操作excel文件，可学！
 -
 
 
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 0325段
 
@@ -201,6 +322,8 @@ excel/index.js中有：①nodeJS写法、②操作excel文件，可学！
 资料：
 -
 
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 0318段
 
@@ -213,6 +336,9 @@ excel/index.js中有：①nodeJS写法、②操作excel文件，可学！
 资料：
 -
 
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 0311段
 

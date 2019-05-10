@@ -8,6 +8,27 @@ CSS：
 
 
 
+<<<<<<<< 0510
+
+#  max-height:xxx与overflow:auto配合使用，当高度超过max-height值自动出现垂直滚动条
+
+#  （overflow针对的，不仅仅是水平向、也可以是垂直向）
+
+#  > 子选择器[父子、不隔代]；+ 相邻选择器[ 同级.相邻\紧接(兄弟) ]；~ 匹配选择器[之后-所有-同级的x元素]
+
+#  0510，新增认知以下属性：
+  overflow  >>  规定.当内容溢出元素框时,?①[默认visible]那就溢出②[hidden]被修剪③[scroll]修剪but滚动条④[auto]如果被修剪则滚动条⑤[inherit]继承
+  box-sizing  >>  ①content-box[C2]宽高即纯宽高(不含内边距+边框)②border-box[C3]宽高含有内边距和边框【★】两个borderBox的div.w50%>>并排
+  max-height  >>  指定段落最大高度（请与overflow-auto配合使用）
+  display  >>  元素应该生成的框的类型（参见 http://www.w3school.com.cn/cssref/pr_class_display.asp ::: none\block\inline\inline-block\...）
+  line-height（单.数子->x倍行距）  >>  行间距[默认normal(设置合理行间距)①xpx②数字(x倍行距)③%基于当前字体尺寸的百分比行间距④inherit]
+  vertical-align  >>  设置一个元素（相对于父元素）的垂直对齐方式[默认baseline放置在父元素基线①top②middle③bottom]
+  text-align  >>  规定了元素中文本水平对齐方式[①right②center③left④justify两端对齐文本⑤inherit从父元素继承]
+  outline  >>  绘制（位于边框外）轮廓线[outline-color色码、outline-style（none\dotted\dashed\...）、outline-width（thin\medium\thick\xpx）]
+  visibility  >>  设置元素是否可见[①默认visible可见②hidden③collapse表格中使用以删除一行\一列④inherit]
+  text-decoration  >>  文本修饰线[默认none没线\underline下划线\line-through删除线\overline上划线\blink闪烁线\inherit]
+  word-wrap  >>  允许长单词\url换至下一行[ normal不换行(仅在断字点换行)、break-word内部换行 ]
+
 <<<<<<<< 0430
 
 #  如何解决：浮动div对父级元素的影响（父级元素高度丢失），最佳方案：

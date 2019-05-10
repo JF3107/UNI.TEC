@@ -10,8 +10,22 @@ NPM：
 
 
 >>>>>>>>【命令】
-# npm install -g npm >>>> 更新npm
-# npm config set registry 源地址 >>>> 切换源
+#  npm install -g npm >>>> 更新npm
+#  npm install --registry=https://registry.npm.taobao.org   >>  仅本次使用（非全局、命令头npm）
+#  npm install -g cnpm --registry=https://registry.npm.taobao.org >> 仅本次使用（全局、命令头cnpm）
+#  npm install xxx -S  >>  即 --save（写入dependencies）
+#  npm install xxx -D  >>  即 --save-dev（写入devDependencies）
+#  npm install xxx -g  >>  即 全局
+
+#  npm config get registry  >>  查看源
+#  npm config set registry https://registry.npm.taobao.org  >>  设置源（淘宝源）
+#  npm config set registry https://000.000.000.000  >>  设置源（ooxx源）
+
 # npm config set proxy=http://127.0.0.1:8888 >>>> 设置代理
 # npm config delete proxy >>>> 删除代理
+
 # npm list (-g) --depth 0  >>>> 查看npm(全局/本目录)各版本
+
+
+
+

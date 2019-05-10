@@ -5,6 +5,11 @@ VSCode：
 <<<<<<<< 
 
 
+
+<<<<<<<< 0510
+
+#  快捷键 Ctrl+P  >>  全局文件搜索
+
 <<<<<<<< 0430
 
 #  自动注释：@Author\Date\LastModified 在"用户设置"的"fileHeaderComment.template"设置
