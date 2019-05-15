@@ -18,6 +18,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 （0516邮件）
 
+【0514 *】/mobile/ffp_golden/shouyiren-manage.jsp
+【0514 *】/mobile/ffp_coupon/coupon.jsp
+
 
 （pre 五一）
 # 订单列表

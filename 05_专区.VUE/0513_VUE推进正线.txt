@@ -1,0 +1,24 @@
+
+
+VUE 新手向：
+****************************************************************
+<<<<<<<< 
+
+
+<<<<<<<< 0513
+【模板语法】
+插值，① {{ xxx }}，将使用"数据对象(data)"中xxx属性的值；也可以是表达式**。②v-html="xxx"，使HTML代码xxx、生效。③HTML属性用 v-bind:xxx=""。
+（**表达式：i-算术表达式  ii-三目表达式  iii-链式方法，例如str.split("").reverse().join("")）
+指令，（以"v-bind"为例）v-bind:href（:参数）、v-bind:[attriName]（:[动态参数]=>由data中的"attriName"指定）；修饰符 v-on:submit.prevent="X"
+缩写，v-on:click=>@click； v-bind:aaa=>:aaa
+
+
+【vue实例】
+var vm = new Vue({...})  【(根)vue实例 - vm（viewModel）实例】
+data，数据。vm.a 即 data.a （也就是"vm实例上的属性"与"源数据的对应字段"）；Object.freeze(data) - 以冻结数据源对象、不再"响应式"
+$xx，实例属性\实例方法。例如：$data（该vm的data）、$el（#app那个元素）、$watch（该vm的watch）
+实例生命周期钩子，钩子(触发)函数。
+
+【绍介】
+v-，指令：v-bind绑定、v-if条件、v-for循环、v-on事件[监听器]、v-model双向绑定
+组件：prop用于父组件->子组件传输数据，组件v-for遍历出的item先v-bind绑定在组件属性上、到组件中的props注册..以应用。
