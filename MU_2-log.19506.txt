@@ -40,7 +40,58 @@ $parent >>>> this.$parent，访问当前实例的"父实例"（如果有的话）
 （!!!嘿：请在API文档 快速\高效 定位答案：https://cn.vuejs.org/v2/api/）
 
 【JQuery】
-.attr()  >>>>  设置HTML属性: ①单个属性 attr("aaa","vvv")，②多个属性 attr({"a111":"v111", "a222":"v222"})
+#  .attr()  >>>>  设置HTML属性: ①单个属性 attr("aaa","vvv")，②多个属性 attr({"a111":"v111", "a222":"v222"})
+#  click的累加事件绑定：
+  现象  >>>>  click事件、第1次点击触发1次 - 第2次触发2次 - ... - 第n次触发n次。
+  原因  >>>>  因为页面未刷新、元素未删除，对元素绑定事件的行为在第二次触发时会再次进行。
+  解决  >>>>  ①[最推荐] 使用 .one("click", function(){....}) 该方法：为元素绑定一个"一次性的事件" 
+                      ②$X.unbind("click").bind("click", function(){....}) 每次触发前、解绑-绑定。
+                      ③每次触发前，删除原先元素再动态添加同样一个元素
+
+【vue+】
+#  插槽：①运用时，在[组件标签]内填写的%内容%；②定义时、写在[组件]内的<slot></slot>；①运用时，%内容% - 替换 - <slot></slot>
+具名插槽：<template v-slot="ooxx"><XXXX></template> + <div><slot name="ooxx"><slot></div> = <div><XXXX></div>
+（注意：这里<slot>中没有name、那就是name="default"，与：未指定v-slot的template契合!!）
+（★：以上对“插槽”的定义、混合了 V2.6前+V2.6后）
+☆：https://www.cnblogs.com/chinabin1993/p/9115396.html，这一波过后、请继续!!
+----
+特殊运用：
+<ceair-input>
+    <template slot="prepend" v-if="$slots.prepend">
+        <slot name="prepend"></slot>
+    </template>
+</ceair-input>
+①ceair-input组件运用中、template-插方[对应名：prepend]（取决于v-if="$slots.prepend"条件）
+②vm.$slots.prepend，$slots能访问的、是"本版[运用中]"已经定义的具名插槽（slot / v-slot = ""）
+③这里的<slot name="prepend"></slot>，是趁着插槽去取代原本ceair-input中的<slot name="prepend"></slot>，以便后续(外层)调用。
+
+#  vue类名-A：["class1", { ["class2", "class3"]: boolean }]  >>>>  vue支持用[ ]盛放类名，{ c:b }-c是类名(可以是数组).b是是否生效flag
+#  vue类名-B：[  ]形式的"类名容器"，
+
+【ES6】
+`${aaa}`  >>>>  字符串.插值：aaa是做插入的变量[String]。
+
+【CSS】
+去除"无序列表"的[行首符号]：<ul style="list-style:none;">
+
+【NPM】
+npm-install详解：
+  npm install X:
+    ①会把X包安装到node_modules目录中
+    ②不会修改package.json
+    ③之后运行npm install命令时，不会自动安装X
+  npm install X --save:  （不限环境[包括-生产]）
+    ①会把X包安装到node_modules目录中
+    ②会在package.json的dependencies属性下添加X
+    ③之后运行npm install命令时，会自动安装X到node_modules目录中
+    ④之后运行npm install –production或者注明NODE_ENV变量值为production时，会自动安装msbuild到node_modules目录中
+  npm install X --save-dev:  （限开发）
+    ①会把X包安装到node_modules目录中
+    ②会在package.json的devDependencies属性下添加X
+    ③之后运行npm install命令时，会自动安装X到node_modules目录中
+    ④之后运行npm install –production或者注明NODE_ENV变量值为production时，不会自动安装X到node_modules目录中
+      （运行时需要用到的包使用–save，否则使用–save-dev。）
+
 
 【业务+】
 如果M网站 local-ENTER后自动前缀"https://"，是mobile中的global.js（L23-25）或zepto.min.js（L3-5）的代码作用、须注释之。
@@ -55,6 +106,8 @@ $parent >>>> this.$parent，访问当前实例的"父实例"（如果有的话）
 【障碍】：
 ***************************************************
 vue - this.$nextTick(...)
+vue - directives属性（export default中）  >> 自定义指令：directives中定义xxx => 标签上就可用 v-xxx
+vue - <transition>是？ >>  过渡效果
 
 
 
@@ -106,10 +159,12 @@ Sass.pickup
 ***************************************************
 【ELEmentUI 源码】
 *** SASS部分 ***
-sass函数，b()  >>  .el-xxx
-sass函数，e()  >>  .el-xxx__ooo
-sass函数，m()  >>  &--ooo
-sass函数，when()  >>  &.is-ooo
+sass函数，b(xxx)  >>  .el-xxx
+sass函数，e(ooo)  >>  .el-xxx__ooo
+sass函数，m(ooo)  >>  &--ooo
+sass函数，when(ooo)  >>  &.is-ooo
+sass->less，$=>@
+ <<< “el-”是element识别码[$namespace]、东航用：“ceair-” >>>
 
 【vue】
 #  <router-view></router-view>，标准写法
