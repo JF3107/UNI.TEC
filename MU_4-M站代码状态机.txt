@@ -16,33 +16,9 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-（0516邮件）
-
-【0514 *】/mobile/ffp_golden/shouyiren-manage.jsp
-【0514 *】/mobile/ffp_coupon/coupon.jsp
+（0530邮件）
 
 
-（pre 五一）
-# 订单列表
-【0419 *】/eastern/pages/order/index.res/index.js  >>>> 419.订单列表[改]
-
-# 详情.明细
-【0419 *】/eastern/pages/order/detail.res/detail.js  >>>> 419.详情明细
-【0419 *】/eastern/pages/order/detail.res/price_detail.js  >>>> 419.详情明细
-【0419 *】/eastern/pages/order/detail.res/price_detail.tpl  >>>> 419.详情明细
-【0419 *】/eastern/pages/order/detail.res/price_detail_label.tpl  >>>> 419.详情明细
-
-# 下单.明细
-【0424 *】/eastern/pages/booking/placeorder.res/main.js  >>>> 424.下单明细
-【0424 *】/eastern/pages/booking/placeorder.res/price_detail.js  >>>> 424.下单明细
-【0424 *】/eastern/pages/booking/placeorder.res/price_detail.tpl  >>>> 424.下单明细
-【0424 *】/eastern/pages/booking/placeorder.res/price_detail_label.tpl  >>>> 424.下单明细
-
-# 选座.明细【套用】（模板沿用"下单"、数据沿用"下单" -> 仅作微调）
-【0425 *】/eastern/pages/checkin/booking-asr.html >>>> 425.支付A[支付区]\支付B[订单区].明细
-
-# 支付A[支付区]\支付B[订单区].明细【套用】（模板沿用"下单[A]"\"[B]"、数据沿用"下单" -> 仅作微调）
-【0425 *】/eastern/pages/booking/pay.res/main.js >>>> 425.支付A[支付区]\支付B[订单区].明细 >>>> 424.确认有改动
 
 
 
@@ -50,6 +26,20 @@
 ***************************************************************
 ***************************************************************
 
+
+【0419通知】/eastern/pages/order/detail.res/detail.js  >>>> 419.详情明细
+【0419通知】/eastern/pages/order/detail.res/price_detail.js  >>>> 419.详情明细
+【0419通知】/eastern/pages/order/detail.res/price_detail.tpl  >>>> 419.详情明细
+【0419通知】/eastern/pages/order/detail.res/price_detail_label.tpl  >>>> 419.详情明细
+【0424通知】/eastern/pages/booking/placeorder.res/main.js  >>>> 424.下单明细
+【0424通知】/eastern/pages/booking/placeorder.res/price_detail.js  >>>> 424.下单明细
+【0424通知】/eastern/pages/booking/placeorder.res/price_detail.tpl  >>>> 424.下单明细
+【0424通知】/eastern/pages/booking/placeorder.res/price_detail_label.tpl  >>>> 424.下单明细
+【0425通知】/eastern/pages/checkin/booking-asr.html >>>> 425.支付A[支付区]\支付B[订单区].明细
+【0425通知】/eastern/pages/booking/pay.res/main.js >>>> 425.支付A[支付区]\支付B[订单区].明细 >>>> 424.确认有改动
+【0419通知】/eastern/pages/order/index.res/index.js  >>>> 419.订单列表[改]
+【0514通知】/mobile/ffp_golden/shouyiren-manage.jsp  >>>> 522.紧急上线[受益人.权益券]
+【0514通知】/mobile/ffp_coupon/coupon.jsp  >>>> 522.紧急上线[受益人.权益券]
 【0507通知】/eastern/pages/order/return2.res/return.js
 【0411通知】/resources/m/js/common/slidernav.js >>>> 0411."-41B"字母条组件.BUG研究修复[核心修改]+2topButtonX
 【0410通知】/mobile/ffp_golden/cal-fly.jsp >>>> 0410.DB18175-41[飞行奖励计算器.文案+]

@@ -6,6 +6,45 @@ VUE认知+：
 <<<<<<<< 
 
 
+
+
+<<<<<<<<  0524
+
+#  所有DOM，都可以加 @click、对应方法写在methods里，都是有效的
+
+#  如果想要往组件里传递数组（组件中接应数组变量data初始化[ ]），赋值必须在created中进行!!（在mounted中进行会导致数组显示初始化值）
+
+<<<<<<<<  0517
+
+【vue+】
+#  插槽：
+①运用时，在[组件标签]内填写的%内容%；
+②定义时、写在[组件]内的<slot></slot>；
+③运用时，%内容% - 替换 - <slot></slot>
+----
+具名插槽：<template v-slot="ooxx"><XXXX></template> + <div><slot name="ooxx"><slot></div> = <div><XXXX></div>
+（注意：这里<slot>中没有name、那就是name="default"，与：未指定v-slot的template契合!!）
+（★：以上对“插槽”的定义、混合了 V2.6前+V2.6后）
+☆：https://www.cnblogs.com/chinabin1993/p/9115396.html，这一波过后、请继续!!
+
+#  vue类名-A：["class1", { ["class2", "class3"]: boolean }]  >>>>  vue支持用[ ]盛放类名，{ c:b }-c是类名(可以是数组).b是是否生效flag
+
+#  vue类名-B：[  ]形式的"类名容器"，
+
+#  vue，漏点推进  #########
+methods >>>> "methods"将被混入vue实例中、直接通过vm实例访问这些方法，方法中的this自动绑定为Vue实例。
+computed >>>> "计算属性"将被混入vue实例中、计算属性中的this自动绑定为Vue实例。计算属性的结果会被缓存。
+props >>>> "props"可以是数组\对象，用于接收来自父组件的数据。
+v-model >>>> 指令 v-model，在表单控件（如下: <input>\<select>\<textarea>）或者组件（如下: ...就是组件啦!）上创建双向绑定。
+vuex和state >>>> vuex是VUE全家桶四件套之一（【vuex状态管理】.vueRouter路由.vueResource"HTTP"请求.vueCli项目构建工具），state是其核心概念
+created >>>> vue生命周期钩子函数（beforeCreate.【created】.beforeMount.mounted.beforeUpdate.updated.
+                            activated.deactivated.beforeDestroy.destroyed.errorCaptured）之一。在实例创建完成后被立即调用。
+                     （【warning】不能用"箭头函数"定义[ 生命周期方法 ]）
+slot >>>> 插槽。运用组件时<CCC>xxx</CCC>、组件代码<aaa>bbb<slot></slot></aaa>，尔后，"xxx"会插入\取代<slot>的位置。
+$refs >>>> ref，被用来给元素或子组件注册引用信息。this.$refs.xxx，访问当前组件环境中、已注册引用信息的元素\子组件。
+$parent >>>> this.$parent，访问当前实例的"父实例"（如果有的话）
+（!!!嘿：请在API文档 快速\高效 定位答案：https://cn.vuejs.org/v2/api/）
+
 <<<<<<<<  0510
 
 #  <router-view></router-view>，标准写法

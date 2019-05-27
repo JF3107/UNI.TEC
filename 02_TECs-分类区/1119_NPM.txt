@@ -5,8 +5,26 @@ NPM：
 <<<<<<<< 
 
 
->>>>>>>>【概念】
-没啥好说，直接上"运用"！
+
+
+>>>>>>>> 0517
+
+#  npm-install详解：
+  npm install X:
+    ①会把X包安装到node_modules目录中
+    ②不会修改package.json
+    ③之后运行npm install命令时，不会自动安装X
+  npm install X --save:  （不限环境[包括-生产]）【简写  npm install xxx -S】
+    ①会把X包安装到node_modules目录中
+    ②会在package.json的dependencies属性下添加X
+    ③之后运行npm install命令时，会自动安装X到node_modules目录中
+    ④之后运行npm install –production或者注明NODE_ENV变量值为production时，会自动安装msbuild到node_modules目录中
+  npm install X --save-dev:  （限开发）【简写  npm install xxx -D】
+    ①会把X包安装到node_modules目录中
+    ②会在package.json的devDependencies属性下添加X
+    ③之后运行npm install命令时，会自动安装X到node_modules目录中
+    ④之后运行npm install –production或者注明NODE_ENV变量值为production时，不会自动安装X到node_modules目录中
+      （运行时需要用到的包使用–save，否则使用–save-dev。）
 
 
 >>>>>>>>【命令】
@@ -25,7 +43,6 @@ NPM：
 # npm config delete proxy >>>> 删除代理
 
 # npm list (-g) --depth 0  >>>> 查看npm(全局/本目录)各版本
-
 
 
 

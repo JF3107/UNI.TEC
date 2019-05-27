@@ -8,6 +8,11 @@ CSS：
 
 
 
+
+<<<<<<<< 0517
+
+#  去除"无序列表"的[行首符号]：<ul style="list-style:none;">
+
 <<<<<<<< 0510
 
 #  max-height:xxx与overflow:auto配合使用，当高度超过max-height值自动出现垂直滚动条

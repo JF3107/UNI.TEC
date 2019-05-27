@@ -7,6 +7,17 @@ JS：
 <<<<<<<< 
 
 
+
+
+<<<<<<<< 0524
+
+#  如何打开一个JSON文件 - 为JS所用？  >>> JSON.stringify(value[, replacer [, space]])  >>  将一个JS值[对象/数组]转化为JSON字符串：
+① value 待转值
+② replacer "瑞浦雷射"：若为函数.待转值每个属性经由其处理、若为数组.待转值包含在改数组中的属性才能被序列化、若无\null.所有属性被序列化
+③ space 空格：pretty~
+
+#  截取子数组：.slice(start,end)
+
 <<<<<<<< 0430
 
 #  在JS中读取JSON：let jsonObj = require("./xx/yy.json")  >>  直接引入

@@ -6,6 +6,13 @@ ECMAScript 2015+（ES6）：
 
 
 
+
+
+<<<<<<<< 0517
+
+#  `${aaa}`  >>>>  字符串.插值：aaa是做插入的变量[String]。
+   运用：console.log(`autocomplete/test，input监听： ${item} `);
+
 <<<<<<<< 0425
 
 “...”是 ES6.扩展运算符：

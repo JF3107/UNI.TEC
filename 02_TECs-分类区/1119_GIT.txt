@@ -22,6 +22,8 @@ git checkout -b BRANAME        创建并启用新分支
 【8】如何回退本地版本：
 ① git log / git log --pretty-oneline  查看版本log - 确认要回退的版本号[前几位]
 ② git reset --hard xxxxxxxx              完成[本地]回退
+③ ?如何撤销：git pull重新回到最新版本
+
 
 【1】如何创建本地分支、改完-推送远程分支：
 git branch                  查询本地分支
