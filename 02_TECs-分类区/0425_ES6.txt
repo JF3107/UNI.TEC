@@ -6,7 +6,9 @@ ECMAScript 2015+（ES6）：
 
 
 
+<<<<<<<< 0531
 
+#  如有关于"forEach\map\filter\..."的疑惑，请参考: https://blog.csdn.net/shilu89757/article/details/42741227
 
 <<<<<<<< 0517
 

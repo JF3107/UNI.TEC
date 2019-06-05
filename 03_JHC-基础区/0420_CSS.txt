@@ -8,6 +8,27 @@ CSS：
 
 
 
+<<<<<<<< 0605
+
+#  用CSS实现“三角形”：
+  长宽归零、左右border透明、下border有色[solid] => 箭头向上
+  长宽归零、左右border透明、上border有色[solid] => 箭头向下
+  长宽归零、上下border透明、左border有色[solid] => 箭头向右
+  长宽归零、上下border透明、右border有色[solid] => 箭头向左
+  代码如下（示例 \ 箭头向上）：
+ **   width:0;
+ **   height:0;
+ **   border-right:50px solid transparent;
+ **   border-left:50px solid transparent;
+ **   border-bottom:50px solid red;
+
+#  box阴影实现：（box-shadow）
+  >>  box-shadow: h-shadow水平阴影 v-shadow垂直阴影 blur模糊 spread阴影尺寸 color色 inset[改内部阴影/默认:外部阴影];
+   （注意：前四个参数，全部用px；最后一个inset一般不用；所以总共5各参数[ 4个px、1个色 ]）
+
+#  实现文本溢出时省略号[ 单行 ]：（实现代码如下）
+ **   overflow: hidden;
+ **   text-overflow:ellipsis;
 
 <<<<<<<< 0517
 

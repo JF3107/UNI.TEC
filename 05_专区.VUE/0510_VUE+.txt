@@ -8,6 +8,14 @@ VUE认知+：
 
 
 
+<<<<<<<<  0531
+
+#  vue中父/子组件调用子/父组件的方法：
+  ☆  父调子 ---- （先，子组件上 定义ref >> ref="zizujian"）
+    this.$refs.zizujian.方法/属性
+  ☆  子调父 ----
+    this.$parent.方法/属性
+
 <<<<<<<<  0524
 
 #  所有DOM，都可以加 @click、对应方法写在methods里，都是有效的
