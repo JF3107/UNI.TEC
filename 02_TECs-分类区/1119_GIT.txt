@@ -12,8 +12,9 @@ GIT：
 >>>>>>>>【命令】
 git log                              调取提交日志
 git log --pretty=oneline   以"一行"每条的方式展现"commit" 
-git branch                       查询本地分支
-git branch -r                    查询远程分支
+git branch -l                    查看本地分支
+git branch -r                      查看远程分支
+git branch -a                         查看全部分支
 git checkout -b BRANAME        创建并启用新分支
 
 
@@ -32,7 +33,9 @@ git branch -l  查看本地分支
 git branch -r  查看远程分支
 git branch -a  查看全部分支
 *********************
+git checkout BRANAME               切换分支( 本地已有对应分支名[BRANAME] )
 git checkout -b BRANAME                创建并启用新分支
+git checkout -b BBBB orign/BBBB        在本地创建新分支(并切换至新分支)，来自origin同名分支
 [改 ... status.add.commit.status]       ...
 git push --set-upstream origin BRANAME  推送up-stream[第一次推送必要]
    ** mergeRequest并指派
@@ -48,6 +51,7 @@ git push --set-upstream origin BRANAME  推送up-stream[第一次推送必要]
 【3】如何撤销已经[提交/未提交(已生成)]的commit：
 ① git log查看日志、找到想合并的提交号(commit_id)。
 ② git reset --hard commit_id
+③ 要回当前? >> git pull 马上"UP-TO-DATE"
 
 
 【4】如何删除分支：

@@ -8,6 +8,80 @@ JS：
 
 
 
+
+<<<<<<<< 0628
+
+#  JS对象赋值、如何不影响到原对象？
+  let a = {xxx};  let b = a;  这时b和a是共用一个对象的、a是b的"原对象"。
+    -  所以，这样做：
+  ① let a = {xxx}
+  ② let b = Object.assign({}, a)  （"重新分配对象"）
+（原因： JavaScript 中对象的赋值是默认【引用赋值】的，如果你想要 [ 复制赋值 ] ，则必须要“重新分配对象”）
+
+#  JS去除字符串空白：
+① replace法：
+  -  去除全部空格  >>  str = str.replace(/\s*/g,"");
+  -  去除两头空格  >>  str = str.replace(/^\s*|\s*$/g,"");
+  -  去除左侧空格  >>  str = str.replace(/^\s*/,"");
+  -  去除右侧空格  >>  str = str.replace(/(\s*$)/g,"");
+② trim法：
+  -  去除两头空格  >>  str.trim()
+  -  去除左侧空格  >>  str.trimLeft()
+  -  去除右侧空格  >>  str.trimRight()
+③ JQuery - trim法（只能去除两头）
+  -  去除两头空格  >>  $.trim(str)
+
+#  数组合并[ 接合 ] - concat：
+      arrA.concat( arrB, arrC, ... )   >>>  注意"括号"中、至少有一个数组
+
+#  JS: 字符串 转 数字：
+  -  Number("xxx")     xxx-num >> "hello"-NaN，""-0，"0011"-11，true-1
+  -  parseInt("xxx")    默认按10进制：xxx-num >> "123hello"-123，""-NaN，"0xA"-10 (十六进制[ 0x- ]转)，"070"-1 (八进制[ 0- ]转)
+  -    **  parseInt("xxx"，n)    “n”为 进制数，按进制转化
+  -  parseFloat("xxx")    转为 浮点数（如果xxx可以转为整数，则转为整数）
+
+#  var xxx = require('xxx')是CommonJS的写法，也就对应了ES6的import xxx from 'xxx';
+
+#  你要什么? 就npm install x（--save）什么。然后import x from 'x'就行了。标准流程如下：
+    ①npm install xxx --save ( 注册进包、随时可用[import] )
+    ②使用时：
+      import xxx from 'xxx';
+      xxx(....);
+    ③需要集中进utils的工具包时：
+        --  Utils --
+      import xxx from 'xxx';
+      function yyy(ccc) {
+        return xxx(ccc);
+      }
+      export {yyy};
+        --  Compo --
+      import {yyy} from 'yyy';
+      let y = yyy(zzz);
+      （★注意：compo里要拿到yyy的返回，utils里的yyy函数必须【return】）
+
+#  如何将"二维数组"拆成"一维数组"：
+  -  var arr1 = [[0, 1], [2, 3], [4, 5]];
+  -  var arr2 = arr1.reduce(function (a, b) { return a.concat(b)} );
+
+#  如何将"二维数组(字符串)"转为"字符串"
+  -  `${[['f', 'a', 'n'],['z', 'h', 'e'],['m', 'i', 'n', 'g']]}` （ 也就是 [[x, x, x],[y, y, y],[z, z, z]]+'' ） =>  "fan, zhe, ming"
+
+<<<<<<<< 0622
+
+#  数组的shift/unshift/pop/push方法：
+   Arr.shift()      对数组头部删除1个元素
+   Arr.unshift()  对数组头部添加若干个元素
+   Arr.pop()      对数组尾部删除1个元素
+   Arr.push()     对数组尾部添加若干个元素
+
+<<<<<<<< 0621
+
+#  setTimeout/Interval-使用方法：（字符串方法(带括号)，直写function）
+  ① setTimeout('xxx()', 1000)
+  ② setTimeout(function() {  函数内容  }, 1000)
+  ③ setInterval('xxx()', 1000)
+  ④ setTimeout(function() {  函数内容  }, 1000)
+
 <<<<<<<< 0531
 
 #  按当地规则排序[ 比如:在中国..就是按照拼音顺序 ]  stringObject.localeCompare(target)  <<  s与t可以互换、都为字符串形式

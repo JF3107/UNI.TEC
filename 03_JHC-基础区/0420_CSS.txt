@@ -8,6 +8,34 @@ CSS：
 
 
 
+
+<<<<<<<< 0628
+
+#  CSS3 对元素旋转[180°] >> transform:rotate(180deg);
+
+<<<<<<<< 0622
+
+#  CSS3：CSS3的box-sizing属性：
+  ① content-box 为元素设定的宽高仅包含内容（CSS2）
+  ② border-box 为元素设定的宽高已经包含边框+内边距+内容
+  ③ inherit 从父元素继承
+
+#  CSS3：CSS3的弹性布局（Flex）：首先①display: flex，然后依次涉及“六大属性”：
+  ② flex-direction  [ 容器内项目的排列方向 - row ]row左向右.row-reverse右向左.column上向下.column-reverse下向上 
+  ③ flex-wrap   [ 容器内项目换行方式 -nowrap]nowrap不换行.wrap换行+第一行在上.wrap-reverse换行+第一行在下
+  ④ flex-flow  [ 以上 flex-direction  +  flex-wrap 的简写方式 ]
+  ⑤ justify-content  [ 项目在主轴上的对齐方式 ]flex-start主轴由左开始排列.flex-end主轴由右开始排列.center主轴左右居中.
+          space-between主轴左右两端开始排列.space-around每个项目两侧的间隔相等.space-evenly每个项目左右两侧的间距相等
+  ⑥ align-items  [ 项目在交叉轴上如何对齐 ]flex-start交轴由上开始排列.flex-end交轴由下开始排列.center交轴上下居中.
+          baseline项目内文字底对齐(基线).stretch拉伸(默认拉满)-有height值时,拉伸到height的高度
+  ⑦ align-content [ 定义了多根轴线的对齐方式（如项目只有一根轴线.则该属性不起作用）[so, 多行时...] ]flex-start. flex-end. center. 
+          space-between. space-around. stretch
+  不清楚的，看这个：https://blog.csdn.net/zyz00000000/article/details/82925070
+
+<<<<<<<< 0621
+
+#  transform:translateX/Y可能会导致"0621[ 透明化 ]"
+
 <<<<<<<< 0605
 
 #  用CSS实现“三角形”：

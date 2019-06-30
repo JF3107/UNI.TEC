@@ -6,6 +6,14 @@ ECMAScript 2015+（ES6）：
 
 
 
+<<<<<<<< 0621
+
+#  filter的使用：
+  let arrNew = arr.filter(item=>{ xxxx })   
+  -  item参数、xxxx函数内容；
+  -  最后返回Boolean。true推入arrNew、false拒绝
+  -  arrNew新出、arr维持不变
+
 <<<<<<<< 0531
 
 #  如有关于"forEach\map\filter\..."的疑惑，请参考: https://blog.csdn.net/shilu89757/article/details/42741227

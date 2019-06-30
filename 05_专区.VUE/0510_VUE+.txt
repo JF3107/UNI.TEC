@@ -8,6 +8,32 @@ VUE认知+：
 
 
 
+
+<<<<<<<<  0628
+
+#  computed中的"计算属性"：若其中的组成变量发生改变，则重新计算新的"计算属性"并存于缓存中。等待下一次组成变量改变...
+
+#  v-model/value：在表单[input系]中用v-model，其他元素.只能用value
+
+<<<<<<<<  0614
+
+#  引入i18n模块：
+①npm install vue-i18n
+②在src中（仿写新网站）建i18n文件夹(内：indexjs \ zh.json \ en.json \ ...)
+③main.js中将i18n注入实例
+④运用时：{{ $t("xxx") }}，作为模板。$t是运用标志、xxx是.json中的属性名
+
+#  导出 & 导入：
+①导出-导入模块 >> export default mmmm -> import mxmx from '..xx..mmmm' >> mxmx命名模块 - mmmm模块名
+②export default -> import mxmx from '..xx..mmmm'；另外export -> import { mxmx } from '..xx..mmmm'；
+( 需要加 {} )
+①导出-导入方法 >> export ffff ( 在mmmm模块中 ) -> import { ffff } from '..xx..mmmm'
+
+#  如何在vue-router中运用vue-i18n?：
+①vue-router中直接调用 $t('xxx')只会一次渲染、无法"随意切换"
+② 步骤一：将router干区/子区中加入title: 'xxx'
+③ 步骤二：将el-menu( 导航区 )中的{{ item.name }}、改成{{ $t('item.title') }}，即可。
+
 <<<<<<<<  0531
 
 #  vue中父/子组件调用子/父组件的方法：

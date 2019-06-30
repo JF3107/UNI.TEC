@@ -6,7 +6,28 @@
 
 
 
+<<<<<<<< 0628
+【NBC】
+#  vue组件中涉及将v-for和i++（data中声明i）联合使用的情况，都会弹出“You may have an infinite update loop in a component”
+    >> 解决方案：
+  ① 剥离包含i++的逻辑（不要试图写在标签里），置于一函数
+  ② i直接在JS代码区用let声明（不要写在data里）
 
+#  千万不要在[ select组件 - input ]中使用 transform系，会导致"重叠/zindex混乱"
+  （可以在 ）
+
+<<<<<<<< 0614
+【NBC】
+#  新svg维护(/新增)方法：
+①把图片( svg )放入svg_store/src目录
+②回svg_store目录，跑"grunt"!! ( 如果报错、先npm install )
+③搞定!! 用吧~
+
+【NBC】
+#  如何call后台( action ): 
+①去utils/request-helper.js中RquestHelper中相应的区块中添加方法（路径、参数）
+②在调用时：this.$http.xxxx.ffff(pppp).then( res => {....} )  对应上面的：xxxx区块 ffff方法 pppp参数
+③then(  )中，根据与后台的约定处理状态码、拿数据...  OK
 
 <<<<<<<< 0420
 # URL传参: xxxx?yyy=zzz&aaa=bbb >> "&"后是第二参
