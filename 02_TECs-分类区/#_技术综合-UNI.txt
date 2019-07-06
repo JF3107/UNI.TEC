@@ -6,6 +6,19 @@
 
 
 
+<<<<<<<< 0706
+【NBC】
+#  关于 api地址配置：
+ - 1 书写区：
+① 组件/逻辑中使用 this.$http.booking.xxxx(param).then(res=>{...})   其中booking是request-helper.js中对象，下含xxxx方法
+② request-helper.js中booking下xxxx方法，路径“/v2/customer/yyyy”；
+③ booking/xxxx的这个路径与request-helper.js中声明的“头”muapi、“址”127.0.0.1:8080，结合成：127.0.0.1:8080/muapi/v2/customer/yyy
+ - 2 请求区：
+④ 127.0.0.1:8080/muapi/v2/customer/yyyy 可以认为是前往“中间服务器”等待转发的路径。“中间服务器”对此路径进行“解析”、成为真正请求路径
+⑤ 这个“解析”，在vue.config.js中配置：target - 真实请求IP+端口，pathRewrite - 将/muapi/v2/customer转为真实路径。
+⑥ target - 10.18.3.65:8010，pathRewrite - /portal/v2/customer 就是：10.18.3.65:8010/portal/v2/customer 真实请求的根路径
+⑦ 真实请求：10.18.3.65:8010/portal/v2/customer/yyyy
+
 <<<<<<<< 0628
 【NBC】
 #  vue组件中涉及将v-for和i++（data中声明i）联合使用的情况，都会弹出“You may have an infinite update loop in a component”
