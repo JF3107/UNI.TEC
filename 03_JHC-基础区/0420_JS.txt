@@ -9,6 +9,34 @@ JS：
 
 
 
+<<<<<<<< 0719
+
+#  字符串(数字)数组 互转 数字(数字)数组：（  用 x.map(String/Number)  ）
+  -  S -> N：arrs.map( Number )
+  -  N -> S：arrn.map( String )
+
+#  取数字数组(数字/字符串)中的最大最小值：（  用Math.min/max.apply( null, arrsn )  ）
+  -  Max  ->  Math.max.apply( null, arrsn )  -  取最大值
+  -  Min  ->  Math.min.apply( null, arrsn )  -  取最小值
+  -  注意：对于“字符串(数字)数组”、同样有效。
+
+#  字符串操作：slice(n, m)  >>> 取子串[ 含n、不含m ]
+#  如何在既有字符串[str]中插入字符->[newStr]？ >>> var newStr = str.slice(0,5)+'-x-'+str.slice(5); [helloworld -> hello-x-world]
+
+#  不要在.map()里用return来作为外层函数的返回值。很可能最终外面只得到一个"undefined"  >>> 用【for循环】
+
+#  Array使用indexOf() [ 从字符串构成的数组、搜对字符串，查[ 是否匹配 ] ] >>>  ["aaa", "bbb", "ccc"].indexOf("aaa")  >>>  结果: 0
+
+<<<<<<<< 0712
+
+#  str.charAt(index)，获取某字符串在指定index位置的字符[单个]
+
+#  JSON.parse( xxxx ) - from JSON、反序列化（JSON -> JS object）
+    JSON.stringify( xxxx ) - to JSON、序列化（JS object -> JSON）
+ - 运用[ 常用套用 ]：JSON.parse(JSON.stringify(nationData))
+
+#  Object.keys( oooo )，返回oooo全部(可枚举)属性[ key -> 对象返回key、字符串返回index ] - 以数组的方式
+
 <<<<<<<< 0628
 
 #  JS对象赋值、如何不影响到原对象？

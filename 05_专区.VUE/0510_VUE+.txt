@@ -8,6 +8,17 @@ VUE认知+：
 
 
 
+
+<<<<<<<<  0720
+
+#  报错：[ Duplicate keys detected: '0/1/2/...'. This may cause an update error ]，情况、解决办法：
+  - 情况：连着写了两个以上的v-for，都是index（你改成idx也没用）
+  - 解决：将其中的一个index改成  》 :key="'xxx-'+index"
+
+#  v-for对[ 数组 ]、[ 对象 ]：
+  - ① 数组：v-for="(item, index) in Arr" （Arr的v-for中，item即value、index即key[省去'key'项]）
+  - ② 对象：v-for="(value, key, index) in Obj"
+
 <<<<<<<<  0706
 
 #  vue组件文件中，<style>标签的scoped、是用来限制本样式表中样式、不污染外部。但如果要在父组件里修改子组件样式，请去除"scoped"

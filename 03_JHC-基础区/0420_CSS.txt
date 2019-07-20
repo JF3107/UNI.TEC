@@ -9,6 +9,16 @@ CSS：
 
 
 
+<<<<<<<< 0720
+
+#  cursor属性，cursor:pointer的反面[ 去除手指 ]、是initial（而不是default/none/...）
+
+#  @font-face，指定名为"xxx"的字体，并指定在哪里可以找到它的URL：
+  ##  @font-face { 
+  ##      font-family: xxxx;
+  ##      src: url('----.ttf'), url('~~~~.eot');
+  ##  }
+
 <<<<<<<< 0628
 
 #  CSS3 对元素旋转[180°] >> transform:rotate(180deg);
