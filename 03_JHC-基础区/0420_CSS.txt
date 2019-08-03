@@ -9,6 +9,25 @@ CSS：
 
 
 
+<<<<<<<< 0802
+
+#  元素子项偶数/奇数项选择器：nth-child(2n-1){...}奇 / nth-child(2n){...}偶
+
+#  <span>折行，代码如下：
+   （以下5条，实现span(div亦可) 换行）
+  ##  word-break: normal;
+  ##  width: 200px;
+  ##  white-space: pre-wrap;
+  ##  word-wrap: break-word;
+  ##  overflow: hidden;
+   （不设置line-height,会导致行距过大、不美观）		
+  ##  line-height: 16px;
+
+<<<<<<<< 0726
+
+#  :nth-child(n)，看的是作为子组件的第n个。（注意：不从0开始、>> 1+）
+ -> 如果作为子组件，有：<div /><span /><span /><span />；那么 span:nth-child(1)、是没有的！（因为第一个是div）
+
 <<<<<<<< 0720
 
 #  cursor属性，cursor:pointer的反面[ 去除手指 ]、是initial（而不是default/none/...）

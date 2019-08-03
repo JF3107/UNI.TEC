@@ -1,0 +1,36 @@
+
+// 点击事件(普通)
+（WXML）
+<button bindtap="bindButtonTest" data-name='tap' class="index-button">test</button>
+（JS）
+bindButtonTest: function(e) {
+	console.log('点击事件');
+	console.log('元素 >> ', e.target.dataset.name)
+},
+
+// 双击事件
+（WXML）
+<button bindtap="bindButtonTest" data-name='tap' class="index-button">test</button>
+（JS）
+bindButtonTest: function(e) {
+	var thisTime = e.timeStamp;
+	var lastTime = this.data.lastTime;
+	console.log("这次时间：" + thisTime)
+	console.log("元素 >> " + e.target.dataset.name)
+	if (lastTime != 0) {
+		if (thisTime - this.data.lastTime < 500)
+		console.log("双击事件")
+	}
+	this.setData({
+		lastTime: thisTime
+	})
+},
+
+// 长按事件
+（WXML）
+<button bindlongpress="bindButtonTest" data-name='tap' class="index-button">test</button>
+（JS）
+bindButtonTest: function(e) {
+    console.log("长按事件")
+    console.log("元素 >> " + e.target.dataset.name)
+},

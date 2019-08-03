@@ -83,4 +83,16 @@ git config user.name
 git config user.email
 
 
+【8】当发生“错位合并[ 不能reset的'untracked files' ]”时，如何处理：
+ **  原理：master上拉下代码（由于某种原因、只拉了一半），那么本地代码存在这样三部分：
+ ①本地未merge代码、
+ ②本地已merge代码、
+ ③远端代码，而“远端代码”就是‘untracked files’、无法reset、只提示需要add-提交。
+ **  处理办法：
+ - 1 -  一旦发生、请先git log到“安全版本”[一般是往后退到某个自己提交的版本]
+ - 2 -  git status查看“untracked files”是否还在？
+ - 3 -  把这些“untraked files”删掉（即③-远端代码）、代码如下：
+##  rm -rf 文件路径1 文件路径2 文件路径3，（文件路径之间、一个空格）
+
+
 

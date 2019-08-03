@@ -7,7 +7,24 @@ VUE认知+：
 
 
 
+<<<<<<<<  0802
 
+#  npm run dev跑起VUE，[ 需要一个服务器/容器运行的 - 指令行里local/network就是 ][自.理解]
+ ** 而这里的local 指向 network, 所以为主的，还是network。NBC - network：
+
+<<<<<<<<  0726
+
+#  VUE-iview系tab嵌套使用发生[ “内tab标签”污染“外tab标签” ]：
+  -  请在tab级 添加属性name="xxxxx-xxx"
+  -  请在tab-pane级 添加属性tab="xxxxx-xxx"（同tab层的"name属性"）
+
+#  IVIEW-TAB隐藏render函数，“你想拥有DOM结构的[标签label]么?”
+ ##  (h) => {
+ ##    return h('div', [
+ ##      h('span', 'AAAA'),
+ ##      h('div', 'BBBB')
+ ##    ])
+ ##  };
 
 <<<<<<<<  0720
 

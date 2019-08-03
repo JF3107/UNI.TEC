@@ -6,6 +6,30 @@
 
 
 
+
+
+<<<<<<<< 0802
+【综合技术】
+#  host文件，在C:\Windows\System32\drivers\etc\hosts
+
+【NBC】
+#  ceair-form自带的validation，rules中的控制元素是prop[位于form-item]、而不是v-model[位于具体表单组件]
+
+#  确保登录成功[有跳转, 需配置host]，务必在host中加：
+  *  10.68.164.143 devnew.ceair.com （这个是开发环境）
+  *  10.67.200.74 testgloballogin.ceair.com  （这个是登录站点）
+ ** 登录：用测试环境（海外）账号，即可
+ ** 一旦登录执行完毕，之后不可再用localhost:8081、应该用devnew.ceair.com:8081
+
+#  项目中[订单方面]，涉及“直达”、“经停”、“中转”
+ * 牵涉到的参数/字段分别是：tripIndex（程.序）、segIndex（段.序）、stopQuantity（经停数）
+
+#  目前(2019.8.2)，暂认定 subAirOrderInfos只有一个元素[=> 取subAirOrderInfos[0] ]
+
+<<<<<<<< 0726
+【NBC】
+#  项目中，flex -  全居中 - 等间距  >>  flex al-center ju-be-space （直用class样式）
+
 <<<<<<<< 0706
 【NBC】
 #  关于 api地址配置：
