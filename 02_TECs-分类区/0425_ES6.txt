@@ -6,6 +6,25 @@ ECMAScript 2015+（ES6）：
 
 
 
+<<<<<<<< 0830
+
+#  如果发生VUE组件复用的情况，首先应该考虑的是去【浅拷贝】：
+ - * ：{...原Obj}
+ - * ：[...原Arr]
+ - * ：Object.assign({}/[], 原Obj/Arr)
+#  如果需要【深拷贝】：
+ - * ：JSON.parse(JSON.stringify(xxxxx));
+ >>  浅拷贝：拷贝1层obj； 深拷贝：拷贝全层obj
+
+<<<<<<<< 0823
+
+#  快捷地、对数组去重：[...new Set(arr)] - 其中arr是待去重(原)数组
+
+#  关于filter：
+ * - let xrr = arr.filter(item=>{...})中，xrr是结果数列、arr是原数列
+ * - filter.returnTrue的item会加入到xrr中、原数列arr不变
+ * - 如果要直接改在原数列上，应：arr = arr.filter
+
 <<<<<<<< 0621
 
 #  filter的使用：

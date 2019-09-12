@@ -7,6 +7,13 @@ VUE认知+：
 
 
 
+
+
+<<<<<<<<  0810
+
+#  如果v-for遍历一个数字：
+ - **  v-for="(item, index) in 2" 结果-> ①item.无视，②index[ 0 - 1 - 2 ]
+
 <<<<<<<<  0802
 
 #  npm run dev跑起VUE，[ 需要一个服务器/容器运行的 - 指令行里local/network就是 ][自.理解]

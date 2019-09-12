@@ -8,6 +8,22 @@ JS：
 
 
 
+<<<<<<<< 0912
+
+#  xxx.filter(...).map(...)，可以链式! 这个例子中map操作的、是filter后的结果
+#  用for循环遍历对象： for(var key in item)用来循环js对象
+#  用indexOf在数组中匹配特定元素：arr.indexOf(item)
+#  用indexOf在字符串中匹配特定元素：大Str.indexOf(子str)
+
+<<<<<<<< 0830
+
+#  Date对象使用[ 给定毫秒数 >> 年年月月日日 时时:分分:秒秒 ]
+ ## var date=new Date(毫秒数).Format("yyyy/MM/dd hh:mm:ss");
+
+<<<<<<<< 0823
+
+#  什么元素会被当成false（用在if里当[否定]筛选条件）：false, 0, '', null, undefined （只有这五个!!）
+  * - 注意：空数组“{}”/空对象“[]”都被当成 true的! 
 
 <<<<<<<< 0802
 
