@@ -1,6 +1,6 @@
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-#39.0916-0920段
+#40.0923-0927段
 
 
 
@@ -20,6 +20,61 @@
 vue - this.$nextTick(...)
 vue - directives属性（export default中）  >> 自定义指令：directives中定义xxx => 标签上就可用 v-xxx
 vue - <transition>是？ >>  过渡效果
+
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+#39.0916-0920段
+
+
+
+
+【战略】：
+***************************************************
+【任务】：
+***************************************************
+【收获】：
+***************************************************
+【VUE】
+#  父组件传入prop[为form.xxx形式]，如果将其作为子组件v-model，改动则不会触发报错、运行正常。
+
+#  在VUE中运用滚动监听实现"滚到底加载"：
+  - * 钩子mounted中增加：window.addEventListener('scroll', this.handleScroll, true);
+  - * 钩子destroyed中增加：window.removeEventListener('scroll', this.handleScroll);
+  - * method中增加handleScroll函数：
+      - # const scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 滚动条滚动时距离顶部的距离
+      - # const windowHeight = document.documentElement.clientHeight || document.body.clientHeight; // 可视区高度
+      - # const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight; // 滚动条总高度
+      - # 判断条件：scrollTop + windowHeight > scrollHeight - 300
+（本方法.来自JS原生解决方案）
+
+#  tab切换时，一边加载N条、一边加载0条，这时0条的tab会有和N条的一样高的滚动条，怎么破?
+  - * tab内第一个总div[.content/container]加v-if、并在另一个tab激活时隐藏
+
+#  如何向vue中的DOM（比如<div>、<span>）插入HTML标签并将其生效：
+  - * 用v-html属性，直接字符串填入 >>>> v-html="<span>xxxx</span>"
+
+【JS】
+#  如何向正则表达式嵌入变量？
+  - * 用正则构造函数 >>>> new RegExp('xxx'+变量+'yyy', 'g') [ 第二个参数是'关键字', 如全局.g ]
+
+#  如何替换字符串中关键字"红显"？
+  - * 用 >>>> strHtml = 被操作字符串.replace(new RegExp(`[${替换关键字}]`,'g'), `<span style="color:red;">${替换关键字}</span>`)
+
+#  截取字符串，用：slice() / subtring() / substr()
+
+
+【CSS】
+#  如何取消textarea的"自动拉伸"？ >> 用样式resize:none;
+
+
+【质问】：
+***************************************************
+【障碍】：
+***************************************************
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 

@@ -8,6 +8,17 @@ JS：
 
 
 
+
+<<<<<<<< 0921
+
+#  如何向正则表达式嵌入变量？
+  - * 用正则构造函数 >>>> new RegExp('xxx'+变量+'yyy', 'g') [ 第二个参数是'关键字', 如全局.g ]
+
+#  如何替换字符串中关键字"红显"？
+  - * 用 >>>> strHtml = 被操作字符串.replace(new RegExp(`[${替换关键字}]`,'g'), `<span style="color:red;">${替换关键字}</span>`)
+
+#  截取字符串，用：slice() / subtring() / substr()
+
 <<<<<<<< 0912
 
 #  xxx.filter(...).map(...)，可以链式! 这个例子中map操作的、是filter后的结果

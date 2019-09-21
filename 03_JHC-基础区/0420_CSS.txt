@@ -8,6 +8,11 @@ CSS：
 
 
 
+
+<<<<<<<< 0921
+
+#  如何取消textarea的"自动拉伸"？ >> 用样式resize:none;
+
 <<<<<<<< 0823
 
 #  CSS3动画，二要素：transition（时间）、transform（形变）
