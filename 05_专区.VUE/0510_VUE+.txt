@@ -10,6 +10,17 @@ VUE认知+：
 
 
 
+<<<<<<<<  1012
+
+#  蔚来时期的vueBUS[中央事件总线]如何实现：
+    ① 项目里(无论地点,一般在utils)建一个bus.js,里面两行：
+	import Vue from 'vue';
+	export default new Vue; 
+    ② 在发射方\接收方的vue文件中分别引入bus.js 》import Bus from 'xxxx/bus.js';
+    ③ 发射方 - 运用：Bus.$emit('eeee', data); >> 其中data是需要传输的对象
+    ④ 接收方 - 运用：Bus.$on('update-ok', data); >> 其中data是需要传输的对象
+    ⑤ 最后勿忘：在发射方的beforeDestroy方法中加入：Bus.$off('eeee'); >>>> 注销掉事件[避免以往事件重叠多次发生]
+    ⑥ 注意!! 有时 发射方的beforeDestory注销未必理想 >>>> 这时【先Bus.$emit()而后立即Bus.$off()】也是一种实践!
 
 <<<<<<<<  0921
 

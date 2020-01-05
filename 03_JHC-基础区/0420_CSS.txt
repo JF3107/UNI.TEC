@@ -8,6 +8,14 @@ CSS：
 
 
 
+<<<<<<<< 1012
+
+#  overflow的使用:
+    ①visible.溢出可见
+    ②hidden.溢出隐藏
+    ③scroll.滚动条
+    ④auto.自动[溢出则出滚动条]
+    ⑤inherit.继承
 
 <<<<<<<< 0921
 
